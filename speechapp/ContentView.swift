@@ -9,29 +9,42 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @State var ciao = ""
+    @State var searchText = ""
+    
     var body: some View{
         NavigationView{
             TabView{
-                FavoritesView()
+                FavouritesView()
                     .tabItem{
                         Label("Favorites", systemImage: "star")
-
                     }
             }
-            .navigationTitle("Recents")
-            .toolbar{
-                Button(action: {print("hello")}){
-                    Image(systemName: "plus")
-                }
-            }
-            
+            .navigationTitle("Favorites")
+            .navigationBarItems(leading:
+                    HStack {
+                        //left
+                    },          trailing:
+                    HStack {
+                        Button(action: {
+                            //do
+                        }, label: {
+                            Image(systemName: "plus")
+                        })
+                    })
         }
-        .searchable(text: $ciao, placement: .navigationBarDrawer(displayMode: .always))
+        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
+        .onChange(of: searchText) {
+            searchText in
+            if !searchText.isEmpty {
+                // do
+            } else {
+                // do
+            }
+        }
     }
 }
 
-struct ciao: PreviewProvider{
+struct Preview: PreviewProvider{
     static var previews: some View{
         ContentView()
     }
