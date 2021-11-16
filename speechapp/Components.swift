@@ -49,17 +49,36 @@ struct FlashcardTile: View{
     var scale: Scale
     
     var description: String
-    var front: Bool
+    @State var front: Bool
+    
+//    LONG PRESS GESTURE
+    @GestureState var isDetectingLongPress = false
+    var longPress: some Gesture{
+        LongPressGesture(minimumDuration: 0.75)
+            .updating($isDetectingLongPress){
+                currentState, gestureState, transaction in
+                gestureState = currentState
+            }
+            .onEnded{ _ in
+                front = true
+            }
+    }
     
     var body: some View{
         if front {
             VStack{
                 Image(systemName: symbol)
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
+                    .font(.system(size: 40))
+                    .frame(height: screenHeight/8, alignment: .bottom)
                 Text(title)
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
+                    .font(.system(size: 40, weight: .bold))
+                Text(description)
+                    .foregroundColor(.black)
+                    .padding()
             }
-            .frame(width: self.screenWidth*scale.width, height: self.screenHeight*scale.height)
+            .frame(width: self.screenWidth*scale.width, height: self.screenHeight*scale.height, alignment: .top)
             .border(color, width: 15)
             .background(.white)
             .foregroundColor(.black)
@@ -84,6 +103,7 @@ struct FlashcardTile: View{
             .foregroundColor(.white)
             .cornerRadius(cornerRad)
             .padding()
+            .gesture(longPress)
         }
     }
 }
