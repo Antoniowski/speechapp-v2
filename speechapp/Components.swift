@@ -60,21 +60,30 @@ struct FlashcardTile: View{
                     .foregroundColor(.white)
             }
             .frame(width: self.screenWidth*scale.width, height: self.screenHeight*scale.height)
-            .border(color, width: 3)
+            .border(color, width: 15)
             .background(.white)
             .foregroundColor(.black)
             .cornerRadius(cornerRad)
         }else{
             VStack{
+                Text(title)
+                    .frame(height: screenHeight/2, alignment: .bottom)
+                    .foregroundColor(.white)
+                    .font(.system(size: screenWidth*0.15, weight: .bold))
+                
                 Image(systemName: symbol)
                     .foregroundColor(.white)
-                Text(title)
-                    .foregroundColor(.white)
+                    .font(.system(size: screenWidth*0.3))
+                    .frame(height: screenHeight/2, alignment: .top)
+                    .padding()
+                
+                    
             }
-            .frame(width: self.screenWidth*scale.width, height: self.screenHeight*scale.height)
+            .frame(width: self.screenWidth*scale.width, height: self.screenHeight*scale.height, alignment: .center)
             .background(color)
             .foregroundColor(.white)
             .cornerRadius(cornerRad)
+            .padding()
         }
     }
 }
