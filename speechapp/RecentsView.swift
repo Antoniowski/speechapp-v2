@@ -50,15 +50,7 @@ struct Recents: View {
             })
         })
         .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
-        .onChange(of: searchText) {
-            searchText in
-            if !searchText.isEmpty {
-                // do
-            } else {
-                // do
-            }
         }
-    }
     
     var searchResults: [Speech] {
         if searchText.isEmpty {
