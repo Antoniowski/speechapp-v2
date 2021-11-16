@@ -15,13 +15,6 @@ struct Scale {
     let width: Double
     let padding: Double
     let imageSize: Double
-    
-    init(height: Double, width: Double, padding: Double, imageSize: Double) {
-        self.height = height
-        self.width = width
-        self.padding = padding
-        self.imageSize = imageSize
-    }
 }
 
 let mostRecentsScale = Scale(height: 0.33, width: 0.90, padding: 0.04, imageSize: 0.20)
