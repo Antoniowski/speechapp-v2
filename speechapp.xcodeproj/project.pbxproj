@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2E40B98827433E36002231D2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E40B98727433E36002231D2 /* SettingsView.swift */; };
-		2EA479A927440A8500FAC9A7 /* StructureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA479A827440A8500FAC9A7 /* StructureView.swift */; };
 		2EFEF420274312A400F2FA98 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFEF41F274312A400F2FA98 /* Components.swift */; };
 		2EFEF4222743256600F2FA98 /* RecentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFEF4212743256600F2FA98 /* RecentsView.swift */; };
 		6A81653E27429B3E0017C271 /* speechappApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A81653D27429B3E0017C271 /* speechappApp.swift */; };
@@ -46,7 +45,6 @@
 
 /* Begin PBXFileReference section */
 		2E40B98727433E36002231D2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		2EA479A827440A8500FAC9A7 /* StructureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructureView.swift; sourceTree = "<group>"; };
 		2EFEF41F274312A400F2FA98 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		2EFEF4212743256600F2FA98 /* RecentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsView.swift; sourceTree = "<group>"; };
 		6A81653A27429B3E0017C271 /* speechapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = speechapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,7 +119,6 @@
 				2EFEF4212743256600F2FA98 /* RecentsView.swift */,
 				6A81656E2742A3CA0017C271 /* FavoritesView.swift */,
 				2E40B98727433E36002231D2 /* SettingsView.swift */,
-				2EA479A827440A8500FAC9A7 /* StructureView.swift */,
 				6A8165722742ADA30017C271 /* FlashcardView.swift */,
 				6A8165742742ADB80017C271 /* FlashcardPresentationView.swift */,
 				6A8165702742A6380017C271 /* GenericValues.swift */,
@@ -291,7 +288,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A81656F2742A3CA0017C271 /* FavoritesView.swift in Sources */,
-				2EA479A927440A8500FAC9A7 /* StructureView.swift in Sources */,
 				6A8165752742ADB80017C271 /* FlashcardPresentationView.swift in Sources */,
 				6A81654727429B3F0017C271 /* Persistence.swift in Sources */,
 				6A81654027429B3E0017C271 /* ContentView.swift in Sources */,
@@ -303,7 +299,6 @@
 				A30E34032744084A00C56E8C /* OnboardingView.swift in Sources */,
 				6A81654A27429B3F0017C271 /* speechapp.xcdatamodeld in Sources */,
 				2E40B98827433E36002231D2 /* SettingsView.swift in Sources */,
-				6AB12CB82743F39A0004D980 /* Functions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
