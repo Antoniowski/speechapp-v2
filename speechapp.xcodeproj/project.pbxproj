@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E40B98827433E36002231D2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E40B98727433E36002231D2 /* SettingsView.swift */; };
+		2EFEF420274312A400F2FA98 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFEF41F274312A400F2FA98 /* Components.swift */; };
+		2EFEF4222743256600F2FA98 /* RecentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFEF4212743256600F2FA98 /* RecentsView.swift */; };
 		6A81653E27429B3E0017C271 /* speechappApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A81653D27429B3E0017C271 /* speechappApp.swift */; };
 		6A81654027429B3E0017C271 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A81653F27429B3E0017C271 /* ContentView.swift */; };
 		6A81654227429B3F0017C271 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A81654127429B3F0017C271 /* Assets.xcassets */; };
@@ -16,7 +19,7 @@
 		6A81655427429B3F0017C271 /* speechappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A81655327429B3F0017C271 /* speechappTests.swift */; };
 		6A81655E27429B3F0017C271 /* speechappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A81655D27429B3F0017C271 /* speechappUITests.swift */; };
 		6A81656027429B3F0017C271 /* speechappUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A81655F27429B3F0017C271 /* speechappUITestsLaunchTests.swift */; };
-		6A81656F2742A3CA0017C271 /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A81656E2742A3CA0017C271 /* FavouritesView.swift */; };
+		6A81656F2742A3CA0017C271 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A81656E2742A3CA0017C271 /* FavoritesView.swift */; };
 		6A8165712742A6380017C271 /* GenericValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8165702742A6380017C271 /* GenericValues.swift */; };
 		6A8165732742ADA30017C271 /* FlashcardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8165722742ADA30017C271 /* FlashcardView.swift */; };
 		6A8165752742ADB80017C271 /* FlashcardPresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8165742742ADB80017C271 /* FlashcardPresentationView.swift */; };
@@ -40,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E40B98727433E36002231D2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		2EFEF41F274312A400F2FA98 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		2EFEF4212743256600F2FA98 /* RecentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsView.swift; sourceTree = "<group>"; };
 		6A81653A27429B3E0017C271 /* speechapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = speechapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A81653D27429B3E0017C271 /* speechappApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = speechappApp.swift; sourceTree = "<group>"; };
 		6A81653F27429B3E0017C271 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,7 +58,7 @@
 		6A81655927429B3F0017C271 /* speechappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = speechappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A81655D27429B3F0017C271 /* speechappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = speechappUITests.swift; sourceTree = "<group>"; };
 		6A81655F27429B3F0017C271 /* speechappUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = speechappUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		6A81656E2742A3CA0017C271 /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
+		6A81656E2742A3CA0017C271 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		6A8165702742A6380017C271 /* GenericValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericValues.swift; sourceTree = "<group>"; };
 		6A8165722742ADA30017C271 /* FlashcardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardView.swift; sourceTree = "<group>"; };
 		6A8165742742ADB80017C271 /* FlashcardPresentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardPresentationView.swift; sourceTree = "<group>"; };
@@ -108,12 +114,15 @@
 			children = (
 				6A81653D27429B3E0017C271 /* speechappApp.swift */,
 				6A81653F27429B3E0017C271 /* ContentView.swift */,
-				6A81656E2742A3CA0017C271 /* FavouritesView.swift */,
-				6A8165702742A6380017C271 /* GenericValues.swift */,
+				2EFEF4212743256600F2FA98 /* RecentsView.swift */,
+				6A81656E2742A3CA0017C271 /* FavoritesView.swift */,
+				2E40B98727433E36002231D2 /* SettingsView.swift */,
 				6A8165722742ADA30017C271 /* FlashcardView.swift */,
 				6A8165742742ADB80017C271 /* FlashcardPresentationView.swift */,
-				6A81654627429B3F0017C271 /* Persistence.swift */,
+				6A8165702742A6380017C271 /* GenericValues.swift */,
+				2EFEF41F274312A400F2FA98 /* Components.swift */,
 				6A81654127429B3F0017C271 /* Assets.xcassets */,
+				6A81654627429B3F0017C271 /* Persistence.swift */,
 				6A81654827429B3F0017C271 /* speechapp.xcdatamodeld */,
 				6A81654327429B3F0017C271 /* Preview Content */,
 			);
@@ -275,14 +284,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A81656F2742A3CA0017C271 /* FavouritesView.swift in Sources */,
+				6A81656F2742A3CA0017C271 /* FavoritesView.swift in Sources */,
 				6A8165752742ADB80017C271 /* FlashcardPresentationView.swift in Sources */,
 				6A81654727429B3F0017C271 /* Persistence.swift in Sources */,
 				6A81654027429B3E0017C271 /* ContentView.swift in Sources */,
 				6A8165712742A6380017C271 /* GenericValues.swift in Sources */,
 				6A81653E27429B3E0017C271 /* speechappApp.swift in Sources */,
 				6A8165732742ADA30017C271 /* FlashcardView.swift in Sources */,
+				2EFEF4222743256600F2FA98 /* RecentsView.swift in Sources */,
+				2EFEF420274312A400F2FA98 /* Components.swift in Sources */,
 				6A81654A27429B3F0017C271 /* speechapp.xcdatamodeld in Sources */,
+				2E40B98827433E36002231D2 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

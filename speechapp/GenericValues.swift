@@ -10,22 +10,24 @@ import SwiftUI
 //GENERIC VALUES DA USARE
 let cornerRad: CGFloat = 20
 
-struct mostRecentScale{
-    let height = 0.27
-    let width = 0.90
-    let padding = 0.04
+struct Scale {
+    let height: Double
+    let width: Double
+    let padding: Double
+    let imageSize: Double
+    
+    init(height: Double, width: Double, padding: Double, imageSize: Double) {
+        self.height = height
+        self.width = width
+        self.padding = padding
+        self.imageSize = imageSize
+    }
 }
 
-struct recentsScale{
-    let width = 0.28
-    let padding = 0.04
-}
+let mostRecentsScale = Scale(height: 0.33, width: 0.90, padding: 0.04, imageSize: 0.20)
+let recentsScale = Scale(height: 0.28, width: 0.28, padding: 0.04, imageSize: 0.10)
+let favoritesScale = Scale(height: 0.44, width: 0.44, padding: 0.04, imageSize: 0.15)
 
-struct favoritesScale{
-    let width = 0.44
-    let padding = 0.04
-    let imageSize = 0.15
-}
 
 //PER CLAUDIO
 let primaryAppColor: Color = .blue
