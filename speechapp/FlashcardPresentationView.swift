@@ -5,6 +5,8 @@
 //  Created by Antonio Romano on 15/11/21.
 //
 
+//TODO: ADD GESTURES TO CHANGE CARD SIDE
+
 import SwiftUI
 
 struct Presentation: View{
@@ -17,7 +19,6 @@ struct Presentation: View{
                     FlashcardTile(symbol: flashcard.symbol, title: flashcard.title, color: flashcard.color, screenWidth: screenSize.size.width, screenHeight: screenSize.size.height, scale: flashcardScale, description: flashcard.description, front: false)
                 }
                 .frame(height: screenSize.size.height)
-                .border(.red , width: 3)
             }
             .tabViewStyle(.page)
             .indexViewStyle(.page(backgroundDisplayMode: .always))
@@ -28,11 +29,17 @@ struct Presentation: View{
 struct PresentationView: View{
     var body: some View{
         NavigationView{
+            //        BAKCGROUND
+            ZStack{
+                Color(white: 0, opacity: 0.5)
+                    .ignoresSafeArea()
                 Presentation()
                     .navigationTitle("Name")
                     .navigationBarTitleDisplayMode(.inline)
+            }
+            
         }
-        .padding()
+        
     }
 }
 
