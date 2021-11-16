@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct SettingsView: View {
-    
+
     var body: some View {
         NavigationView {
-            List{
-                
-            }
+            Text ("here go my settings")
             .navigationTitle("Settings")
         }
     }
