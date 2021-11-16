@@ -23,6 +23,7 @@
 		6A8165712742A6380017C271 /* GenericValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8165702742A6380017C271 /* GenericValues.swift */; };
 		6A8165732742ADA30017C271 /* FlashcardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8165722742ADA30017C271 /* FlashcardView.swift */; };
 		6A8165752742ADB80017C271 /* FlashcardPresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8165742742ADB80017C271 /* FlashcardPresentationView.swift */; };
+		6AB12CB82743F39A0004D980 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB12CB72743F39A0004D980 /* Functions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		6A8165702742A6380017C271 /* GenericValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericValues.swift; sourceTree = "<group>"; };
 		6A8165722742ADA30017C271 /* FlashcardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardView.swift; sourceTree = "<group>"; };
 		6A8165742742ADB80017C271 /* FlashcardPresentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardPresentationView.swift; sourceTree = "<group>"; };
+		6AB12CB72743F39A0004D980 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				6A8165742742ADB80017C271 /* FlashcardPresentationView.swift */,
 				6A8165702742A6380017C271 /* GenericValues.swift */,
 				2EFEF41F274312A400F2FA98 /* Components.swift */,
+				6AB12CB72743F39A0004D980 /* Functions.swift */,
 				6A81654127429B3F0017C271 /* Assets.xcassets */,
 				6A81654627429B3F0017C271 /* Persistence.swift */,
 				6A81654827429B3F0017C271 /* speechapp.xcdatamodeld */,
@@ -295,6 +298,7 @@
 				2EFEF420274312A400F2FA98 /* Components.swift in Sources */,
 				6A81654A27429B3F0017C271 /* speechapp.xcdatamodeld in Sources */,
 				2E40B98827433E36002231D2 /* SettingsView.swift in Sources */,
+				6AB12CB82743F39A0004D980 /* Functions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

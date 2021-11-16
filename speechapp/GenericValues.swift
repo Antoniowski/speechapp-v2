@@ -20,6 +20,8 @@ struct Scale {
 let mostRecentsScale = Scale(height: 0.33, width: 0.90, padding: 0.04, imageSize: 0.20)
 let recentsScale = Scale(height: 0.28, width: 0.28, padding: 0.04, imageSize: 0.10)
 let favoritesScale = Scale(height: 0.44, width: 0.44, padding: 0.04, imageSize: 0.15)
+let flashcardPreviewScale = Scale(height: 0.5, width: 0.28, padding: 0.05, imageSize: 0.2)
+let flashcardScale = Scale(height: 0.88, width: 0.88, padding: 0.04, imageSize: 0.3)
 
 
 //PER CLAUDIO
@@ -45,6 +47,20 @@ struct Speech: Hashable{
     }
 }
 
+struct Flashcard: Hashable{
+    var title: String
+    var symbol: String
+    var color: Color
+    var description: String
+    
+    init(title: String, symbol: String, color: Color, description: String){
+        self.title = title
+        self.symbol = symbol
+        self.color = color
+        self.description = description
+    }
+}
+
 var mySpeeches = [
     Speech(title: "My App", symbol: "apps.iphone", color: .orange, isFavorite: true),
     Speech(title: "Electricity", symbol: "bolt.fill", color: .blue, isFavorite: true),
@@ -61,4 +77,12 @@ var mySpeeches = [
     Speech(title: "User Experience", symbol: "person.fill", color: .teal, isFavorite: true),
     Speech(title: "Sleeping well", symbol: "bed.double.fill", color: .purple, isFavorite: true),
     Speech(title: "Fairytales", symbol: "book.fill", color: .red)
+]
+
+var myFlashcards = [
+    Flashcard(title: "My App", symbol: "apple.iphone", color: .orange, description: "Loreipsumdashgdatydajdgayudbadyusafuyashfbyugsdafuygsafygasfgsafyasgfasfasgfcayfascasfasub"),
+    Flashcard(title: "My App", symbol: "apple.iphone", color: .green, description: "Loreipsumdashgdatydajdgayudbadyusafuyashfbyugsdafuygsafygasfgsafyasgfasfasgfcayfascasfasub"),
+    Flashcard(title: "My App", symbol: "apple.iphone", color: .blue, description: "Loreipsumdashgdatydajdgayudbadyusafuyashfbyugsdafuygsafygasfgsafyasgfasfasgfcayfascasfasub"),
+    Flashcard(title: "My App", symbol: "apple.iphone", color: .gray, description: "Loreipsumdashgdatydajdgayudbadyusafuyashfbyugsdafuygsafygasfgsafyasgfasfasgfcayfascasfasub"),
+    Flashcard(title: "My App", symbol: "apple.iphone", color: .yellow, description: "Loreipsumdashgdatydajdgayudbadyusafuyashfbyugsdafuygsafygasfgsafyasgfasfasgfcayfascasfasub")
 ]
