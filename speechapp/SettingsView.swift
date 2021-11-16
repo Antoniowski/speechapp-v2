@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct SettingsView: View {
+
     var body: some View {
         NavigationView {
-            Text("Here go my settings")
-                .navigationTitle("Settings")
+            Text ("here go my settings")
+            .navigationTitle("Settings")
         }
     }
 }

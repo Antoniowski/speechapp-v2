@@ -26,10 +26,8 @@ struct Favorites: View{
             ScrollView{
                 LazyVGrid(columns: gridLayout, spacing: screenDim.size.width*favoritesScale.padding){
                     
-                    ForEach(mySpeeches, id: \.self) { speech in
-                        if speech.isFavorite {
-                            Tile(symbol: speech.symbol, title: speech.title, color: speech.color, screenWidth: screenDim.size.width, screenHeight: screenDim.size.width, scale: favoritesScale)
-                        }
+                    ForEach(searchResults, id: \.self) { speech in
+                        Tile(symbol: speech.symbol, title: speech.title, color: speech.color, screenWidth: screenDim.size.width, screenHeight: screenDim.size.width, scale: favoritesScale)
                     }
                     
                 }.padding()
@@ -48,13 +46,13 @@ struct Favorites: View{
             })
         })
         .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
-        .onChange(of: searchText) {
-            searchText in
-            if !searchText.isEmpty {
-                // do
-            } else {
-                // do
-            }
+    }
+    
+    var searchResults: [Speech] {
+        if searchText.isEmpty {
+            return mySpeeches.filter{ $0.isFavorite == true }
+        } else {
+            return mySpeeches.filter{ $0.title.contains(searchText) }
         }
     }
 }
