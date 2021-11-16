@@ -38,3 +38,44 @@ struct Tile: View {
     }
     
 }
+
+
+struct FlashcardTile: View{
+    var symbol: String
+    var title: String
+    var color: Color
+    var screenWidth: Double
+    var screenHeight: Double
+    var scale: Scale
+    
+    var description: String
+    var front: Bool
+    
+    var body: some View{
+        if front {
+            VStack{
+                Image(systemName: symbol)
+                    .foregroundColor(.white)
+                Text(title)
+                    .foregroundColor(.white)
+            }
+            .frame(width: self.screenWidth*scale.width, height: self.screenHeight*scale.height)
+            .border(color, width: 3)
+            .background(.white)
+            .foregroundColor(.black)
+            .cornerRadius(cornerRad)
+        }else{
+            VStack{
+                Image(systemName: symbol)
+                    .foregroundColor(.white)
+                Text(title)
+                    .foregroundColor(.white)
+            }
+            .frame(width: self.screenWidth*scale.width, height: self.screenHeight*scale.height)
+            .background(color)
+            .foregroundColor(.white)
+            .cornerRadius(cornerRad)
+        }
+    }
+}
+
