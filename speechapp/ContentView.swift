@@ -20,10 +20,6 @@ struct ContentView: View {
                 .tabItem{
                     Label("Favorites", systemImage: "star")
                 }
-            SettingsView()
-                .tabItem{
-                    Label("Settings", systemImage: "gear")
-                }
         }
     }
 }
