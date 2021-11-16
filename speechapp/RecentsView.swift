@@ -13,7 +13,6 @@ struct RecentsView: View {
         NavigationView{
             Recents()
         }
-        
     }
 }
 
