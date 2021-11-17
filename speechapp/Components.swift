@@ -5,6 +5,8 @@
 //  Created by Anthea Lavinia Bove on 15/11/21.
 //
 
+//TODO: RESOLVE LONGPRESS PROBLEM IN FLASHCARD TILE
+
 import SwiftUI
 
 struct Tile: View {
@@ -52,12 +54,15 @@ struct FlashcardTile: View{
     @State var front: Bool
     
 //    LONG PRESS GESTURE
+//    gesture seems to work but it has some problems:
+//    - cant swipe on card when long press "is waiting"
+//    - long press on a different card from the first one doesnt work propely
     @GestureState var isDetectingLongPress = false
     var longPress: some Gesture{
         LongPressGesture(minimumDuration: 0.75)
-            .updating($isDetectingLongPress){
-                currentState, gestureState, transaction in
-                gestureState = currentState
+            .updating($isDetectingLongPress){newValue,gestureState,transaction  in
+//                code
+                gestureState = newValue
             }
             .onEnded{ _ in
                 front = true
@@ -83,6 +88,7 @@ struct FlashcardTile: View{
             .background(.white)
             .foregroundColor(.black)
             .cornerRadius(cornerRad)
+            .shadow(color: Color(white: 0, opacity: 0.3), radius: 15, x: 0, y: 0)
         }else{
             VStack{
                 Text(title)
@@ -95,15 +101,17 @@ struct FlashcardTile: View{
                     .font(.system(size: screenWidth*0.3))
                     .frame(height: screenHeight/2, alignment: .top)
                     .padding()
-                
-                    
+
             }
             .frame(width: self.screenWidth*scale.width, height: self.screenHeight*scale.height, alignment: .center)
             .background(color)
+            .border(color, width: 30)
             .foregroundColor(.white)
             .cornerRadius(cornerRad)
             .padding()
-            .gesture(longPress)
+            .shadow(color: Color(white: 0, opacity: 0.3), radius: 15, x: 0, y: 0)
+            .onTapGesture{}
+            .gesture(longPress, including: .all)
         }
     }
 }
