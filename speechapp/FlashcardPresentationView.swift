@@ -29,7 +29,7 @@ struct Presentation: View{
 struct PresentationView: View{
     var body: some View{
         NavigationView{
-            //        BAKCGROUND
+            //BACKGROUND
             ZStack{
                 Color(white: 0, opacity: 0.5)
                     .ignoresSafeArea()
