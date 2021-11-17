@@ -5,6 +5,8 @@
 //  Created by Anthea Lavinia Bove on 15/11/21.
 //
 
+//TODO: RESOLVE LONGPRESS PROBLEM IN FLASHCARD TILE
+
 import SwiftUI
 
 struct Tile: View {
@@ -86,6 +88,7 @@ struct FlashcardTile: View{
             .background(.white)
             .foregroundColor(.black)
             .cornerRadius(cornerRad)
+            .shadow(color: Color(white: 0, opacity: 0.3), radius: 15, x: 0, y: 0)
         }else{
             VStack{
                 Text(title)
@@ -98,8 +101,7 @@ struct FlashcardTile: View{
                     .font(.system(size: screenWidth*0.3))
                     .frame(height: screenHeight/2, alignment: .top)
                     .padding()
-                
-                    
+
             }
             .frame(width: self.screenWidth*scale.width, height: self.screenHeight*scale.height, alignment: .center)
             .background(color)

@@ -16,7 +16,7 @@ struct Presentation: View{
             screenSize in
             TabView{
                 ForEach(myFlashcards, id: \.self){ flashcard in
-                    FlashcardTile(symbol: flashcard.symbol, title: flashcard.title, color: flashcard.color, screenWidth: screenSize.size.width, screenHeight: screenSize.size.height, scale: flashcardScale, description: flashcard.description, front: false)
+                    FlashcardTile(symbol: flashcard.symbol, title: flashcard.title, color: flashcard.color, screenWidth: screenSize.size.width, screenHeight: screenSize.size.height, scale: flashcardScale, description: flashcard.description, front: true)
                 }
                 .frame(height: screenSize.size.height)
             }
