@@ -25,6 +25,7 @@
 		6A8165752742ADB80017C271 /* FlashcardPresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8165742742ADB80017C271 /* FlashcardPresentationView.swift */; };
 		A30CD9E6274417B700A04B76 /* onboarding_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30CD9E5274417B700A04B76 /* onboarding_2.swift */; };
 		A30E34032744084A00C56E8C /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30E34022744084A00C56E8C /* OnboardingView.swift */; };
+		A3926FFB2745A5A8005C8021 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3926FFA2745A5A8005C8021 /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		6A8165742742ADB80017C271 /* FlashcardPresentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardPresentationView.swift; sourceTree = "<group>"; };
 		A30CD9E5274417B700A04B76 /* onboarding_2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = onboarding_2.swift; sourceTree = "<group>"; };
 		A30E34022744084A00C56E8C /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		A3926FFA2745A5A8005C8021 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				A30E34022744084A00C56E8C /* OnboardingView.swift */,
 				A30CD9E5274417B700A04B76 /* onboarding_2.swift */,
 				6A81654127429B3F0017C271 /* Assets.xcassets */,
+				A3926FFA2745A5A8005C8021 /* Colors.xcassets */,
 				6A81654627429B3F0017C271 /* Persistence.swift */,
 				6A81654827429B3F0017C271 /* speechapp.xcdatamodeld */,
 				6A81654327429B3F0017C271 /* Preview Content */,
@@ -264,6 +267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3926FFB2745A5A8005C8021 /* Colors.xcassets in Resources */,
 				6A81654527429B3F0017C271 /* Preview Assets.xcassets in Resources */,
 				6A81654227429B3F0017C271 /* Assets.xcassets in Resources */,
 			);
