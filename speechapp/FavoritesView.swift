@@ -27,7 +27,7 @@ struct Favorites: View{
                 LazyVGrid(columns: gridLayout, spacing: screenDim.size.width*favoritesScale.padding){
                     
                     ForEach(searchResults, id: \.self) { speech in
-                        Tile(symbol: speech.symbol, title: speech.title, color: speech.color, screenWidth: screenDim.size.width, screenHeight: screenDim.size.width, scale: favoritesScale)
+                        Tile(speech: speech, screenWidth: screenDim.size.width, screenHeight: screenDim.size.width, scale: favoritesScale)
                     }
                     
                 }.padding()

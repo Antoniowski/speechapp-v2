@@ -25,13 +25,13 @@ struct Recents: View {
             ScrollView {
                 // MOST RECENT
                 if searchText.isEmpty {
-                    Tile(symbol: mySpeeches[0].symbol, title: mySpeeches[0].title, color: mySpeeches[0].color, screenWidth: screenDim.size.width, screenHeight: screenDim.size.height, scale: mostRecentsScale)
+                    MostRecentTile(speech: mySpeeches[0], screenWidth: screenDim.size.width, screenHeight: screenDim.size.height, scale: mostRecentsScale)
                 }
                 //OTHER RECENTS
                 LazyVGrid(columns: gridLayout, spacing: screenDim.size.width*recentsScale.padding){
                     
                     ForEach(searchResults, id: \.self) { speech in
-                        Tile(symbol: speech.symbol, title: speech.title, color: speech.color, screenWidth: screenDim.size.width, screenHeight: screenDim.size.width, scale: recentsScale)
+                        Tile(speech: speech, screenWidth: screenDim.size.width, screenHeight: screenDim.size.width, scale: recentsScale)
                     }
                     
                 }.padding()

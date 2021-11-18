@@ -10,9 +10,7 @@
 import SwiftUI
 
 struct Tile: View {
-    var symbol: String
-    var title: String
-    var color: Color
+    var speech: Speech
     var screenWidth: Double
     var screenHeight: Double
     var scale: Scale
@@ -22,24 +20,62 @@ struct Tile: View {
             //do
         }, label: {
             ZStack{
-                Image(systemName: self.symbol)
-                    .font(.system(size: self.screenWidth*scale.imageSize))
+                Image(systemName: speech.symbol)
+                    .font(.system(size: screenWidth*scale.imageSize))
                     .padding(.bottom)
-                Text(self.title)
-                    .font(.system(size: (self.screenWidth*scale.imageSize)/3))
+                Text(speech.title)
+                    .font(.system(size: (screenWidth*scale.imageSize)/3))
+                    .fontWeight(.bold)
                     .lineLimit(1)
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottomLeading)
                     .padding()
+                if speech.isFavorite {
+                    Image(systemName: "star.fill")
+                    .font(.system(size: (screenWidth*scale.imageSize)/3))
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topTrailing)
+                    .padding(8)
+                }
             }
-            .frame(width: self.screenWidth*scale.width, height: self.screenHeight*scale.height)
+            .frame(width: screenWidth*scale.width, height: screenHeight*scale.height)
         })
-        .frame(width: self.screenWidth*scale.width, height: self.screenHeight*scale.height)
-        .background(self.color)
+        .frame(width: screenWidth*scale.width, height: screenHeight*scale.height)
+        .background(speech.isFavorite ? tertiaryColor : secondaryColor)
         .foregroundColor(.white)
         .cornerRadius(cornerRad)
     }
     
 }
+
+struct MostRecentTile: View {
+    var speech: Speech
+    var screenWidth: Double
+    var screenHeight: Double
+    var scale: Scale
+    
+    var body: some View {
+        Button(action: {
+            //do
+        }, label: {
+            ZStack{
+                Image(systemName: speech.symbol)
+                    .font(.system(size: screenWidth*scale.imageSize))
+                    .padding(.bottom)
+                Text(speech.title)
+                    .font(.system(size: (screenWidth*scale.imageSize)/3))
+                    .fontWeight(.bold)
+                    .lineLimit(1)
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottomLeading)
+                    .padding()
+            }
+            .frame(width: screenWidth*scale.width, height: screenHeight*scale.height)
+        })
+        .frame(width: screenWidth*scale.width, height: screenHeight*scale.height)
+        .background(primaryColor)
+        .foregroundColor(.white)
+    }
+    
+}
+
 
 
 struct FlashcardTile: View{
