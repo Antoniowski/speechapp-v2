@@ -5,6 +5,11 @@
 //  Created by Anthea Lavinia Bove on 15/11/21.
 //
 
+//protocols x tiles o per data structure? hereditary properies?
+//tile favourite/tile recent/tile flashcard
+//reduce use of geometryreader
+//context menu
+
 //TODO: RESOLVE LONGPRESS PROBLEM IN FLASHCARD TILE
 
 import SwiftUI
