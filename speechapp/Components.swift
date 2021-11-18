@@ -81,6 +81,62 @@ struct MostRecentTile: View {
     
 }
 
+struct MostRecentTile2: View{
+    var speech: Speech
+    var screenWidth: Double
+    var screenHeight: Double
+    var scale: Scale
+    
+    var body: some View{
+        TabView{
+            Button(action: {
+                //do
+            }, label: {
+                ZStack{
+                    Image(systemName: speech.symbol)
+                        .font(.system(size: screenWidth*scale.imageSize))
+                        .padding(.bottom)
+                    Text(speech.title)
+                        .font(.system(size: (screenWidth*scale.imageSize)/3))
+                        .fontWeight(.bold)
+                        .lineLimit(1)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottomLeading)
+                        .padding()
+                }
+                .frame(width: screenWidth*scale.width, height: screenHeight*scale.height)
+            })
+            .frame(width: screenWidth*scale.width, height: screenHeight*scale.height)
+            .background(primaryColor)
+            .foregroundColor(.white)
+            
+            Button(action: {
+                //do
+            }, label: {
+                ZStack{
+                    Image(systemName: speech.symbol)
+                        .font(.system(size: screenWidth*scale.imageSize))
+                        .padding(.bottom)
+                    Text(speech.title)
+                        .font(.system(size: (screenWidth*scale.imageSize)/3))
+                        .fontWeight(.bold)
+                        .lineLimit(1)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottomLeading)
+                        .padding()
+                }
+                .frame(width: screenWidth*scale.width, height: screenHeight*scale.height)
+            })
+            .frame(width: screenWidth*scale.width, height: screenHeight*scale.height)
+            .background(primaryColor)
+            .foregroundColor(.white)
+            
+        }
+        .frame(width: screenWidth*scale.width, height: screenHeight*scale.height)
+        .background(primaryColor)
+        .foregroundColor(.white)
+        .tabViewStyle(.page)
+    }
+}
+
 
 
 struct FlashcardTile: View{
