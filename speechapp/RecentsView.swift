@@ -8,16 +8,8 @@
 import SwiftUI
 
 struct RecentsView: View {
-    var body: some View {
-        NavigationView{
-            Recents()
-        }
-    }
-}
-
-struct Recents: View {
-    @State var searchText = ""
-    private var gridLayout = Array(repeating: GridItem(.flexible()), count: 3)
+    @Binding var searchText: String
+    var gridLayout = Array(repeating: GridItem(.flexible()), count: 3)
     
     var body: some View {
         GeometryReader { screenDim in
@@ -36,20 +28,7 @@ struct Recents: View {
                 }.padding()
             }
         }
-        .navigationTitle("Recents")
-        .navigationBarItems(leading:
-                                HStack {
-            //left
-        },              trailing:
-                                HStack {
-            Button(action: {
-                //do
-            }, label: {
-                Image(systemName: "plus")
-            })
-        })
-        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
-        }
+    }
     
     var searchResults: [Speech] {
         if searchText.isEmpty {
