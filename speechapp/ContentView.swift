@@ -28,6 +28,7 @@ struct ContentView: View {
                     .tag(1)
             }
             .navigationTitle(navigationBarTitle)
+            .navigationBarTitleDisplayMode(.automatic)
             .navigationBarHidden(navigationBarHidden)
             .navigationBarItems(trailing: navigationBarTrailingItems)
             .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
