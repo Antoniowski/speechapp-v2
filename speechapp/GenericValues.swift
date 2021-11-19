@@ -51,7 +51,7 @@ struct Section: Hashable {
     var color: Color
     var cards: [Flashcard]
     
-    init(title: String, subtitle: String = "", color: Color, cards: [Flashcard]) {
+    init(title: String, subtitle: String = "", color: Color, cards: [Flashcard] = []) {
         self.title = title
         self.subtitle = subtitle
         self.color = color
@@ -64,9 +64,9 @@ struct Speech: Hashable{
     var symbol: String
     var isFavorite: Bool
     var sections: [Section]
-    var flashcards: [Flashcard]
+    var flashcards: [Flashcard] = []
     
-    init(title: String, symbol: String, isFavorite: Bool = false, sections: [Section]){
+    init(title: String, symbol: String, isFavorite: Bool = false, sections: [Section] = []){
         self.title = title
         self.symbol = symbol
         self.isFavorite = isFavorite
@@ -131,5 +131,5 @@ var mySpeeches = [
     Speech(title: "My Favourite Book", symbol: "book.closed.fill", sections: sections),
     Speech(title: "User Experience", symbol: "person.fill", isFavorite: true, sections: sections),
     Speech(title: "Sleeping well", symbol: "bed.double.fill", isFavorite: true, sections: sections),
-    Speech(title: "Fairytales", symbol: "book.fill", sections: sections)
+    Speech(title: "Fairytales", symbol: "book.fill")
 ]
