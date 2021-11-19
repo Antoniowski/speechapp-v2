@@ -10,6 +10,7 @@
 		2E40B98827433E36002231D2 /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E40B98727433E36002231D2 /* SectionView.swift */; };
 		2EFEF420274312A400F2FA98 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFEF41F274312A400F2FA98 /* Components.swift */; };
 		2EFEF4222743256600F2FA98 /* RecentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFEF4212743256600F2FA98 /* RecentsView.swift */; };
+		6A24B5C72747DB3A000AA8A7 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A24B5C62747DB3A000AA8A7 /* DataHandler.swift */; };
 		6A81653E27429B3E0017C271 /* speechappApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A81653D27429B3E0017C271 /* speechappApp.swift */; };
 		6A81654027429B3E0017C271 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A81653F27429B3E0017C271 /* ContentView.swift */; };
 		6A81654227429B3F0017C271 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A81654127429B3F0017C271 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		2E40B98727433E36002231D2 /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
 		2EFEF41F274312A400F2FA98 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		2EFEF4212743256600F2FA98 /* RecentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsView.swift; sourceTree = "<group>"; };
+		6A24B5C62747DB3A000AA8A7 /* DataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
 		6A81653A27429B3E0017C271 /* speechapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = speechapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A81653D27429B3E0017C271 /* speechappApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = speechappApp.swift; sourceTree = "<group>"; };
 		6A81653F27429B3E0017C271 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				2EFEF41F274312A400F2FA98 /* Components.swift */,
 				A30E34022744084A00C56E8C /* OnboardingView.swift */,
 				A30CD9E5274417B700A04B76 /* onboarding_2.swift */,
+				6A24B5C62747DB3A000AA8A7 /* DataHandler.swift */,
 				6A81654127429B3F0017C271 /* Assets.xcassets */,
 				A3926FFA2745A5A8005C8021 /* Colors.xcassets */,
 				6A81654627429B3F0017C271 /* Persistence.swift */,
@@ -302,6 +305,7 @@
 				6A81653E27429B3E0017C271 /* speechappApp.swift in Sources */,
 				6A8165732742ADA30017C271 /* FlashcardView.swift in Sources */,
 				A30CD9E6274417B700A04B76 /* onboarding_2.swift in Sources */,
+				6A24B5C72747DB3A000AA8A7 /* DataHandler.swift in Sources */,
 				2EFEF4222743256600F2FA98 /* RecentsView.swift in Sources */,
 				2EFEF420274312A400F2FA98 /* Components.swift in Sources */,
 				A30E34032744084A00C56E8C /* OnboardingView.swift in Sources */,
