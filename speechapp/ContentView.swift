@@ -43,7 +43,7 @@ private extension ContentView {
     var navigationBarHidden: Bool {
         tabSelection == 2
     }
-
+    
     @ViewBuilder
     var navigationBarTrailingItems: some View {
         if tabSelection < 2 {

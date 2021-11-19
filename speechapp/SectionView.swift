@@ -22,19 +22,27 @@ struct SectionView: View {
                     }
                 }
                 .navigationTitle(speech.title)
-                .navigationBarItems(trailing: HStack{
-                    Button(action: {
-                        //do
-                    }, label: {
-                        ButtonNavBar(name: "", symbol: "play.fill")
-                    })
-                    Button(action: {
-                        //do
-                    }, label: {
-                        ButtonNavBar(name: "ciao", symbol: "plus")
-                    })
-                })
+                .navigationBarItems(trailing: navigationBarTrailingItems)
                 .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+private extension SectionView {
+    
+    @ViewBuilder
+    var navigationBarTrailingItems: some View {
+        HStack{
+            Button(action: {
+                //do
+            }, label: {
+                ButtonNavBar(name: "", symbol: "play.fill")
+            })
+            Button(action: {
+                //do
+            }, label: {
+                ButtonNavBar(name: "", symbol: "plus")
+            })
+        }
     }
 }
 
@@ -58,12 +66,5 @@ struct ButtonSectionStyle: View{
                 Text(section.subtitle)
                     .foregroundColor(.secondary)
             }.padding(.vertical)
-    }
-}
-
-struct Preview3: PreviewProvider{
-    static var previews: some View{
-        SectionView(speech: mySpeeches[0])
-            .accentColor(appAccentColor)
     }
 }
