@@ -9,21 +9,19 @@ import SwiftUI
 
 struct SectionView: View {
     
-//    @Binding var speech: Speech
-    
-    var arraySupporto: [String] = ["ciao", "ciao", "ciao", "ciao"]
+    var speech: Speech
 
     var body: some View {
-        GeometryReader{ screenDim in
-            NavigationView {
                 List{
-                    ForEach(arraySupporto, id: \.self){ section in
-                        Button(action: {}, label: {
-                            ButtonSectionStyle(text: section)
+                    ForEach(speech.sections, id: \.self){ section in
+                        NavigationLink(destination: {
+                            //
+                        }, label: {
+                            ButtonSectionStyle(section: section)
                         })
                     }
                 }
-                .navigationTitle("Speech Name")
+                .navigationTitle(speech.title)
                 .navigationBarItems(trailing: HStack{
                     Button(action: {
                         //do
@@ -37,9 +35,6 @@ struct SectionView: View {
                     })
                 })
                 .navigationBarTitleDisplayMode(.inline)
-            }
-        }
-        
     }
 }
 
@@ -49,33 +44,26 @@ struct ButtonNavBar: View{
     
     var body: some View{
         Label(name, systemImage: symbol)
-            .foregroundColor(appAccentColor)
-            .padding(8)
     }
 }
 
 
 struct ButtonSectionStyle: View{
-    @State var text: String = ""
+    var section: Section
     
     var body: some View{
-        HStack{
-            VStack{
-                Text(text)
+            VStack(alignment:.leading){
+                Text(section.title)
                     .bold()
-                    .foregroundStyle(.black)
-                Text("section description")
-                    .foregroundColor(.gray)
-            }
-            .frame(minWidth: 0, maxWidth: .infinity)
-            Label("", systemImage: "chevron.right")
-                .foregroundColor(.gray)
-        }
+                Text(section.subtitle)
+                    .foregroundColor(.secondary)
+            }.padding(.vertical)
     }
 }
 
 struct Preview3: PreviewProvider{
     static var previews: some View{
-        SectionView()
+        SectionView(speech: mySpeeches[0])
+            .accentColor(appAccentColor)
     }
 }

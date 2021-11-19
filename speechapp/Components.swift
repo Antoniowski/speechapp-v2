@@ -21,8 +21,8 @@ struct Tile: View {
     var scale: Scale
     
     var body: some View {
-        Button(action: {
-            //do
+        NavigationLink(destination: {
+            SectionView(speech: speech)
         }, label: {
             ZStack{
                 Image(systemName: speech.symbol)
@@ -58,8 +58,8 @@ struct MostRecentTile: View {
     var scale: Scale
     
     var body: some View {
-        Button(action: {
-            //do
+        NavigationLink(destination: {
+            SectionView(speech: speech)
         }, label: {
             ZStack{
                 Image(systemName: speech.symbol)

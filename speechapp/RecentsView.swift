@@ -9,7 +9,6 @@ import SwiftUI
 
 struct RecentsView: View {
     var body: some View {
-        
         NavigationView{
             Recents()
         }
