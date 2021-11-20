@@ -71,6 +71,7 @@ struct Speech: Hashable{
         self.symbol = symbol
         self.isFavorite = isFavorite
         self.sections = sections
+//        DA VALUTARE
         var f = [Flashcard]()
         for section in sections {
             f.append(contentsOf: section.cards)

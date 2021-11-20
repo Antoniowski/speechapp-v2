@@ -12,18 +12,18 @@ struct SectionView: View {
     var speech: Speech
 
     var body: some View {
-                List{
-                    ForEach(speech.sections, id: \.self){ section in
-                        NavigationLink(destination: {
-                            //
-                        }, label: {
-                            ButtonSectionStyle(section: section)
-                        })
-                    }
-                }
-                .navigationTitle(speech.title)
-                .navigationBarItems(trailing: navigationBarTrailingItems)
-                .navigationBarTitleDisplayMode(.inline)
+        List{
+            ForEach(speech.sections, id: \.self){ section in
+                NavigationLink(destination: {
+                    FlashcardsView(section: section)
+                }, label: {
+                    ButtonSectionStyle(section: section)
+                })
+            }
+        }
+        .navigationTitle(speech.title)
+        .navigationBarItems(trailing: navigationBarTrailingItems)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -32,8 +32,8 @@ private extension SectionView {
     @ViewBuilder
     var navigationBarTrailingItems: some View {
         HStack{
-            Button(action: {
-                //do
+            NavigationLink(destination: {
+                PresentationView()
             }, label: {
                 ButtonNavBar(name: "", symbol: "play.fill")
             })

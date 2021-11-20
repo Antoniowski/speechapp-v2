@@ -213,3 +213,36 @@ struct FlashcardTile: View{
     }
 }
 
+
+struct FlashcardPreviewTile: View {
+    var section: Section
+    var title: String
+    var symbol: String
+    var screenWidth: Double
+    var screenHeight: Double
+    var scale: Scale
+    
+    var body: some View {
+
+        VStack{
+            Text(title)
+                .frame(height: screenHeight/3, alignment: .bottom)
+                .foregroundColor(.white)
+                .font(.system(size: screenWidth*0.04, weight: .bold))
+                .multilineTextAlignment(.center)
+            
+            Image(systemName: symbol)
+                .foregroundColor(.white)
+                .font(.system(size: screenWidth*0.1))
+                .frame(height: screenHeight/3, alignment: .top)
+                .padding()
+
+        }
+        .frame(width: self.screenWidth*scale.width, height: self.screenHeight*scale.height, alignment: .center)
+        .background(section.color)
+        .foregroundColor(.white)
+        .cornerRadius(cornerRad)
+        .padding()
+    }
+}
+

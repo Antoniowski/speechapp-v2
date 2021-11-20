@@ -8,19 +8,22 @@
 import SwiftUI
 
 struct FlashcardsView: View {
+    
     var gridLayout = Array(repeating: GridItem(.flexible()), count: 3)
-    var cards: [Flashcard]
+    var section: Section
     
     var body: some View {
         GeometryReader { screenDim in
             ScrollView {
                 LazyVGrid(columns: gridLayout, spacing: screenDim.size.width*recentsScale.padding){
-                    ForEach(cards, id: \.self) { card in
-//                        Tile(speech: speech, screenWidth: screenDim.size.width, screenHeight: screenDim.size.width, scale: recentsScale)
+                    ForEach(section.cards, id: \.self) { card in
+                        FlashcardPreviewTile(section: section, title: card.title, symbol: card.symbol, screenWidth: screenDim.size.width, screenHeight: screenDim.size.height, scale: recentsScale)
                     }
                     
                 }.padding()
             }
+            .navigationTitle(section.title)
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
     
