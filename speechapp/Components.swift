@@ -246,37 +246,50 @@ struct FlashcardPreviewTile: View {
     var scale: Scale
     
     var body: some View {
-
-        VStack{
-            Image(systemName: symbol)
-                .foregroundColor(.white)
-                .font(.system(size: screenWidth*0.1))
-                .frame(height: screenHeight/3, alignment: .bottom)
-                .padding()
-            
-            Text(title)
-                .frame(height: screenHeight/3, alignment: .top)
-                .foregroundColor(.white)
-                .font(.system(size: screenWidth*0.04, weight: .bold))
-                .multilineTextAlignment(.center)
-
-        }
-        .frame(width: self.screenWidth*scale.width, height: self.screenHeight*scale.height, alignment: .center)
-        .background(section.color)
-        .foregroundColor(.white)
-        .cornerRadius(cornerRad)
-        .padding()
+        NavigationLink(destination: {}, label: {
+            VStack{
+                Image(systemName: symbol)
+                    .foregroundColor(.white)
+                    .font(.system(size: screenWidth*0.1))
+                    .frame(height: screenHeight/3, alignment: .bottom)
+                    .padding()
+                
+                Text(title)
+                    .frame(height: screenHeight/3, alignment: .top)
+                    .foregroundColor(.white)
+                    .font(.system(size: screenWidth*0.04, weight: .bold))
+                    .multilineTextAlignment(.center)
+            }
+            .padding()
+        })
+            .frame(width: self.screenWidth*scale.width, height: self.screenHeight*scale.height, alignment: .center)
+            .background(section.color)
+            .foregroundColor(.white)
+            .cornerRadius(cornerRad)
+            .contextMenu{
+                Button(action: {}, label: {
+                    Label("Copy", systemImage: "doc.on.doc")
+                })
+                Button(role: .destructive,action: {}, label: {
+                    Label("Delete", systemImage: "trash")
+                })
+            }
+        
     }
 }
 
 struct InfoBox: View{
-    var text: String = ""
+    var text: Text = Text("")
     var body: some View{
         HStack{
-            Text(text)
+            text
+                .frame(minWidth: 0, maxWidth: .infinity)
             Image(systemName: "info.circle")
+                .font(.system(size: 25))
                 .foregroundColor(appAccentColor)
+                .frame(minWidth: 30, maxWidth: 30, minHeight: 0, maxHeight: .infinity, alignment: .top)
         }
+        .padding()
     }
 }
 
