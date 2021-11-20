@@ -248,17 +248,17 @@ struct FlashcardPreviewTile: View {
     var body: some View {
 
         VStack{
-            Text(title)
-                .frame(height: screenHeight/3, alignment: .bottom)
-                .foregroundColor(.white)
-                .font(.system(size: screenWidth*0.04, weight: .bold))
-                .multilineTextAlignment(.center)
-            
             Image(systemName: symbol)
                 .foregroundColor(.white)
                 .font(.system(size: screenWidth*0.1))
-                .frame(height: screenHeight/3, alignment: .top)
+                .frame(height: screenHeight/3, alignment: .bottom)
                 .padding()
+            
+            Text(title)
+                .frame(height: screenHeight/3, alignment: .top)
+                .foregroundColor(.white)
+                .font(.system(size: screenWidth*0.04, weight: .bold))
+                .multilineTextAlignment(.center)
 
         }
         .frame(width: self.screenWidth*scale.width, height: self.screenHeight*scale.height, alignment: .center)
@@ -266,6 +266,17 @@ struct FlashcardPreviewTile: View {
         .foregroundColor(.white)
         .cornerRadius(cornerRad)
         .padding()
+    }
+}
+
+struct InfoBox: View{
+    var text: String = ""
+    var body: some View{
+        HStack{
+            Text(text)
+            Image(systemName: "info.circle")
+                .foregroundColor(appAccentColor)
+        }
     }
 }
 
