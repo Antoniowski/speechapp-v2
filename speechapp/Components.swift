@@ -47,6 +47,18 @@ struct Tile: View {
         .background(speech.isFavorite ? tertiaryColor : secondaryColor)
         .foregroundColor(.white)
         .cornerRadius(cornerRad)
+        .contextMenu{
+            Button(action: {}, label: {
+                Label("Favorites", systemImage: "star")
+            })
+            Button(action: {}, label: {
+                Label("Copy", systemImage: "doc.on.doc")
+            })
+            Button(role: .destructive, action: {}, label: {
+                Label("Delete", systemImage: "trash")
+            })
+        }
+
     }
     
 }
@@ -77,6 +89,17 @@ struct MostRecentTile: View {
         .frame(width: screenWidth*scale.width, height: screenHeight*scale.height)
         .background(primaryColor)
         .foregroundColor(.white)
+        .contextMenu{
+            Button(action: {}, label: {
+                Label("Favorites", systemImage: "star")
+            })
+            Button(action: {}, label: {
+                Label("Copy", systemImage: "doc.on.doc")
+            })
+            Button(role: .destructive,action: {}, label: {
+                Label("Delete", systemImage: "trash")
+            })
+        }
     }
     
 }
