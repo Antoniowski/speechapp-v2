@@ -24,41 +24,55 @@ struct Tile: View {
         NavigationLink(destination: {
             SectionView(speech: speech)
         }, label: {
-            ZStack{
-                Image(systemName: speech.symbol)
-                    .font(.system(size: screenWidth*scale.imageSize))
-                    .padding(.bottom)
-                Text(speech.title)
-                    .font(.system(size: (screenWidth*scale.imageSize)/3))
-                    .fontWeight(.bold)
-                    .lineLimit(1)
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottomLeading)
-                    .padding()
-                if speech.isFavorite {
-                    Image(systemName: "star.fill")
-                    .font(.system(size: (screenWidth*scale.imageSize)/3))
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topTrailing)
-                    .padding(8)
-                }
-            }
-            .frame(width: screenWidth*scale.width, height: screenHeight*scale.height)
+            speechTile
         })
         .frame(width: screenWidth*scale.width, height: screenHeight*scale.height)
         .background(speech.isFavorite ? tertiaryColor : secondaryColor)
         .foregroundColor(.white)
         .cornerRadius(cornerRad)
-        .contextMenu{
-            Button(action: {}, label: {
-                Label("Favorites", systemImage: "star")
-            })
-            Button(action: {}, label: {
-                Label("Copy", systemImage: "doc.on.doc")
-            })
-            Button(role: .destructive, action: {}, label: {
-                Label("Delete", systemImage: "trash")
-            })
+        .contextMenu{menuOptions}
+    }
+    
+    @ViewBuilder
+    var speechTile: some View {
+        ZStack{
+            Image(systemName: speech.symbol)
+                .font(.system(size: screenWidth*scale.imageSize))
+                .padding(.bottom)
+            Text(speech.title)
+                .font(.system(size: (screenWidth*scale.imageSize)/3))
+                .fontWeight(.bold)
+                .lineLimit(1)
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottomLeading)
+                .padding()
+            if speech.isFavorite {
+                Image(systemName: "star.fill")
+                .font(.system(size: (screenWidth*scale.imageSize)/3))
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topTrailing)
+                .padding(8)
+            }
         }
-
+        .frame(width: screenWidth*scale.width, height: screenHeight*scale.height)
+    }
+    
+    @ViewBuilder
+    var menuOptions: some View {
+        Button(action: {
+            //do
+        },     label: {
+            Label("Favorites", systemImage: "star")
+        })
+        Button(action: {
+           //do
+        },     label: {
+            Label("Copy", systemImage: "doc.on.doc")
+        })
+        Button(role: .destructive,
+               action: {
+            //do
+        },     label: {
+            Label("Delete", systemImage: "trash")
+        })
     }
     
 }
@@ -73,94 +87,50 @@ struct MostRecentTile: View {
         NavigationLink(destination: {
             SectionView(speech: speech)
         }, label: {
-            ZStack{
-                Image(systemName: speech.symbol)
-                    .font(.system(size: screenWidth*scale.imageSize))
-                    .padding(.bottom)
-                Text(speech.title)
-                    .font(.system(size: (screenWidth*scale.imageSize)/3))
-                    .fontWeight(.bold)
-                    .lineLimit(1)
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottomLeading)
-                    .padding()
-            }
-            .frame(width: screenWidth*scale.width, height: screenHeight*scale.height)
+            speechTile
         })
         .frame(width: screenWidth*scale.width, height: screenHeight*scale.height)
         .background(primaryColor)
         .foregroundColor(.white)
-        .contextMenu{
-            Button(action: {}, label: {
-                Label("Favorites", systemImage: "star")
-            })
-            Button(action: {}, label: {
-                Label("Copy", systemImage: "doc.on.doc")
-            })
-            Button(role: .destructive,action: {}, label: {
-                Label("Delete", systemImage: "trash")
-            })
-        }
+        .contextMenu{menuOptions}
     }
     
-}
-
-struct MostRecentTile2: View{
-    var speech: Speech
-    var screenWidth: Double
-    var screenHeight: Double
-    var scale: Scale
-    
-    var body: some View{
-        TabView{
-            Button(action: {
-                //do
-            }, label: {
-                ZStack{
-                    Image(systemName: speech.symbol)
-                        .font(.system(size: screenWidth*scale.imageSize))
-                        .padding(.bottom)
-                    Text(speech.title)
-                        .font(.system(size: (screenWidth*scale.imageSize)/3))
-                        .fontWeight(.bold)
-                        .lineLimit(1)
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottomLeading)
-                        .padding()
-                }
-                .frame(width: screenWidth*scale.width, height: screenHeight*scale.height)
-            })
-            .frame(width: screenWidth*scale.width, height: screenHeight*scale.height)
-            .background(primaryColor)
-            .foregroundColor(.white)
-            
-            Button(action: {
-                //do
-            }, label: {
-                ZStack{
-                    Image(systemName: speech.symbol)
-                        .font(.system(size: screenWidth*scale.imageSize))
-                        .padding(.bottom)
-                    Text(speech.title)
-                        .font(.system(size: (screenWidth*scale.imageSize)/3))
-                        .fontWeight(.bold)
-                        .lineLimit(1)
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottomLeading)
-                        .padding()
-                }
-                .frame(width: screenWidth*scale.width, height: screenHeight*scale.height)
-            })
-            .frame(width: screenWidth*scale.width, height: screenHeight*scale.height)
-            .background(primaryColor)
-            .foregroundColor(.white)
-            
+    @ViewBuilder
+    var speechTile: some View{
+        ZStack{
+            Image(systemName: speech.symbol)
+                .font(.system(size: screenWidth*scale.imageSize))
+                .padding(.bottom)
+            Text(speech.title)
+                .font(.system(size: (screenWidth*scale.imageSize)/3))
+                .fontWeight(.bold)
+                .lineLimit(1)
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottomLeading)
+                .padding()
         }
         .frame(width: screenWidth*scale.width, height: screenHeight*scale.height)
-        .background(primaryColor)
-        .foregroundColor(.white)
-        .tabViewStyle(.page)
+    }
+    
+    @ViewBuilder
+    var menuOptions: some View {
+        Button(action: {
+            //do
+        },     label: {
+            Label("Favorites", systemImage: "star")
+        })
+        Button(action: {
+           //do
+        },     label: {
+            Label("Copy", systemImage: "doc.on.doc")
+        })
+        Button(role: .destructive,
+               action: {
+            //do
+        },     label: {
+            Label("Delete", systemImage: "trash")
+        })
     }
 }
-
-
 
 struct FlashcardTile: View{
     var symbol: String
@@ -240,9 +210,7 @@ struct FlashcardTile: View{
 struct FlashcardPreviewTile: View {
     @State private var showingSheet = false
     
-    var section: Section
-    var title: String
-    var symbol: String
+    var card: Flashcard
     var screenWidth: Double
     var screenHeight: Double
     var scale: Scale
@@ -252,39 +220,55 @@ struct FlashcardPreviewTile: View {
         Button(action: {
             showingSheet.toggle()
         }, label: {
-            VStack{
-                Image(systemName: symbol)
-                    .foregroundColor(.white)
-                    .font(.system(size: screenWidth*0.1))
-                    .frame(height: screenHeight/3, alignment: .bottom)
-                    .padding()
-                
-                Text(title)
-                    .frame(height: screenHeight/3, alignment: .top)
-                    .foregroundColor(.white)
-                    .font(.system(size: screenWidth*0.04, weight: .bold))
-                    .multilineTextAlignment(.center)
-            }
-            .padding()
+            flashcardPreview
         })
-            .frame(width: self.screenWidth*scale.width, height: self.screenHeight*scale.height, alignment: .center)
-            .background(section.color)
+            .frame(width: screenWidth*scale.width, height: screenHeight*scale.height, alignment: .center)
+            .background(card.color)
             .foregroundColor(.white)
             .cornerRadius(cornerRad)
-            .contextMenu{
-                Button(action: {}, label: {
-                    Label("Copy", systemImage: "doc.on.doc")
-                })
-                Button(role: .destructive,action: {}, label: {
-                    Label("Delete", systemImage: "trash")
-                })
-            }
+            .contextMenu{menuOptions}
             .sheet(isPresented: $showingSheet, content: {
-                EditFlashcard(title: title, description: "", symbol: "", color: section.color)
+                EditFlashcard(title: card.title, description: card.description, symbol: card.symbol, color: card.color, isShowing: self.$showingSheet)
             })
         
     }
+    
+    @ViewBuilder
+    var flashcardPreview: some View {
+        VStack{
+            Image(systemName: card.symbol)
+                .foregroundColor(.white)
+                .font(.system(size: screenWidth*0.1))
+                .frame(height: screenHeight/3, alignment: .bottom)
+                .padding()
+            
+            Text(card.title)
+                .frame(height: screenHeight/3, alignment: .top)
+                .foregroundColor(.white)
+                .font(.system(size: screenWidth*0.04, weight: .bold))
+                .multilineTextAlignment(.center)
+        }
+        .padding()
+    }
+    
+    @ViewBuilder
+    var menuOptions: some View {
+        Button(action: {
+            //do
+        },     label: {
+            Label("Create Copy", systemImage: "doc.on.doc")
+        })
+        Button(role: .destructive,
+               action: {
+            //do
+        },     label: {
+            Label("Delete", systemImage: "trash")
+        })
+    }
 }
+
+// UNUSED COMPONENTS
+
 
 struct InfoBox: View{
     var text: Text = Text("")
@@ -303,3 +287,58 @@ struct InfoBox: View{
     }
 }
 
+struct MostRecentTile2: View{
+    var speech: Speech
+    var screenWidth: Double
+    var screenHeight: Double
+    var scale: Scale
+    
+    var body: some View{
+        TabView{
+            Button(action: {
+                //do
+            }, label: {
+                ZStack{
+                    Image(systemName: speech.symbol)
+                        .font(.system(size: screenWidth*scale.imageSize))
+                        .padding(.bottom)
+                    Text(speech.title)
+                        .font(.system(size: (screenWidth*scale.imageSize)/3))
+                        .fontWeight(.bold)
+                        .lineLimit(1)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottomLeading)
+                        .padding()
+                }
+                .frame(width: screenWidth*scale.width, height: screenHeight*scale.height)
+            })
+            .frame(width: screenWidth*scale.width, height: screenHeight*scale.height)
+            .background(primaryColor)
+            .foregroundColor(.white)
+            
+            Button(action: {
+                //do
+            }, label: {
+                ZStack{
+                    Image(systemName: speech.symbol)
+                        .font(.system(size: screenWidth*scale.imageSize))
+                        .padding(.bottom)
+                    Text(speech.title)
+                        .font(.system(size: (screenWidth*scale.imageSize)/3))
+                        .fontWeight(.bold)
+                        .lineLimit(1)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottomLeading)
+                        .padding()
+                }
+                .frame(width: screenWidth*scale.width, height: screenHeight*scale.height)
+            })
+            .frame(width: screenWidth*scale.width, height: screenHeight*scale.height)
+            .background(primaryColor)
+            .foregroundColor(.white)
+            
+        }
+        .frame(width: screenWidth*scale.width, height: screenHeight*scale.height)
+        .background(primaryColor)
+        .foregroundColor(.white)
+        .tabViewStyle(.page)
+    }
+}

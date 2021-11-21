@@ -12,6 +12,7 @@ struct EditFlashcard: View{
     @State var description: String = ""
     var symbol: String = ""
     var color: Color
+    @Binding var isShowing: Bool
     
     var body: some View{
         NavigationView{
@@ -43,11 +44,9 @@ private extension EditFlashcard {
     var navigationBarTrailingItems: some View {
         HStack{
             Button(action: {
-                //do
+                self.isShowing.toggle()
             }, label: {
-                Button(action: {}, label: {
-                    Text("Save")
-                })
+                Text("Save")
             })
         }
         .padding()
