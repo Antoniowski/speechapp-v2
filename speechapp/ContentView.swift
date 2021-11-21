@@ -17,7 +17,7 @@ struct ContentView: View {
     var body: some View{
         NavigationView{
             TabView(selection: $tabSelection){
-                RecentsView1(dati: datas, searchText: $searchText)
+                RecentsView1(dati: datas, searchText: $searchText) //RECENT1 CHANGE TO DEFINITIVE
                     .tabItem{
                         Label("Recents", systemImage: "clock.fill")
                     }
