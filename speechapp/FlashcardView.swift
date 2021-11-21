@@ -1,6 +1,5 @@
 //
 //  FlashcardView.swift
-//  speechapp
 //
 //  Created by Antonio Romano on 15/11/21.
 //
@@ -8,19 +7,15 @@
 import SwiftUI
 
 struct FlashcardsView: View {
-//    TEST
-    var TEST = Text("State the top of your speech.\n\n Try to follow this questions:\n") + Text("**-What is the main topic of your speech?\n-Why should the audience listen to your speech?\n-What will your main points be?**")
-    
-    
+    @State private var revealDetails = false
     var gridLayout = Array(repeating: GridItem(.flexible()), count: 3)
     var section: Section
     
     var body: some View {
         GeometryReader { screenDim in
             VStack{
-                InfoBox(text: TEST)
-                    .frame(width: screenDim.size.width, height: screenDim.size.height/4, alignment: .topLeading)
-                    .background(Color(white: 0.95))
+//                InfoBox(text: info)
+                infoBox
                 ScrollView {
                     LazyVGrid(columns: gridLayout, spacing: screenDim.size.width*recentsScale.padding){
                         ForEach(section.cards, id: \.self) { card in
@@ -35,5 +30,48 @@ struct FlashcardsView: View {
         }
         
     }
-    
 }
+
+private extension FlashcardsView {
+    var info: [Text] {
+        switch section.type {
+        case .start:
+            return infoText[0]
+        case .mid:
+            return infoText[1]
+        case .end:
+            return infoText[2]
+        }
+    }
+    
+    @ViewBuilder
+    var infoBox: some View {
+        DisclosureGroup(isExpanded: $revealDetails,
+                        content: { info[1].padding() },
+                        label: {
+            HStack{
+                info[0]
+                    .font(.headline)
+                    .foregroundColor(.primary)
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                    .multilineTextAlignment(.leading)
+                Button {
+                    revealDetails.toggle()
+                } label: {
+                    Image(systemName: "info.circle")
+                }
+                .padding()
+                .font(.title2)
+            }
+        })
+            .padding()
+            .background(.quaternary)
+    }
+}
+
+//struct Preview: PreviewProvider{
+//    static var previews: some View{
+//        FlashcardsView(section: mySpeeches[0].sections[0])
+//            .accentColor(appAccentColor)
+//    }
+//}

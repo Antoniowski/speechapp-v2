@@ -24,7 +24,9 @@ struct FavoritesView: View{
             }
         }
     }
-    
+}
+
+private extension FavoritesView {
     var searchResults: [Speech] {
         if searchText.isEmpty {
             return mySpeeches.filter{ $0.isFavorite == true }

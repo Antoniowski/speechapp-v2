@@ -29,7 +29,9 @@ struct RecentsView: View {
             }
         }
     }
-    
+}
+
+private extension RecentsView {
     var searchResults: [Speech] {
         if searchText.isEmpty {
             return mySpeeches.filter{ $0 != mySpeeches[0] }

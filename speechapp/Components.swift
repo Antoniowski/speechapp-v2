@@ -295,9 +295,11 @@ struct InfoBox: View{
             Image(systemName: "info.circle")
                 .font(.system(size: 25))
                 .foregroundColor(appAccentColor)
-                .frame(minWidth: 30, maxWidth: 30, minHeight: 0, maxHeight: .infinity, alignment: .top)
+                .frame(alignment: .top)
         }
         .padding()
+        .frame(minWidth: 0, maxWidth: .infinity, alignment: .top)
+        .background(.quaternary)
     }
 }
 

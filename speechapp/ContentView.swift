@@ -30,7 +30,6 @@ struct ContentView: View {
             }
             .navigationTitle(navigationBarTitle)
             .navigationBarTitleDisplayMode(.automatic)
-            .navigationBarHidden(navigationBarHidden)
             .navigationBarItems(trailing: navigationBarTrailingItems)
             .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
         }.accentColor(appAccentColor)
@@ -40,10 +39,6 @@ struct ContentView: View {
 private extension ContentView {
     var navigationBarTitle: String {
         tabSelection == 0 ? "Recents" : "Favorites"
-    }
-    
-    var navigationBarHidden: Bool {
-        tabSelection == 2
     }
     
     @ViewBuilder
@@ -59,9 +54,3 @@ private extension ContentView {
         }
     }
 }
-
-//struct Preview: PreviewProvider{
-//    static var previews: some View{
-//        ContentView(datas: dati)
-//    }
-//}
