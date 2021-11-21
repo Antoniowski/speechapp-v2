@@ -238,6 +238,8 @@ struct FlashcardTile: View{
 
 
 struct FlashcardPreviewTile: View {
+    @State private var showingSheet = false
+    
     var section: Section
     var title: String
     var symbol: String
@@ -245,8 +247,11 @@ struct FlashcardPreviewTile: View {
     var screenHeight: Double
     var scale: Scale
     
+    
     var body: some View {
-        NavigationLink(destination: {}, label: {
+        Button(action: {
+            showingSheet.toggle()
+        }, label: {
             VStack{
                 Image(systemName: symbol)
                     .foregroundColor(.white)
@@ -274,6 +279,9 @@ struct FlashcardPreviewTile: View {
                     Label("Delete", systemImage: "trash")
                 })
             }
+            .sheet(isPresented: $showingSheet, content: {
+                EditFlashcard(title: title, description: "", symbol: "", color: section.color)
+            })
         
     }
 }
