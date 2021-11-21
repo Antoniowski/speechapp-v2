@@ -227,9 +227,10 @@ struct FlashcardPreviewTile: View {
             .foregroundColor(.white)
             .cornerRadius(cornerRad)
             .contextMenu{menuOptions}
-            .sheet(isPresented: $showingSheet, content: {
-                EditFlashcard(title: card.title, description: card.description, symbol: card.symbol, color: card.color, isShowing: self.$showingSheet)
-            })
+            .sheet(isPresented: $showingSheet) {
+                EditFlashcard(title: card.title, description: card.description, symbol: card.symbol, color: card.color)
+                    .accentColor(appAccentColor)
+            }
         
     }
     

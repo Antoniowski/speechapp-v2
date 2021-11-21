@@ -10,12 +10,13 @@
 import SwiftUI
 
 struct Presentation: View{
+    var cards: [Flashcard]
     
     var body: some View{
         GeometryReader{
             screenSize in
             TabView{
-                ForEach(mySpeeches[0].flashcards, id: \.self){ flashcard in
+                ForEach(cards, id: \.self){ flashcard in
                     FlashcardTile(symbol: flashcard.symbol, title: flashcard.title, color: flashcard.color, screenWidth: screenSize.size.width, screenHeight: screenSize.size.height, scale: flashcardScale, description: flashcard.description, front: true)
                 }
                 .frame(height: screenSize.size.height)
@@ -27,15 +28,20 @@ struct Presentation: View{
 }
 
 struct PresentationView: View{
+    @Environment(\.dismiss) private var dismiss
+    
+    var speech: Speech
+    
     var body: some View{
         NavigationView{
             //BACKGROUND
             ZStack{
                 Color(white: 0, opacity: 0.5)
                     .ignoresSafeArea()
-                Presentation()
-                    .navigationTitle("Name")
+                Presentation(cards: speech.getAllFlashcards())
+                    .navigationTitle(speech.title)
                     .navigationBarTitleDisplayMode(.inline)
+                    .navigationBarItems(trailing:navigationBarTrailingItems)
             }
             
         }
@@ -43,11 +49,21 @@ struct PresentationView: View{
     }
 }
 
-struct Preview2: PreviewProvider{
-    static var previews: some View{
-        PresentationView()
+private extension PresentationView {
+    
+    @ViewBuilder
+    var navigationBarTrailingItems: some View {
+        HStack{
+            Button(action: {
+                dismiss()
+            }, label: {
+                Text("Done")
+            })
+        }
+        .padding()
     }
 }
+
 
 
 

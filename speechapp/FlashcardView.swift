@@ -65,13 +65,13 @@ private extension FlashcardsView {
             }
         })
             .padding()
-            .background(.quaternary)
+            .background(.bar)
     }
 }
 
-//struct Preview: PreviewProvider{
-//    static var previews: some View{
-//        FlashcardsView(section: mySpeeches[0].sections[0])
-//            .accentColor(appAccentColor)
-//    }
-//}
+struct Preview: PreviewProvider{
+    static var previews: some View{
+        FlashcardsView(section: mySpeeches[0].sections[0])
+            .accentColor(appAccentColor)
+    }
+}

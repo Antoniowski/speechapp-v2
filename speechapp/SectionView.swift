@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SectionView: View {
-    
+    @State var isPresented = false
     var speech: Speech
 
     var body: some View {
@@ -32,11 +32,15 @@ private extension SectionView {
     @ViewBuilder
     var navigationBarTrailingItems: some View {
         HStack{
-            NavigationLink(destination: {
-                PresentationView()
+            Button(action: {
+                isPresented.toggle()
             }, label: {
                 ButtonNavBar(name: "", symbol: "play.fill")
             })
+                .fullScreenCover(isPresented: $isPresented) {
+                    PresentationView(speech: speech)
+                        .accentColor(appAccentColor)
+                }
             Button(action: {
                 //do
             }, label: {
