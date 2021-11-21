@@ -1,8 +1,8 @@
 
 import SwiftUI
 
-class DataHandler{
-    private var contenitore: [Speech]
+class DataHandler: ObservableObject{
+    @Published private var contenitore: [Speech]
     
     init(){
         self.contenitore = []
@@ -24,4 +24,4 @@ class DataHandler{
 }
 
 //TEST
-var dati = DataHandler(speeches: mySpeeches)
+//var dati = DataHandler(speeches: mySpeeches)

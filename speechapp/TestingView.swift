@@ -3,6 +3,7 @@
 import SwiftUI
 
 struct RecentsView1: View {
+    @ObservedObject var dati: DataHandler 
     @Binding var searchText: String
     var gridLayout = Array(repeating: GridItem(.flexible()), count: 3)
     

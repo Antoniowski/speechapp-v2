@@ -9,6 +9,7 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    @ObservedObject var datas: DataHandler
     
     @State private var tabSelection = 0
     @State private var searchText = ""
@@ -16,7 +17,7 @@ struct ContentView: View {
     var body: some View{
         NavigationView{
             TabView(selection: $tabSelection){
-                RecentsView(searchText: $searchText)
+                RecentsView1(dati: datas, searchText: $searchText)
                     .tabItem{
                         Label("Recents", systemImage: "clock.fill")
                     }
@@ -59,8 +60,8 @@ private extension ContentView {
     }
 }
 
-struct Preview: PreviewProvider{
-    static var previews: some View{
-        ContentView()
-    }
-}
+//struct Preview: PreviewProvider{
+//    static var previews: some View{
+//        ContentView(datas: dati)
+//    }
+//}
