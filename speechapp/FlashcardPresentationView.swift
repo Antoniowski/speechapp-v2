@@ -28,7 +28,6 @@ struct Presentation: View{
 
 struct PresentationView: View{
     @Environment(\.dismiss) private var dismiss
-    
     var speech: Speech
     
     var body: some View{

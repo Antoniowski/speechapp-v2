@@ -18,7 +18,7 @@ struct Tile: View {
     
     var body: some View {
         NavigationLink(destination: {
-            SectionView(speech: speech)
+            PartsView(speech: speech)
         }, label: {
             speechTile
         })
@@ -81,7 +81,7 @@ struct MostRecentTile: View {
     
     var body: some View {
         NavigationLink(destination: {
-            SectionView(speech: speech)
+            PartsView(speech: speech)
         }, label: {
             speechTile
         })
