@@ -7,17 +7,17 @@
 
 import SwiftUI
 
-struct SectionView: View {
+struct PartsView: View {
     @State var isPresented = false
     var speech: Speech
 
     var body: some View {
         List{
-            ForEach(speech.sections, id: \.self){ section in
+            ForEach(speech.parts, id: \.self){ part in
                 NavigationLink(destination: {
-                    FlashcardsView(section: section)
+                    FlashcardsView(part: part)
                 }, label: {
-                    ButtonSectionStyle(section: section)
+                    ButtonPartsStyle(part: part)
                 })
             }
         }
@@ -27,7 +27,7 @@ struct SectionView: View {
     }
 }
 
-private extension SectionView {
+private extension PartsView {
     
     @ViewBuilder
     var navigationBarTrailingItems: some View {
@@ -51,14 +51,14 @@ private extension SectionView {
 }
 
 
-struct ButtonSectionStyle: View{
-    var section: Section
+struct ButtonPartsStyle: View{
+    var part: Part
     
     var body: some View{
             VStack(alignment:.leading){
-                Text(section.title)
+                Text(part.title)
                     .bold()
-                Text(section.subtitle)
+                Text(part.subtitle)
                     .foregroundColor(.secondary)
             }.padding(.vertical)
     }

@@ -35,11 +35,11 @@ struct OnboardingView: View {
             }
     }
  
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        OnboardingView()
-            .previewDevice("iPhone 11")
-            .preferredColorScheme(.light)
-        }
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        OnboardingView()
+//            .previewDevice("iPhone 11")
+//            .preferredColorScheme(.light)
+//        }
+//    }
+//}

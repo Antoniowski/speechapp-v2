@@ -9,7 +9,7 @@ import SwiftUI
 struct FlashcardsView: View {
     @State private var revealDetails = false
     var gridLayout = Array(repeating: GridItem(.flexible()), count: 3)
-    var section: Section
+    var part: Part
     
     var body: some View {
         GeometryReader { screenDim in
@@ -17,13 +17,13 @@ struct FlashcardsView: View {
                 infoBox
                 ScrollView {
                     LazyVGrid(columns: gridLayout, spacing: screenDim.size.width*recentsScale.padding){
-                        ForEach(section.cards, id: \.self) { card in
+                        ForEach(part.cards, id: \.self) { card in
                             FlashcardPreviewTile(card: card, screenWidth: screenDim.size.width, screenHeight: screenDim.size.height, scale: recentsScale)
                         }
                         
                     }.padding()
                 }
-                .navigationTitle(section.title)
+                .navigationTitle(part.title)
                 .navigationBarTitleDisplayMode(.inline)
             }
         }
@@ -33,7 +33,7 @@ struct FlashcardsView: View {
 
 private extension FlashcardsView {
     var info: [Text] {
-        switch section.type {
+        switch part.type {
         case .start:
             return infoText[0]
         case .mid:
@@ -70,7 +70,7 @@ private extension FlashcardsView {
 
 //struct Preview: PreviewProvider{
 //    static var previews: some View{
-//        FlashcardsView(section: mySpeeches[0].sections[0])
+//        FlashcardsView(part: mySpeeches[0].parts[0])
 //            .accentColor(appAccentColor)
 //    }
 //}

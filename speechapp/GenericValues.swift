@@ -31,7 +31,7 @@ let tertiaryColor: Color = Color("appTertiary")
 
 
 // Data Handling
-enum SectionType {
+enum PartType {
     case start, mid, end
 }
 
@@ -49,14 +49,14 @@ struct Flashcard: Hashable{
     }
 }
 
-struct Section: Hashable {
+struct Part: Hashable {
     var title: String
     var subtitle: String
-    var type: SectionType
+    var type: PartType
     var color: Color
     var cards: [Flashcard]
     
-    init(title: String, subtitle: String = "", type: SectionType, color: Color, cards: [Flashcard] = []) {
+    init(title: String, subtitle: String = "", type: PartType, color: Color, cards: [Flashcard] = []) {
         self.title = title
         self.subtitle = subtitle
         self.type = type
@@ -69,26 +69,26 @@ struct Speech: Hashable{
     var title: String
     var symbol: String
     var isFavorite: Bool
-    var sections: [Section]
+    var parts: [Part]
     var flashcards: [Flashcard] = []
     
-    init(title: String, symbol: String, isFavorite: Bool = false, sections: [Section] = []){
+    init(title: String, symbol: String, isFavorite: Bool = false, parts: [Part] = []){
         self.title = title
         self.symbol = symbol
         self.isFavorite = isFavorite
-        self.sections = sections
+        self.parts = parts
 //        DA VALUTARE: vedi funzione per sostituto
         var f = [Flashcard]()
-        for section in sections {
-            f.append(contentsOf: section.cards)
+        for part in parts {
+            f.append(contentsOf: part.cards)
         }
         self.flashcards = f
     }
     
     func getAllFlashcards() -> [Flashcard] {
         var f = [Flashcard]()
-        for section in sections {
-            f.append(contentsOf: section.cards)
+        for part in parts {
+            f.append(contentsOf: part.cards)
         }
         return f
     }
@@ -102,54 +102,54 @@ let infoText = [
 
 // Example Data
 
-var genIntroduction = Section(title: "Introduction", subtitle: "Where it started", type: .start, color: .orange, cards: [
+var genIntroduction = Part(title: "Introduction", subtitle: "Where it started", type: .start, color: .orange, cards: [
     Flashcard(title: "Intro 1", symbol: "app", color: .orange, description: "Lorem ipsum"),
     Flashcard(title: "Intro 2", symbol: "app", color: .orange, description: "Lorem ipsum")
 ])
 
-var genBody = Section(title: "Body", subtitle: "How we did it", type: .mid, color: .green, cards: [
+var genBody = Part(title: "Body", subtitle: "How we did it", type: .mid, color: .green, cards: [
     Flashcard(title: "Body 1", symbol: "app", color: .green, description: "Lorem ipsum"),
     Flashcard(title: "Body 2", symbol: "app", color: .green, description: "Lorem ipsum"),
     Flashcard(title: "Body 3", symbol: "app", color: .green, description: "Lorem ipsum")
 ])
 
-var genConclusion = Section(title: "Conclusion", subtitle: "We hope you like it!", type: .end, color: .blue, cards: [
+var genConclusion = Part(title: "Conclusion", subtitle: "We hope you like it!", type: .end, color: .blue, cards: [
     Flashcard(title: "Conclusion 1", symbol: "app", color: .blue, description: "Lorem ipsum"),
     Flashcard(title: "Conclusion 2", symbol: "app", color: .blue, description: "Lorem ipsum")
 ])
 
-var introduction = Section(title: "Introduction", subtitle: "Where it started", type: .start, color: .orange, cards: [
+var introduction = Part(title: "Introduction", subtitle: "Where it started", type: .start, color: .orange, cards: [
     Flashcard(title: "The Big Idea", symbol: "apps.iphone", color: .orange, description: "Loreipsumdashgdatydajdgayudbadyusafuyashfbyugsdafuygsafygasfgsafyasgfasfasgfcayfascasfasub"),
     Flashcard(title: "App Concept", symbol: "speaker.circle", color: .orange, description: "Loreipsumdashgdatydajdgayudbadyusafuyashfbyugsdafuygsafygasfgsafyasgfasfasgfcayfascasfasub")
 ])
 
-var body = Section(title: "Body", subtitle: "How we did it", type: .mid, color: .green, cards: [
+var body = Part(title: "Body", subtitle: "How we did it", type: .mid, color: .green, cards: [
     Flashcard(title: "Solution Concept", symbol: "bag", color: .green, description: "Lorem ipsum"),
     Flashcard(title: "App Development", symbol: "app.dashed", color: .green, description: "Lorem ipsum"),
     Flashcard(title: "Bug Fixes", symbol: "bandage", color: .green, description: "Lorem ipsum")
 ])
 
-var conclusion = Section(title: "Conclusion", subtitle: "We hope you like it!", type: .end, color: .blue, cards: [
+var conclusion = Part(title: "Conclusion", subtitle: "We hope you like it!", type: .end, color: .blue, cards: [
     Flashcard(title: "App Store", symbol: "bag", color: .blue, description: "Lorem ipsum"),
     Flashcard(title: "Goodbye", symbol: "hand.wave", color: .blue, description: "Lorem ipsum")
 ])
 
-var sections = [genIntroduction, genBody, genConclusion]
+var parts = [genIntroduction, genBody, genConclusion]
 
 var mySpeeches = [
-    Speech(title: "My App", symbol: "apps.iphone", isFavorite: true, sections: [introduction, body, conclusion]),
-    Speech(title: "Electricity", symbol: "bolt.fill", isFavorite: true, sections: sections),
-    Speech(title: "The power of 3d", symbol: "rotate.3d", sections: sections),
-    Speech(title: "Ecology", symbol: "leaf.fill", sections: sections),
-    Speech(title: "Health", symbol: "facemask.fill", sections: sections),
-    Speech(title: "Bikes", symbol: "bicycle", sections: sections),
-    Speech(title: "Think creatively", symbol: "brain.head.profile", isFavorite: true, sections: sections),
-    Speech(title: "Electric Cars", symbol: "car.fill", isFavorite: true, sections: sections),
-    Speech(title: "Music and life", symbol: "music.note", sections: sections),
-    Speech(title: "Save the planet", symbol: "globe.europe.africa.fill", isFavorite: true, sections: sections),
-    Speech(title: "The Water Cycle", symbol: "drop.fill", sections: sections),
-    Speech(title: "My Favourite Book", symbol: "book.closed.fill", sections: sections),
-    Speech(title: "User Experience", symbol: "person.fill", isFavorite: true, sections: sections),
-    Speech(title: "Sleeping well", symbol: "bed.double.fill", isFavorite: true, sections: sections),
-    Speech(title: "Fairytales", symbol: "book.fill")
+    Speech(title: "My App", symbol: "apps.iphone", isFavorite: true, parts: [introduction, body, conclusion]),
+    Speech(title: "Electricity", symbol: "bolt.fill", isFavorite: true, parts: parts),
+    Speech(title: "The power of 3d", symbol: "rotate.3d", parts: parts),
+    Speech(title: "Ecology", symbol: "leaf.fill", parts: parts),
+    Speech(title: "Health", symbol: "facemask.fill", parts: parts),
+    Speech(title: "Bikes", symbol: "bicycle", parts: parts),
+    Speech(title: "Think creatively", symbol: "brain.head.profile", isFavorite: true, parts: parts),
+    Speech(title: "Electric Cars", symbol: "car.fill", isFavorite: true, parts: parts),
+    Speech(title: "Music and life", symbol: "music.note", parts: parts),
+    Speech(title: "Save the planet", symbol: "globe.europe.africa.fill", isFavorite: true, parts: parts),
+    Speech(title: "The Water Cycle", symbol: "drop.fill", parts: parts),
+    Speech(title: "My Favourite Book", symbol: "book.closed.fill", parts: parts),
+    Speech(title: "User Experience", symbol: "person.fill", isFavorite: true, parts: parts),
+    Speech(title: "Sleeping well", symbol: "bed.double.fill", isFavorite: true, parts: parts),
+    Speech(title: "Fairytales", symbol: "book.fill", parts: parts)
 ]
