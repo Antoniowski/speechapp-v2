@@ -300,7 +300,6 @@ struct FlashcardPreviewTile: View {
                     .accentColor(appAccentColor)
                     .navigationTitle("Edit")
                 }
-                .padding(.top)
             }
         
     }

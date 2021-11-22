@@ -29,7 +29,7 @@ struct FavoritesView: View {
         if searchText.isEmpty {
             return data.GetAllSpechees().filter{ $0.isFavorite == true }
         } else {
-            return data.GetAllSpechees().filter{ $0.title.contains(searchText) }
+            return data.GetAllSpechees().filter{ $0.title.lowercased().contains(searchText.lowercased()) }
         }
     }
 }

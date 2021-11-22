@@ -69,7 +69,7 @@ struct RecentsViewDeprecated: View {
         if searchText.isEmpty {
             return mySpeeches.filter{ $0 != mySpeeches[0] }
         } else {
-            return mySpeeches.filter{ $0.title.contains(searchText) }
+            return mySpeeches.filter{ $0.title.lowercased().contains(searchText.lowercased()) }
         }
     }
 }
