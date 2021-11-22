@@ -13,6 +13,7 @@ import CoreData
 struct ContentView: View {
     @ObservedObject var data: DataHandler
     @State private var searchText = ""
+    @State private var showOnboarding = false
     
     var body: some View{
         TabView{
@@ -53,18 +54,23 @@ private extension ContentView {
     var navigationBarTrailingItems: some View {
         HStack {
             Button(action: {
-                //do
+                showOnboarding.toggle()
             }, label: {
                 Image(systemName: "plus")
             })
+                .sheet(isPresented: $showOnboarding) {
+                    OnboardingView()
+                        .accentColor(appAccentColor)
+                }
         }
     }
 }
 
 // preview
 
-//struct Presentation_Preview: PreviewProvider {
-//    static var previews: some View {
-//        ContentView(data: DataHandler(speeches: mySpeeches))
-//    }
-//}
+struct Content_Preview: PreviewProvider {
+    static var previews: some View {
+        ContentView(data: DataHandler(speeches: mySpeeches))
+            
+    }
+}

@@ -8,38 +8,46 @@
 import SwiftUI
 
 struct OnboardingView: View {
+    @Environment(\.dismiss) private var dismiss
+    @State private var showNext = false
+    
     var body: some View {
     
   VStack {
             Image(systemName:"music.mic")
-                .padding(.top, 180.0)
-                .padding(.bottom, 20)
-                .font(.system(size: 150.0))
-                .foregroundColor(.black)
+                .padding(.top)
+                .padding()
+                .font(.system(size: UIScreen.main.bounds.height*0.20))
+                .foregroundColor(primaryColor)
             Text("Creating a beautiful speech")
                 .font(.largeTitle)
                 .fontWeight(.bold)
-                .multilineTextAlignment(.center)
-            Text("Creating a beautiful speech")
-                .fontWeight(.thin)
-                .padding(.bottom, 200.0)
-           Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                .padding()
+            Text("In writing a speech, you have two objectives:\nMaking a good impression and leaving your audience with two or three takeaways.\nThe rest is just entertainment. ")
+                .lineSpacing(5)
+                .padding([.leading, .bottom, .trailing])
+            Button(action: {
+                showNext.toggle()
+            }) {
                 Text("Continue")
-                    .fontWeight(.bold)
                     .padding()
-                    .background(Color.blue)
-                    .cornerRadius(10)
-                    .foregroundColor(.white)
-                    
+                    .frame(width: UIScreen.main.bounds.width*0.5)
                    }
+            .padding()
+            .buttonStyle(.borderedProminent)
+           .sheet(isPresented: $showNext){
+               onboarding_2()
+                   .accentColor(appAccentColor)
+           }
             }
+            .multilineTextAlignment(.center)
     }
+}
  
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        OnboardingView()
-//            .previewDevice("iPhone 11")
-//            .preferredColorScheme(.light)
-//        }
-//    }
-//}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        OnboardingView()
+            .previewDevice("iPhone 11")
+            .accentColor(appAccentColor)
+    }
+}

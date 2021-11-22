@@ -60,9 +60,10 @@ struct PresentationView: View{
 }
 
 
-//struct Presentation_Preview: PreviewProvider {
-//    static var previews: some View {
-//        PresentationView(speech: mySpeeches[0])
-//    }
-//}
+struct Presentation_Preview: PreviewProvider {
+    static var previews: some View {
+        PresentationView(speech: mySpeeches[0])
+            
+    }
+}
 
