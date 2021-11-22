@@ -295,8 +295,11 @@ struct FlashcardPreviewTile: View {
             .cornerRadius(cornerRad)
             .contextMenu{menuOptions}
             .sheet(isPresented: $showingSheet) {
+                NavigationView{
                 EditFlashcard(title: card.title, description: card.description, symbol: card.symbol, color: card.color)
                     .accentColor(appAccentColor)
+                    .navigationTitle("Edit")
+                }
             }
         
     }

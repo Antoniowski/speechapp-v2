@@ -43,11 +43,11 @@ struct OnboardingView: View {
             .multilineTextAlignment(.center)
     }
 }
- 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        OnboardingView()
-            .previewDevice("iPhone 11")
-            .accentColor(appAccentColor)
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        OnboardingView()
+//            .previewDevice("iPhone 11")
+//            .preferredColorScheme(.light)
+//        }
+//    }
+//}
