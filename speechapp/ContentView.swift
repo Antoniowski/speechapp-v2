@@ -36,8 +36,8 @@ private extension ContentView {
             RecentsView(data: data, searchText: $searchText)
                 .navigationTitle("Recents")
                 .navigationBarTitleDisplayMode(.automatic)
-                .navigationBarItems(trailing: navigationBarTrailingItems)
                 .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
+                .toolbar{ navigationBarItems }
         }
     }
     var favoritesView: some View {
@@ -45,13 +45,13 @@ private extension ContentView {
             FavoritesView(data: data, searchText: $searchText)
                 .navigationTitle("Favorites")
                 .navigationBarTitleDisplayMode(.automatic)
-                .navigationBarItems(trailing: navigationBarTrailingItems)
                 .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
+                .toolbar{ navigationBarItems }
         }
     }
     
     @ViewBuilder
-    var navigationBarTrailingItems: some View {
+    var navigationBarItems: some View {
         HStack {
             Button(action: {
                 showOnboarding.toggle()
@@ -59,8 +59,7 @@ private extension ContentView {
                 Image(systemName: "plus")
             })
                 .sheet(isPresented: $showOnboarding) {
-                    OnboardingView()
-                        .accentColor(appAccentColor)
+//                    do
                 }
         }
     }

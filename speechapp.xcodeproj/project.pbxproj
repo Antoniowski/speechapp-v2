@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		2E40B98827433E36002231D2 /* PartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E40B98727433E36002231D2 /* PartsView.swift */; };
 		2E79A36D274BE1D0009747AB /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E79A36C274BE1D0009747AB /* Launch Screen.storyboard */; };
+		2E79A370274BF6DA009747AB /* OnboardingComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E79A36F274BF6DA009747AB /* OnboardingComponents.swift */; };
+		2E79A372274C4131009747AB /* PageOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E79A371274C4131009747AB /* PageOne.swift */; };
+		2E79A374274C477E009747AB /* PageThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E79A373274C477E009747AB /* PageThree.swift */; };
+		2E79A376274C4A4B009747AB /* FirstSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E79A375274C4A4B009747AB /* FirstSpeech.swift */; };
 		2EFEF420274312A400F2FA98 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFEF41F274312A400F2FA98 /* Components.swift */; };
 		2EFEF4222743256600F2FA98 /* RecentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFEF4212743256600F2FA98 /* RecentsView.swift */; };
 		6A24B5C72747DB3A000AA8A7 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A24B5C62747DB3A000AA8A7 /* DataHandler.swift */; };
@@ -27,7 +31,7 @@
 		6A8165732742ADA30017C271 /* FlashcardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8165722742ADA30017C271 /* FlashcardView.swift */; };
 		6A8165752742ADB80017C271 /* FlashcardPresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8165742742ADB80017C271 /* FlashcardPresentationView.swift */; };
 		6A92A6D62749B81B0045EA1A /* EditFlashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A92A6D52749B81B0045EA1A /* EditFlashcard.swift */; };
-		A30CD9E6274417B700A04B76 /* onboarding_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30CD9E5274417B700A04B76 /* onboarding_2.swift */; };
+		A30CD9E6274417B700A04B76 /* PageTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30CD9E5274417B700A04B76 /* PageTwo.swift */; };
 		A30E34032744084A00C56E8C /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30E34022744084A00C56E8C /* OnboardingView.swift */; };
 		A3926FFB2745A5A8005C8021 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3926FFA2745A5A8005C8021 /* Colors.xcassets */; };
 /* End PBXBuildFile section */
@@ -52,6 +56,10 @@
 /* Begin PBXFileReference section */
 		2E40B98727433E36002231D2 /* PartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartsView.swift; sourceTree = "<group>"; };
 		2E79A36C274BE1D0009747AB /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		2E79A36F274BF6DA009747AB /* OnboardingComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingComponents.swift; sourceTree = "<group>"; };
+		2E79A371274C4131009747AB /* PageOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageOne.swift; sourceTree = "<group>"; };
+		2E79A373274C477E009747AB /* PageThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageThree.swift; sourceTree = "<group>"; };
+		2E79A375274C4A4B009747AB /* FirstSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSpeech.swift; sourceTree = "<group>"; };
 		2EFEF41F274312A400F2FA98 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		2EFEF4212743256600F2FA98 /* RecentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsView.swift; sourceTree = "<group>"; };
 		6A24B5C62747DB3A000AA8A7 /* DataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
@@ -73,7 +81,7 @@
 		6A8165722742ADA30017C271 /* FlashcardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardView.swift; sourceTree = "<group>"; };
 		6A8165742742ADB80017C271 /* FlashcardPresentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardPresentationView.swift; sourceTree = "<group>"; };
 		6A92A6D52749B81B0045EA1A /* EditFlashcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFlashcard.swift; sourceTree = "<group>"; };
-		A30CD9E5274417B700A04B76 /* onboarding_2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = onboarding_2.swift; sourceTree = "<group>"; };
+		A30CD9E5274417B700A04B76 /* PageTwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageTwo.swift; sourceTree = "<group>"; };
 		A30E34022744084A00C56E8C /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		A3926FFA2745A5A8005C8021 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,6 +111,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E79A36E274BF6BD009747AB /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				A30E34022744084A00C56E8C /* OnboardingView.swift */,
+				2E79A371274C4131009747AB /* PageOne.swift */,
+				A30CD9E5274417B700A04B76 /* PageTwo.swift */,
+				2E79A373274C477E009747AB /* PageThree.swift */,
+				2E79A375274C4A4B009747AB /* FirstSpeech.swift */,
+				2E79A36F274BF6DA009747AB /* OnboardingComponents.swift */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
 		6A81653127429B3E0017C271 = {
 			isa = PBXGroup;
 			children = (
@@ -136,8 +157,7 @@
 				6A8165742742ADB80017C271 /* FlashcardPresentationView.swift */,
 				6A8165702742A6380017C271 /* GenericValues.swift */,
 				2EFEF41F274312A400F2FA98 /* Components.swift */,
-				A30E34022744084A00C56E8C /* OnboardingView.swift */,
-				A30CD9E5274417B700A04B76 /* onboarding_2.swift */,
+				2E79A36E274BF6BD009747AB /* OnBoarding */,
 				6A24B5C62747DB3A000AA8A7 /* DataHandler.swift */,
 				6A24B5C82747F0E1000AA8A7 /* TestingView.swift */,
 				6A92A6D52749B81B0045EA1A /* EditFlashcard.swift */,
@@ -313,13 +333,17 @@
 				6A81654027429B3E0017C271 /* ContentView.swift in Sources */,
 				6A8165712742A6380017C271 /* GenericValues.swift in Sources */,
 				6A81653E27429B3E0017C271 /* speechappApp.swift in Sources */,
+				2E79A370274BF6DA009747AB /* OnboardingComponents.swift in Sources */,
 				6A8165732742ADA30017C271 /* FlashcardView.swift in Sources */,
-				A30CD9E6274417B700A04B76 /* onboarding_2.swift in Sources */,
+				A30CD9E6274417B700A04B76 /* PageTwo.swift in Sources */,
+				2E79A372274C4131009747AB /* PageOne.swift in Sources */,
 				6A24B5C72747DB3A000AA8A7 /* DataHandler.swift in Sources */,
 				2EFEF4222743256600F2FA98 /* RecentsView.swift in Sources */,
 				2EFEF420274312A400F2FA98 /* Components.swift in Sources */,
 				6A24B5C92747F0E1000AA8A7 /* TestingView.swift in Sources */,
 				A30E34032744084A00C56E8C /* OnboardingView.swift in Sources */,
+				2E79A374274C477E009747AB /* PageThree.swift in Sources */,
+				2E79A376274C4A4B009747AB /* FirstSpeech.swift in Sources */,
 				6A81654A27429B3F0017C271 /* speechapp.xcdatamodeld in Sources */,
 				2E40B98827433E36002231D2 /* PartsView.swift in Sources */,
 				6A92A6D62749B81B0045EA1A /* EditFlashcard.swift in Sources */,
@@ -483,7 +507,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"speechapp/Preview Content\"";
-				DEVELOPMENT_TEAM = YT6T4953M8;
+				DEVELOPMENT_TEAM = 4ZJ932X33L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -513,7 +537,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"speechapp/Preview Content\"";
-				DEVELOPMENT_TEAM = YT6T4953M8;
+				DEVELOPMENT_TEAM = 4ZJ932X33L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

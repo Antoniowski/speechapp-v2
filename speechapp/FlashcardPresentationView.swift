@@ -39,7 +39,7 @@ struct PresentationView: View{
                 Presentation(cards: speech.getAllFlashcards())
                     .navigationTitle(speech.title)
                     .navigationBarTitleDisplayMode(.inline)
-                    .navigationBarItems(trailing:navigationBarTrailingItems)
+                    .toolbar{navigationBarItems}
             }
             
         }
@@ -47,7 +47,7 @@ struct PresentationView: View{
     }
     
     @ViewBuilder
-    var navigationBarTrailingItems: some View {
+    var navigationBarItems: some View {
         HStack{
             Button(action: {
                 dismiss()

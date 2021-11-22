@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PartsView: View {
     @State var isPresented = false
+    @State var showCreation = false
     var speech: Speech
 
     var body: some View {
@@ -42,10 +43,13 @@ private extension PartsView {
                         .accentColor(appAccentColor)
                 }
             Button(action: {
-//            .sheet(isPresented:) {}
+                showCreation.toggle()
             }, label: {
                 Image(systemName: "plus")
             })
+                .sheet(isPresented: $showCreation) {
+//                    do
+                }
         }
     }
 }
