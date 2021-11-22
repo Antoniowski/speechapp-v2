@@ -9,13 +9,13 @@ import SwiftUI
 
 @main
 struct speechappApp: App {
-    @StateObject var dati = DataHandler(speeches: mySpeeches)
+    @StateObject var data = DataHandler(speeches: mySpeeches)
     
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
-            ContentView(datas: dati)
+            ContentView(data: data)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

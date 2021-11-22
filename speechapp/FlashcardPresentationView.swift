@@ -5,8 +5,6 @@
 //  Created by Antonio Romano on 15/11/21.
 //
 
-//TODO: ADD GESTURES TO CHANGE CARD SIDE
-
 import SwiftUI
 
 struct Presentation: View{
@@ -63,9 +61,9 @@ struct PresentationView: View{
 }
 
 
-struct Presentation_Preview: PreviewProvider {
-    static var previews: some View {
-        PresentationView(speech: mySpeeches[0])
-    }
-}
+//struct Presentation_Preview: PreviewProvider {
+//    static var previews: some View {
+//        PresentationView(speech: mySpeeches[0])
+//    }
+//}
 

@@ -14,7 +14,6 @@ struct FlashcardsView: View {
     var body: some View {
         GeometryReader { screenDim in
             VStack{
-//                InfoBox(text: info)
                 infoBox
                 ScrollView {
                     LazyVGrid(columns: gridLayout, spacing: screenDim.size.width*recentsScale.padding){
@@ -69,9 +68,9 @@ private extension FlashcardsView {
     }
 }
 
-struct Preview: PreviewProvider{
-    static var previews: some View{
-        FlashcardsView(section: mySpeeches[0].sections[0])
-            .accentColor(appAccentColor)
-    }
-}
+//struct Preview: PreviewProvider{
+//    static var previews: some View{
+//        FlashcardsView(section: mySpeeches[0].sections[0])
+//            .accentColor(appAccentColor)
+//    }
+//}

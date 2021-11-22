@@ -8,17 +8,19 @@
 import SwiftUI
 import CoreData
 
+//main content view
+
 struct ContentView: View {
-    @ObservedObject var datas: DataHandler
+    @ObservedObject var data: DataHandler
     @State private var searchText = ""
     
     var body: some View{
         TabView{
-                RecentsViewNav(datas: datas, searchText: $searchText) //RECENT1 CHANGE TO DEFINITIVE
+            recentsView
                 .tabItem{
                     Label("Recents", systemImage: "clock.fill")
                 }
-            FavoritesViewNav(searchText: $searchText)
+            favoritesView
                 .tabItem{
                     Label("Favorites", systemImage: "star")
                 }
@@ -26,38 +28,20 @@ struct ContentView: View {
     }
 }
 
-struct RecentsViewNav: View {
-    @ObservedObject var datas: DataHandler
-    @Binding var searchText: String
-    
-    var body: some View {
+//Nav Views
+private extension ContentView {
+    var recentsView: some View {
         NavigationView {
-            RecentsView1(dati: datas, searchText: $searchText) //RECENT1 CHANGE TO DEFINITIVE
+            RecentsView(data: data, searchText: $searchText)
                 .navigationTitle("Recents")
                 .navigationBarTitleDisplayMode(.automatic)
                 .navigationBarItems(trailing: navigationBarTrailingItems)
                 .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
         }
     }
-    
-    @ViewBuilder
-    var navigationBarTrailingItems: some View {
-        HStack {
-            Button(action: {
-                //do
-            }, label: {
-                Image(systemName: "plus")
-            })
-        }
-    }
-}
-
-struct FavoritesViewNav: View {
-    @Binding var searchText: String
-    
-    var body: some View {
+    var favoritesView: some View {
         NavigationView {
-            FavoritesView(searchText: $searchText)
+            FavoritesView(data: data, searchText: $searchText)
                 .navigationTitle("Favorites")
                 .navigationBarTitleDisplayMode(.automatic)
                 .navigationBarItems(trailing: navigationBarTrailingItems)
@@ -76,3 +60,11 @@ struct FavoritesViewNav: View {
         }
     }
 }
+
+// preview
+
+//struct Presentation_Preview: PreviewProvider {
+//    static var previews: some View {
+//        ContentView(data: DataHandler(speeches: mySpeeches))
+//    }
+//}

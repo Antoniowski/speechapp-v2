@@ -35,27 +35,18 @@ private extension SectionView {
             Button(action: {
                 isPresented.toggle()
             }, label: {
-                ButtonNavBar(name: "", symbol: "play.fill")
+                Image(systemName: "play.fill")
             })
                 .fullScreenCover(isPresented: $isPresented) {
                     PresentationView(speech: speech)
                         .accentColor(appAccentColor)
                 }
             Button(action: {
-                //do
+//            .sheet(isPresented:) {}
             }, label: {
-                ButtonNavBar(name: "", symbol: "plus")
+                Image(systemName: "plus")
             })
         }
-    }
-}
-
-struct ButtonNavBar: View{
-    var name: String = ""
-    var symbol: String = ""
-    
-    var body: some View{
-        Label(name, systemImage: symbol)
     }
 }
 
