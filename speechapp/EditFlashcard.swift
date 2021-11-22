@@ -15,25 +15,24 @@ struct EditFlashcard: View{
     @Environment(\.dismiss) private var dismiss
     
     var body: some View{
-        NavigationView{
             GeometryReader{ screenDim in
-                VStack{
+                Form{
+                    SwiftUI.Section{
                     TextField("Title", text: $title)
                         .font(.system(.title))
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: screenDim.size.height/10)
                         .padding(.leading)
-                    Spacer()
+                    }
+                    .listSectionSeparatorTint(appAccentColor)
+                    SwiftUI.Section{
                     TextEditor(text: $description)
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                         .padding()
-                    
+                    }
                 }
                 .navigationBarItems(trailing:navigationBarTrailingItems)
                 .padding()
             }
-            
-        }
-        
     }
 }
 
