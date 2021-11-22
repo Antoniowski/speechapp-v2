@@ -5,12 +5,8 @@
 //  Created by Anthea Lavinia Bove on 15/11/21.
 //
 
-//protocols x tiles o per data structure? hereditary properies?
 //tile favourite/tile recent/tile flashcard
 //reduce use of geometryreader
-//context menu
-
-//TODO: RESOLVE LONGPRESS PROBLEM IN FLASHCARD TILE
 
 import SwiftUI
 
@@ -206,6 +202,77 @@ struct FlashcardTile: View{
     }
 }
 
+struct FlashcardTileTry: View{
+    var card: Flashcard
+    var scale: Scale
+    
+    @State var front: Bool = true
+    @GestureState var isDetectingLongPress = false
+    var longPress: some Gesture{
+        LongPressGesture(minimumDuration: 0.75)
+            .updating($isDetectingLongPress){currentState,gestureState,transaction  in
+                gestureState = currentState
+            }
+            .onEnded{ _ in
+                front.toggle()
+            }
+    }
+    
+    var body: some View{
+        if front {
+            frontOfCard
+                .onTapGesture{}
+                .gesture(longPress, including: .all)
+        }else{
+            backOfCard
+                .onTapGesture{}
+                .gesture(longPress, including: .all)
+        }
+    }
+    
+    @ViewBuilder
+    var frontOfCard: some View {
+        VStack{
+            Text(card.title)
+                .font(.system(size: UIScreen.main.bounds.height*0.05, weight: .bold))
+                .multilineTextAlignment(.center)
+                .padding()
+            Image(systemName: card.symbol)
+                .font(.system(size: UIScreen.main.bounds.height*0.07, weight: .bold))
+        }
+        .foregroundColor(.white)
+        .frame(width: UIScreen.main.bounds.width*scale.width, height: UIScreen.main.bounds.height*scale.height)
+        .background(card.color)
+        .border(card.color, width: 30)
+        .cornerRadius(cornerRad)
+        .padding()
+        .shadow(color: Color(white: 0, opacity: 0.3), radius: 15, x: 0, y: 0)
+    }
+    
+    @ViewBuilder
+    var backOfCard: some View {
+        VStack{
+            Image(systemName: card.symbol)
+                .font(.system(size: UIScreen.main.bounds.height*0.05, weight: .bold))
+            Text(card.title)
+                .font(.title)
+                .fontWeight(.bold)
+                .padding()
+            Text(card.description)
+                .padding(.horizontal)
+                .padding(.horizontal)
+                .padding(.horizontal)
+        }
+        .multilineTextAlignment(.center)
+        .foregroundColor(.black)
+        .frame(width: UIScreen.main.bounds.width*scale.width, height: UIScreen.main.bounds.height*scale.height)
+        .background(.white)
+        .border(card.color, width: 15)
+        .cornerRadius(cornerRad)
+        .padding()
+        .shadow(color: Color(white: 0, opacity: 0.3), radius: 15, x: 0, y: 0)
+    }
+}
 
 struct FlashcardPreviewTile: View {
     @State private var showingSheet = false

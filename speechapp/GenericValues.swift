@@ -21,7 +21,7 @@ let mostRecentsScale = Scale(height: 0.40, width: 1, padding: 0.04, imageSize: 0
 let recentsScale = Scale(height: 0.28, width: 0.28, padding: 0.04, imageSize: 0.10)
 let favoritesScale = Scale(height: 0.44, width: 0.44, padding: 0.04, imageSize: 0.15)
 let flashcardPreviewScale = Scale(height: 0.5, width: 0.28, padding: 0.05, imageSize: 0.2)
-let flashcardScale = Scale(height: 0.88, width: 0.88, padding: 0.04, imageSize: 0.3)
+let flashcardScale = Scale(height: 0.75, width: 0.80, padding: 0.04, imageSize: 0.3)
 
 
 let appAccentColor: Color = Color("appAccent")

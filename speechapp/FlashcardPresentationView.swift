@@ -11,18 +11,19 @@ import SwiftUI
 
 struct Presentation: View{
     var cards: [Flashcard]
+    @State var selection: String = ""
     
     var body: some View{
         GeometryReader{
             screenSize in
-            TabView{
+            TabView(selection: $selection){
                 ForEach(cards, id: \.self){ flashcard in
-                    FlashcardTile(symbol: flashcard.symbol, title: flashcard.title, color: flashcard.color, screenWidth: screenSize.size.width, screenHeight: screenSize.size.height, scale: flashcardScale, description: flashcard.description, front: true)
+                    FlashcardTileTry(card: flashcard, scale: flashcardScale)
+                        .tag(flashcard.title)
                 }
-                .frame(height: screenSize.size.height)
             }
             .tabViewStyle(.page)
-            .indexViewStyle(.page(backgroundDisplayMode: .always))
+            .indexViewStyle(.page(backgroundDisplayMode: .automatic))
         }
     }
 }
@@ -47,9 +48,6 @@ struct PresentationView: View{
         }
         
     }
-}
-
-private extension PresentationView {
     
     @ViewBuilder
     var navigationBarTrailingItems: some View {
@@ -65,5 +63,9 @@ private extension PresentationView {
 }
 
 
-
+struct Presentation_Preview: PreviewProvider {
+    static var previews: some View {
+        PresentationView(speech: mySpeeches[0])
+    }
+}
 
