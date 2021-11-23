@@ -25,7 +25,7 @@ struct ContentView: View {
                 .tabItem{
                     Label("Favorites", systemImage: "star")
                 }
-        }.accentColor(appAccentColor)
+        }
     }
 }
 

@@ -21,6 +21,37 @@ class DataHandler: ObservableObject{
         }
         self.contenitore.remove(at: index)
     }
+    
+    func AppendNewPart(speech: Speech, part: Part){
+        var index = 0
+        while(self.contenitore[index].title != speech.title){
+            index += 1
+        }
+        
+        switch part.type {
+        case .start:
+            self.contenitore[index].parts.insert(part, at: 0)
+        case .mid:
+            self.contenitore[index].parts.insert(part, at: (self.contenitore[index].parts.count-1))
+        case .end:
+            self.contenitore[index].parts.append(part)
+        }
+        
+    }
+    
+    func AppendNewFlashcard(speech: Speech, part: Part, flashcard: Flashcard){
+        var indexSpeech = 0
+        var indexPart = 0
+        while(self.contenitore[indexSpeech].title != speech.title){
+            indexSpeech += 1
+        }
+        
+        while(self.contenitore[indexSpeech].parts[indexPart].title != part.title){
+            indexPart += 1
+        }
+        
+        self.contenitore[indexSpeech].parts[indexPart].cards.append(flashcard)
+    }
 }
 
 //TEST

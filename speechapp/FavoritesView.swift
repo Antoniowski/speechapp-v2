@@ -17,7 +17,7 @@ struct FavoritesView: View {
             ScrollView{
                 LazyVGrid(columns: gridLayout, spacing: screenDim.size.width*favoritesScale.padding){
                     ForEach(searchResults, id: \.self) { speech in
-                        Tile(speech: speech, screenWidth: screenDim.size.width, screenHeight: screenDim.size.width, scale: favoritesScale)
+                        Tile(data: data, speech: speech, screenWidth: screenDim.size.width, screenHeight: screenDim.size.width, scale: favoritesScale)
                     }
                     
                 }.padding()
@@ -36,6 +36,7 @@ struct FavoritesView: View {
 
 // DEPRECATED
 struct FavoritesViewDeprecated: View{
+    @ObservedObject var data: DataHandler
     @Binding var searchText: String
     var gridLayout = Array(repeating: GridItem(.flexible()), count: 2)
     
@@ -45,7 +46,7 @@ struct FavoritesViewDeprecated: View{
                 LazyVGrid(columns: gridLayout, spacing: screenDim.size.width*favoritesScale.padding){
                     
                     ForEach(searchResults, id: \.self) { speech in
-                        Tile(speech: speech, screenWidth: screenDim.size.width, screenHeight: screenDim.size.width, scale: favoritesScale)
+                        Tile(data: data, speech: speech, screenWidth: screenDim.size.width, screenHeight: screenDim.size.width, scale: favoritesScale)
                     }
                     
                 }.padding()

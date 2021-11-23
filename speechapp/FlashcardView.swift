@@ -7,10 +7,13 @@
 import SwiftUI
 
 struct FlashcardsView: View {
-    @State private var showOnboarding = false
+    @ObservedObject var data: DataHandler
+    
+    @State private var showEditF = false
 
     @State private var revealDetails = false
     var gridLayout = Array(repeating: GridItem(.flexible()), count: 3)
+    var speech: Speech
     var part: Part
     
     var body: some View {
@@ -20,7 +23,7 @@ struct FlashcardsView: View {
                 ScrollView {
                     LazyVGrid(columns: gridLayout, spacing: screenDim.size.width*recentsScale.padding){
                         ForEach(part.cards, id: \.self) { card in
-                            FlashcardPreviewTile(card: card, screenWidth: screenDim.size.width, screenHeight: screenDim.size.height, scale: recentsScale)
+                            FlashcardPreviewTile(data: data, card: card, screenWidth: screenDim.size.width, screenHeight: screenDim.size.height, scale: recentsScale, speech: speech, part: part)
                         }
                         
                     }.padding()
@@ -78,13 +81,13 @@ private extension FlashcardsView {
     var navigationBarItems: some View {
         HStack {
             Button(action: {
-                showOnboarding.toggle()
+                showEditF.toggle()
             }, label: {
                 Image(systemName: "plus")
             })
-                .sheet(isPresented: $showOnboarding) {
+                .sheet(isPresented: $showEditF) {
                     NavigationView{
-                        EditFlashcard(title: "", description: "", symbol: "")
+                        EditFlashcard(data: data, speech: speech, part: part)
                             .navigationTitle("Add Flashcard")
                     }
                 }
@@ -95,6 +98,5 @@ private extension FlashcardsView {
 //struct Preview: PreviewProvider{
 //    static var previews: some View{
 //        FlashcardsView(part: mySpeeches[0].parts[0])
-//            .accentColor(appAccentColor)
 //    }
 //}

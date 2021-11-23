@@ -8,43 +8,43 @@
 import SwiftUI
 
 struct EditFlashcard: View{
+    @ObservedObject var data: DataHandler
+    var speech: Speech
+    var part: Part
+    
+    @Environment(\.dismiss) private var dismiss
     @State var title: String = ""
     @State var description: String = ""
-    var symbol: String = ""
-    var color: Color = .blue
-    @Environment(\.dismiss) private var dismiss
+    @State var symbol: String = "gear"
     
     var body: some View{
-        GeometryReader{ screenDim in
             List{
                 Section("Title"){
                     TextField("Title", text: $title)
                         .font(.system(.title))
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: screenDim.size.height/10)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: UIScreen.main.bounds.height/10)
+                }
+                
+                Section("Content"){
+                    TextEditor(text: $description)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 40, maxHeight: UIScreen.main.bounds.height*0.30)
                 }
                 
                 Section("Symbol"){
                     
                 }
-                
-                Section("Content"){
-                    TextEditor(text: $description)
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 400, maxHeight: .infinity)
-                }
             }
-            .navigationBarItems(trailing:navigationBarTrailingItems)
+            .toolbar{ navigationBarItems}
             .padding()
         }
-    }
-}
-
-
-private extension EditFlashcard {
     
     @ViewBuilder
-    var navigationBarTrailingItems: some View {
+    var navigationBarItems: some View {
         HStack{
             Button(action: {
+                if title != "" {
+                data.AppendNewFlashcard(speech: speech, part: part, flashcard: Flashcard(title: title, symbol: symbol, color: part.color, description: description))
+                }
                 dismiss()
             }, label: {
                 Text("Save")

@@ -11,6 +11,7 @@
 import SwiftUI
 
 struct Tile: View {
+    @ObservedObject var data: DataHandler
     var speech: Speech
     var screenWidth: Double
     var screenHeight: Double
@@ -18,7 +19,7 @@ struct Tile: View {
     
     var body: some View {
         NavigationLink(destination: {
-            PartsView(speech: speech)
+            PartsView(data: data, speech: speech)
         }, label: {
             speechTile
         })
@@ -74,6 +75,7 @@ struct Tile: View {
 }
 
 struct MostRecentTile: View {
+    @ObservedObject var data: DataHandler
     var speech: Speech
     var screenWidth: Double
     var screenHeight: Double
@@ -81,7 +83,7 @@ struct MostRecentTile: View {
     
     var body: some View {
         NavigationLink(destination: {
-            PartsView(speech: speech)
+            PartsView(data: data, speech: speech)
         }, label: {
             speechTile
         })
@@ -201,17 +203,21 @@ struct FlashcardTile: View{
 }
 
 struct FlashcardPreviewTile: View {
-    @State private var showingSheet = false
+    @ObservedObject var data: DataHandler
+    @State private var showEditF = false
     
     var card: Flashcard
     var screenWidth: Double
     var screenHeight: Double
     var scale: Scale
     
+    var speech: Speech
+    var part: Part
+    
     
     var body: some View {
         Button(action: {
-            showingSheet.toggle()
+            showEditF.toggle()
         }, label: {
             flashcardPreview
         })
@@ -220,11 +226,10 @@ struct FlashcardPreviewTile: View {
             .foregroundColor(.white)
             .cornerRadius(cornerRad)
             .contextMenu{menuOptions}
-            .sheet(isPresented: $showingSheet) {
+            .sheet(isPresented: $showEditF) {
                 NavigationView{
-                EditFlashcard(title: card.title, description: card.description, symbol: card.symbol, color: card.color)
-                    .accentColor(appAccentColor)
-                    .navigationTitle("Edit")
+                    EditFlashcard(data: data, speech: speech, part: part, title: card.title, description: card.description, symbol: card.symbol)
+                        .navigationTitle("Edit Flashcard")
                 }
             }
         
@@ -264,23 +269,31 @@ struct FlashcardPreviewTile: View {
     }
 }
 
-struct ColorPickerGrid: View{
-    var gridLayout = Array(repeating: GridItem(.flexible()), count: 4)
-    var arrayColor = colorArray
-
+struct ColorPicker: View{
+    var gridLayout = Array(repeating: GridItem(.flexible()), count: 6)
+    var colors = colorArray
+    @Binding var chosenColor: Color
+    
     var body: some View{
-        GeometryReader{ screenDim in
-            LazyVGrid(columns: gridLayout, spacing: screenDim.size.width*recentsScale.padding){
-                ForEach(arrayColor, id:\.self){color in
-                    Button(action: {}, label: {
-                        Image(systemName: "")})
-                        .frame(width: screenDim.size.width/2*recentsScale.width, height: screenDim.size.width/2*recentsScale.width)
-                        .background(color)
-                        .cornerRadius(100)
+        LazyVGrid(columns: gridLayout, spacing: 10) {
+            ForEach(colors, id: \.self){ color in
+                ZStack {
+                    Circle()
+                        .fill(color)
+                        .frame(width: UIScreen.main.bounds.height*0.045, height: UIScreen.main.bounds.height*0.045)
+                        .onTapGesture(perform: {
+                            chosenColor = color
+                        })
+                        .padding(5)
+                    if chosenColor == color {
+                        Circle()
+                            .stroke(color, lineWidth: 4)
+                            .frame(width: UIScreen.main.bounds.height*0.055, height: UIScreen.main.bounds.height*0.055)
+                    }
                 }
             }
-            .padding(.top)
         }
+        .padding(10)
     }
 }
 
@@ -435,3 +448,22 @@ struct MostRecentTile2: View{
     }
 }
 
+struct ColorPickerGrid: View{
+    var gridLayout = Array(repeating: GridItem(.flexible()), count: 4)
+    var arrayColor = colorArray
+
+    var body: some View{
+        GeometryReader{ screenDim in
+            LazyVGrid(columns: gridLayout, spacing: screenDim.size.width*recentsScale.padding){
+                ForEach(arrayColor, id:\.self){color in
+                    Button(action: {}, label: {
+                        Image(systemName: "")})
+                        .frame(width: screenDim.size.width/2*recentsScale.width, height: screenDim.size.width/2*recentsScale.width)
+                        .background(color)
+                        .cornerRadius(100)
+                }
+            }
+            .padding(.top)
+        }
+    }
+}

@@ -159,17 +159,17 @@
 				2E40B98727433E36002231D2 /* PartsView.swift */,
 				6A8165722742ADA30017C271 /* FlashcardView.swift */,
 				6A8165742742ADB80017C271 /* FlashcardPresentationView.swift */,
-				6A8165702742A6380017C271 /* GenericValues.swift */,
-				2EFEF41F274312A400F2FA98 /* Components.swift */,
-				2E79A36E274BF6BD009747AB /* OnBoarding */,
-				6A24B5C62747DB3A000AA8A7 /* DataHandler.swift */,
-				6A24B5C82747F0E1000AA8A7 /* TestingView.swift */,
+				6A92A6DB274C77B10045EA1A /* EditSpeech.swift */,
 				6A92A6D9274C5F690045EA1A /* EditPart.swift */,
 				6A92A6D52749B81B0045EA1A /* EditFlashcard.swift */,
+				2E79A36E274BF6BD009747AB /* OnBoarding */,
+				6A8165702742A6380017C271 /* GenericValues.swift */,
+				2EFEF41F274312A400F2FA98 /* Components.swift */,
+				6A24B5C62747DB3A000AA8A7 /* DataHandler.swift */,
+				6A24B5C82747F0E1000AA8A7 /* TestingView.swift */,
 				6A81654127429B3F0017C271 /* Assets.xcassets */,
 				A3926FFA2745A5A8005C8021 /* Colors.xcassets */,
 				6A81654627429B3F0017C271 /* Persistence.swift */,
-				6A92A6DB274C77B10045EA1A /* EditSpeech.swift */,
 				6A81654827429B3F0017C271 /* speechapp.xcdatamodeld */,
 				6A81654327429B3F0017C271 /* Preview Content */,
 			);
@@ -511,7 +511,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = appAccent;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"speechapp/Preview Content\"";
@@ -541,7 +541,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = appAccent;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"speechapp/Preview Content\"";
