@@ -16,7 +16,7 @@ struct Presentation: View{
             screenSize in
             TabView(selection: $selection){
                 ForEach(cards, id: \.self){ flashcard in
-                    FlashcardTileTry(card: flashcard, scale: flashcardScale)
+                    FlashcardTile(card: flashcard, scale: flashcardScale)
                         .tag(flashcard.title)
                 }
             }
