@@ -43,7 +43,11 @@ struct EditFlashcard: View{
         HStack{
             Button(action: {
                 if title != "" {
-                data.AppendNewFlashcard(speech: speech, part: part, flashcard: Flashcard(title: title, symbol: symbol, color: part.color, description: description))
+                    if(data.SearchFlashcard(title: title) == false){
+                        data.AppendNewFlashcard(speech: speech, part: part, flashcard: Flashcard(title: title, symbol: symbol, color: part.color, description: description))
+                    }else{
+                        
+                    }
                 }
                 dismiss()
             }, label: {

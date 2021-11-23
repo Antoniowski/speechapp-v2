@@ -95,12 +95,12 @@ class DataHandler: ObservableObject{
         self.contenitore[indexSpeech].parts[indexPart].cards.remove(at: indexFlash)
     }
     
-    func SearchFlashcard(speech: Speech, part: Part, flashcard: Flashcard)->Bool{
+    func SearchFlashcard(title: String)->Bool{
         var isThere: Bool = false
         for indexS in (0...contenitore.count){
             for indexP in (0...self.contenitore[indexS].parts.count){
                 for indexF in (0...self.contenitore[indexS].parts[indexP].cards.count){
-                    if (self.contenitore[indexS].parts[indexP].cards[indexF].title == flashcard.title){
+                    if (self.contenitore[indexS].parts[indexP].cards[indexF].title == title){
                         isThere = true
                     }
                 }
