@@ -11,7 +11,7 @@ import CoreData
 //main content view
 
 struct ContentView: View {
-    @ObservedObject var data: DataHandler
+    @EnvironmentObject var data: DataHandler
     @State private var searchText = ""
     @State private var showOnboarding = false
     
@@ -33,7 +33,7 @@ struct ContentView: View {
 private extension ContentView {
     var recentsView: some View {
         NavigationView {
-            RecentsView(data: data, searchText: $searchText)
+            RecentsView(searchText: $searchText)
                 .navigationTitle("Recents")
                 .navigationBarTitleDisplayMode(.automatic)
                 .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
@@ -42,7 +42,7 @@ private extension ContentView {
     }
     var favoritesView: some View {
         NavigationView {
-            FavoritesView(data: data, searchText: $searchText)
+            FavoritesView(searchText: $searchText)
                 .navigationTitle("Favorites")
                 .navigationBarTitleDisplayMode(.automatic)
                 .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
@@ -60,19 +60,10 @@ private extension ContentView {
             })
                 .sheet(isPresented: $showOnboarding) {
                     NavigationView{
-                        AddSpeech(data: data)
+                        AddSpeech()
                             .navigationTitle("Add Speech")
                     }
                 }
         }
-    }
-}
-
-// preview
-
-struct Content_Preview: PreviewProvider {
-    static var previews: some View {
-        ContentView(data: DataHandler(speeches: mySpeeches))
-            
     }
 }

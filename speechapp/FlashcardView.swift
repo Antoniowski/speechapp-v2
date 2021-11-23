@@ -7,12 +7,11 @@
 import SwiftUI
 
 struct FlashcardsView: View {
-    @ObservedObject var data: DataHandler
-    
+    @EnvironmentObject var data: DataHandler
     @State private var showEditF = false
-
     @State private var revealDetails = false
     var gridLayout = Array(repeating: GridItem(.flexible()), count: 3)
+    
     var speech: Speech
     var part: Part
     
@@ -23,7 +22,7 @@ struct FlashcardsView: View {
                 ScrollView {
                     LazyVGrid(columns: gridLayout, spacing: screenDim.size.width*recentsScale.padding){
                         ForEach(part.cards, id: \.self) { card in
-                            FlashcardPreviewTile(data: data, card: card, screenWidth: screenDim.size.width, screenHeight: screenDim.size.height, scale: recentsScale, speech: speech, part: part)
+                            FlashcardPreviewTile(card: card, screenWidth: screenDim.size.width, screenHeight: screenDim.size.height, scale: recentsScale, speech: speech, part: part)
                         }
                         
                     }.padding()
@@ -87,7 +86,7 @@ private extension FlashcardsView {
             })
                 .sheet(isPresented: $showEditF) {
                     NavigationView{
-                        EditFlashcard(data: data, speech: speech, part: part)
+                        EditFlashcard(speech: speech, part: part)
                             .navigationTitle("Add Flashcard")
                     }
                 }

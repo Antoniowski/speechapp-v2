@@ -15,7 +15,7 @@ struct speechappApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(data: data)
+            ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(data)
                 .fullScreenCover(isPresented: $showOnboarding) {

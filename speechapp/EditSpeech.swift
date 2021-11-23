@@ -9,9 +9,9 @@ import SwiftUI
 
 
 struct AddSpeech: View{
-    @ObservedObject var data: DataHandler
-    
+    @EnvironmentObject var data: DataHandler
     @Environment(\.dismiss) private var dismiss
+    
     @State var title: String = ""
     @State var symbol: String = "" // set default
         

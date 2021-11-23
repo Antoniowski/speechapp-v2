@@ -11,7 +11,9 @@
 import SwiftUI
 
 struct Tile: View {
-    @ObservedObject var data: DataHandler
+    @EnvironmentObject var data: DataHandler
+    @State private var pathChosen = 0
+    
     var speech: Speech
     var screenWidth: Double
     var screenHeight: Double
@@ -19,8 +21,8 @@ struct Tile: View {
     
     var body: some View {
         NavigationLink(destination: {
-            PartsView(data: data, speech: speech)
-        }, label: {
+            PartsView(speech: speech)
+        },             label: {
             speechTile
         })
         .frame(width: screenWidth*scale.width, height: screenHeight*scale.height)
@@ -70,7 +72,7 @@ struct Tile: View {
 }
 
 struct MostRecentTile: View {
-    @ObservedObject var data: DataHandler
+    @EnvironmentObject private var data: DataHandler
     var speech: Speech
     var screenWidth: Double
     var screenHeight: Double
@@ -78,7 +80,7 @@ struct MostRecentTile: View {
     
     var body: some View {
         NavigationLink(destination: {
-            PartsView(data: data, speech: speech)
+            PartsView(speech: speech)
         }, label: {
             speechTile
         })
@@ -124,8 +126,8 @@ struct FlashcardTile: View{
     var card: Flashcard
     var scale: Scale
     
-    @State var front: Bool = true
-    @GestureState var isDetectingLongPress = false
+    @State private var front: Bool = true
+    @GestureState private var isDetectingLongPress = false
     var longPress: some Gesture{
         LongPressGesture(minimumDuration: 0.75)
             .updating($isDetectingLongPress){currentState,gestureState,transaction  in
@@ -193,7 +195,7 @@ struct FlashcardTile: View{
 }
 
 struct FlashcardPreviewTile: View {
-    @ObservedObject var data: DataHandler
+    @EnvironmentObject var data: DataHandler
     @State private var showEditF = false
     
     var card: Flashcard
@@ -218,7 +220,7 @@ struct FlashcardPreviewTile: View {
             .contextMenu{menuOptions}
             .sheet(isPresented: $showEditF) {
                 NavigationView{
-                    EditFlashcard(data: data, speech: speech, part: part, title: card.title, description: card.description, symbol: card.symbol)
+                    EditFlashcard(speech: speech, part: part, title: card.title, description: card.description, symbol: card.symbol)
                         .navigationTitle("Edit Flashcard")
                 }
             }
