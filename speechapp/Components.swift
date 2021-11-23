@@ -56,12 +56,12 @@ struct Tile: View {
         Button(action: {
             //do
         },     label: {
-            Label("Favorites", systemImage: "star")
+            Label(speech.isFavorite ? "Remove from Favorites" : "Add to Favorites", systemImage: speech.isFavorite ? "star.fill" : "star")
         })
         Button(action: {
            //do
         },     label: {
-            Label("Copy", systemImage: "doc.on.doc")
+            Label("Create Copy", systemImage: "doc.on.doc")
         })
         Button(role: .destructive,
                action: {
