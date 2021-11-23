@@ -33,7 +33,11 @@ class DataHandler: ObservableObject{
         case .start:
             self.contenitore[index].parts.insert(part, at: 0)
         case .mid:
-            self.contenitore[index].parts.insert(part, at: (self.contenitore[index].parts.count-1))
+            if self.contenitore[index].parts.last?.type == .end {
+                self.contenitore[index].parts.insert(part, at: self.contenitore[index].parts.count-1)
+            } else {
+                self.contenitore[index].parts.insert(part, at: self.contenitore[index].parts.count)
+            }
         case .end:
             self.contenitore[index].parts.append(part)
         }

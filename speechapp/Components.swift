@@ -287,6 +287,14 @@ struct ColorPicker: View{
     }
 }
 
+struct SymbolPicker: View {
+    var gridLayout = Array(repeating: GridItem(.flexible()), count: 6)
+//    var symbols = symbolArray
+    
+    var body: some View{
+        Text("")
+    }
+}
 
 // UNUSED COMPONENTS
 
