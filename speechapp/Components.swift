@@ -55,7 +55,7 @@ struct Tile: View {
     @ViewBuilder
     var menuOptions: some View {
         Button(action: {
-            //do
+            data.ToggleFavorite(speech: speech)
         },     label: {
             Label(speech.isFavorite ? "Remove from Favorites" : "Add to Favorites", systemImage: speech.isFavorite ? "star.fill" : "star")
         })
@@ -66,7 +66,7 @@ struct Tile: View {
         })
         Button(role: .destructive,
                action: {
-            //do
+            data.RemoveSpeech(speech: speech)
         },     label: {
             Label("Delete", systemImage: "trash")
         })
@@ -112,7 +112,7 @@ struct MostRecentTile: View {
     @ViewBuilder
     var menuOptions: some View {
         Button(action: {
-            //do
+            data.ToggleFavorite(speech: speech)
         },     label: {
             Label("Favorites", systemImage: "star")
         })
@@ -123,7 +123,7 @@ struct MostRecentTile: View {
         })
         Button(role: .destructive,
                action: {
-            //do
+            data.RemoveSpeech(speech: speech)
         },     label: {
             Label("Delete", systemImage: "trash")
         })
@@ -262,7 +262,7 @@ struct FlashcardPreviewTile: View {
         })
         Button(role: .destructive,
                action: {
-            //do
+            data.RemoveFlashcard(speech: speech, part: part, flashcard: card)
         },     label: {
             Label("Delete", systemImage: "trash")
         })
