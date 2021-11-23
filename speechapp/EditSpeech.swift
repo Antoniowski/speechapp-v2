@@ -11,12 +11,13 @@ import SwiftUI
 struct AddSpeech: View{
     @ObservedObject var data: DataHandler
     
+    @Environment(\.dismiss) private var dismiss
     @State var title: String = ""
-    @State var symbol: String = ""
+    @State var symbol: String = "" // set default
         
     var body: some View{
         List{
-            Section("Generic infos"){
+            Section("Speech Title"){
                 TextField("Title", text: $title)
                 
             }
@@ -25,17 +26,17 @@ struct AddSpeech: View{
                     .frame(height: 200)
             }
         }
-        .navigationBarItems(trailing: navigationBarTrailingItems)
+        .toolbar{navigationBarItems}
     }
-}
-
-private extension AddSpeech {
     
     @ViewBuilder
-    var navigationBarTrailingItems: some View {
+    var navigationBarItems: some View {
         HStack{
             Button(action: {
-                data.AppendNewSpeech(speech: Speech(title: title, symbol: "gear", isFavorite: false, parts: []))
+                if title != "" {
+                    data.AppendNewSpeech(speech: Speech(title: title, symbol: "gear", isFavorite: false, parts: []))
+                }
+                dismiss()
             }, label: {
                 Text("Done")
             })

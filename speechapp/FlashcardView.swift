@@ -9,7 +9,7 @@ import SwiftUI
 struct FlashcardsView: View {
     @ObservedObject var data: DataHandler
     
-    @State private var showOnboarding = false
+    @State private var showEditF = false
 
     @State private var revealDetails = false
     var gridLayout = Array(repeating: GridItem(.flexible()), count: 3)
@@ -81,13 +81,13 @@ private extension FlashcardsView {
     var navigationBarItems: some View {
         HStack {
             Button(action: {
-                showOnboarding.toggle()
+                showEditF.toggle()
             }, label: {
                 Image(systemName: "plus")
             })
-                .sheet(isPresented: $showOnboarding) {
+                .sheet(isPresented: $showEditF) {
                     NavigationView{
-                        EditFlashcard(data: data, title: "", description: "", symbol: "", speech: speech, part: part)
+                        EditFlashcard(data: data, speech: speech, part: part)
                             .navigationTitle("Add Flashcard")
                     }
                 }
@@ -98,6 +98,5 @@ private extension FlashcardsView {
 //struct Preview: PreviewProvider{
 //    static var previews: some View{
 //        FlashcardsView(part: mySpeeches[0].parts[0])
-//            .accentColor(appAccentColor)
 //    }
 //}

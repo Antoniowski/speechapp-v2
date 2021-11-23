@@ -9,12 +9,13 @@ import SwiftUI
 
 struct EditPart: View{
     @ObservedObject var data: DataHandler
+    var speech: Speech
+    
+    @Environment(\.dismiss) private var dismiss
     @State var title: String = ""
     @State var subtitle: String = ""
     @State var partType: PartType = .mid
-    @State var color: Color = .black
-
-    var speech: Speech
+    @State var color: Color = fcPink
     
     var body: some View{
         Form{
@@ -33,21 +34,20 @@ struct EditPart: View{
                 .padding()
             }
             Section("Color"){
-                ColorPickerGrid()
-                    .frame(height: 200)
+                ColorPicker(chosenColor: $color)
             }
         }
-        .navigationBarItems(trailing: navigationBarTrailingItems)
+        .toolbar{navigationBarItems}
     }
-}
-
-private extension EditPart {
     
     @ViewBuilder
-    var navigationBarTrailingItems: some View {
+    var navigationBarItems: some View {
         HStack{
             Button(action: {
-                data.AppendNewPart(speech: speech, part: Part(title: title, subtitle: subtitle, type: .mid, color: color, cards: []))
+                if title != "" {
+                    data.AppendNewPart(speech: speech, part: Part(title: title, subtitle: subtitle, type: partType, color: color, cards: []))
+                }
+                dismiss()
             }, label: {
                 Text("Done")
             })

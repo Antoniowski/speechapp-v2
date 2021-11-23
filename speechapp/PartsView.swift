@@ -24,15 +24,12 @@ struct PartsView: View {
             }
         }
         .navigationTitle(speech.title)
-        .navigationBarItems(trailing: navigationBarTrailingItems)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar{navigationBarItems}
     }
-}
-
-private extension PartsView {
     
     @ViewBuilder
-    var navigationBarTrailingItems: some View {
+    var navigationBarItems: some View {
         HStack{
             Button(action: {
                 isPresented.toggle()
@@ -40,9 +37,7 @@ private extension PartsView {
                 Image(systemName: "play.fill")
             })
                 .fullScreenCover(isPresented: $isPresented) {
-                    PresentationView(speech: speech)
-                        .accentColor(appAccentColor)
-                }
+                    PresentationView(speech: speech)                }
             Button(action: {
                 showCreation.toggle()
             }, label: {
@@ -51,7 +46,7 @@ private extension PartsView {
                 .sheet(isPresented: $showCreation) {
                     NavigationView{
                         EditPart(data: data, speech: speech)
-                            .navigationTitle("Edit")
+                            .navigationTitle("Add Section")
                     }
                 }
         }

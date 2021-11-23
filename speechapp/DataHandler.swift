@@ -27,7 +27,16 @@ class DataHandler: ObservableObject{
         while(self.contenitore[index].title != speech.title){
             index += 1
         }
-        self.contenitore[index].parts.append(part)
+        
+        switch part.type {
+        case .start:
+            self.contenitore[index].parts.insert(part, at: 0)
+        case .mid:
+            self.contenitore[index].parts.insert(part, at: (self.contenitore[index].parts.count-1))
+        case .end:
+            self.contenitore[index].parts.append(part)
+        }
+        
     }
     
     func AppendNewFlashcard(speech: Speech, part: Part, flashcard: Flashcard){

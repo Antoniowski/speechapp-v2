@@ -18,11 +18,10 @@ struct speechappApp: App {
             ContentView(data: data)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(data)
-                .accentColor(appAccentColor)
-                .fullScreenCover(isPresented: $showOnboarding) {
-                    OnboardingView()
-                        .accentColor(appAccentColor)
-                }
+//                .fullScreenCover(isPresented: $showOnboarding) {
+//                    OnboardingView()
+//                        .accentColor(appAccentColor)
+//                }
         }
     }
 }
