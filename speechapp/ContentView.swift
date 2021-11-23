@@ -59,7 +59,10 @@ private extension ContentView {
                 Image(systemName: "plus")
             })
                 .sheet(isPresented: $showOnboarding) {
-//                    do
+                    NavigationView{
+                        AddSpeech()
+                            .navigationTitle("Add Speech")
+                    }
                 }
         }
     }

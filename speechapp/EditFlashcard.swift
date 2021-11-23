@@ -11,7 +11,7 @@ struct EditFlashcard: View{
     @State var title: String = ""
     @State var description: String = ""
     var symbol: String = ""
-    var color: Color
+    var color: Color = .blue
     @Environment(\.dismiss) private var dismiss
     
     var body: some View{

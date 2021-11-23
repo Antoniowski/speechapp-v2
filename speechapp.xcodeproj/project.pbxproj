@@ -32,6 +32,7 @@
 		6A8165752742ADB80017C271 /* FlashcardPresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8165742742ADB80017C271 /* FlashcardPresentationView.swift */; };
 		6A92A6D62749B81B0045EA1A /* EditFlashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A92A6D52749B81B0045EA1A /* EditFlashcard.swift */; };
 		6A92A6DA274C5F690045EA1A /* EditPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A92A6D9274C5F690045EA1A /* EditPart.swift */; };
+		6A92A6DC274C77B10045EA1A /* EditSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A92A6DB274C77B10045EA1A /* EditSpeech.swift */; };
 		A30CD9E6274417B700A04B76 /* PageTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30CD9E5274417B700A04B76 /* PageTwo.swift */; };
 		A30E34032744084A00C56E8C /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30E34022744084A00C56E8C /* OnboardingView.swift */; };
 		A3926FFB2745A5A8005C8021 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3926FFA2745A5A8005C8021 /* Colors.xcassets */; };
@@ -83,6 +84,7 @@
 		6A8165742742ADB80017C271 /* FlashcardPresentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardPresentationView.swift; sourceTree = "<group>"; };
 		6A92A6D52749B81B0045EA1A /* EditFlashcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFlashcard.swift; sourceTree = "<group>"; };
 		6A92A6D9274C5F690045EA1A /* EditPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPart.swift; sourceTree = "<group>"; };
+		6A92A6DB274C77B10045EA1A /* EditSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSpeech.swift; sourceTree = "<group>"; };
 		A30CD9E5274417B700A04B76 /* PageTwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageTwo.swift; sourceTree = "<group>"; };
 		A30E34022744084A00C56E8C /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		A3926FFA2745A5A8005C8021 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				6A81654127429B3F0017C271 /* Assets.xcassets */,
 				A3926FFA2745A5A8005C8021 /* Colors.xcassets */,
 				6A81654627429B3F0017C271 /* Persistence.swift */,
+				6A92A6DB274C77B10045EA1A /* EditSpeech.swift */,
 				6A81654827429B3F0017C271 /* speechapp.xcdatamodeld */,
 				6A81654327429B3F0017C271 /* Preview Content */,
 			);
@@ -341,6 +344,7 @@
 				6A8165732742ADA30017C271 /* FlashcardView.swift in Sources */,
 				A30CD9E6274417B700A04B76 /* PageTwo.swift in Sources */,
 				2E79A372274C4131009747AB /* PageOne.swift in Sources */,
+				6A92A6DC274C77B10045EA1A /* EditSpeech.swift in Sources */,
 				6A24B5C72747DB3A000AA8A7 /* DataHandler.swift in Sources */,
 				2EFEF4222743256600F2FA98 /* RecentsView.swift in Sources */,
 				2EFEF420274312A400F2FA98 /* Components.swift in Sources */,
