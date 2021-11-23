@@ -31,14 +31,14 @@ struct PartsView: View {
                         Button("Edit"){
                             isShowingEditPart.toggle()
                         }
-                        .sheet(isPresented: $isShowingEditPart){
-                            NavigationView{
-                                EditPart(data: data, speech: speech, title: part.title, subtitle: part.subtitle, partType: part.type, color: part.color)
-                                    .navigationBarTitle("Edit Part")
-                            }
-                        }
                         .tint(Color(white: 0.7, opacity: 1))
                     })
+                    .sheet(isPresented: $isShowingEditPart){
+                        NavigationView{
+                            EditPart(data: data, speech: speech, title: part.title, subtitle: part.subtitle, partType: part.type, color: part.color)
+                                .navigationBarTitle("Edit Part")
+                        }
+                    }
             }
         }
         .navigationTitle(speech.title)
