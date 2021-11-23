@@ -97,11 +97,36 @@ class DataHandler: ObservableObject{
     
     func SearchFlashcard(speech: Speech, part: Part, flashcard: Flashcard)->Bool{
         var isThere: Bool = false
-        ForEach((0...contenitore.count), id:\.self){ indexS in
-            ForEach((0...self.contenitore[indexS].parts.count), id:\.self){ indexP in
+        for indexS in (0...contenitore.count){
+            for indexP in (0...self.contenitore[indexS].parts.count){
+                for indexF in (0...self.contenitore[indexS].parts[indexP].cards.count){
+                    if (self.contenitore[indexS].parts[indexP].cards[indexF].title == flashcard.title){
+                        isThere = true
+                    }
+                }
+               
+            }
+        }
+        return isThere
+    }
+    
+    func SearchPart(speech: Speech, part: Part)->Bool{
+        var isThere: Bool = false
+        for indexS in (0...contenitore.count){
+            for indexP in (0...self.contenitore[indexS].parts.count){
                 if (self.contenitore[indexS].parts[indexP].title == part.title){
                     isThere = true
                 }
+            }
+        }
+        return isThere
+    }
+    
+    func SearchSpeech(speech: Speech)->Bool{
+        var isThere: Bool = false
+        for indexS in (0...contenitore.count){
+            if (self.contenitore[indexS].title == speech.title){
+                isThere = true
             }
         }
         return isThere
