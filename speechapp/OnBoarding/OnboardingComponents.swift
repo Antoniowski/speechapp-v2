@@ -28,13 +28,13 @@ struct ContinueButton: View {
         Button(action: {
             increment += 1
         }) {
-            Image(systemName: "chevron.right")
-                .font(.largeTitle)
+            Text("Continue")
+                .font(.callout)
                 .padding()
             
         }
         .padding()
         .padding(.bottom)
-        .buttonStyle(.bordered)
+        .buttonStyle(.borderedProminent)
     }
 }

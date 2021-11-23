@@ -47,10 +47,10 @@ struct OnboardingView: View {
 }
     
     
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        OnboardingView()
-//            .previewDevice("iPhone 11")
-//            .accentColor(appAccentColor)
-//    }
-//}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        OnboardingView()
+            .previewDevice("iPhone 11")
+            .accentColor(appAccentColor)
+    }
+}

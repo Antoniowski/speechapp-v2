@@ -37,11 +37,13 @@ let fcGreenB: Color = Color("flashCardGreenB")
 let fcIndigo: Color = Color("flashCardIndigo")
 let fcMagenta: Color = Color("flashCardMagenta")
 let fcOrangeA: Color = Color("flashCardOrangeA")
-let fcOrangeB: Color = Color("flashCardOrgangeB")
+let fcOrangeB: Color = Color("flashCardOrangeB")
 let fcPink: Color = Color("flashCardPink")
 let fcPurple: Color = Color("flashCardPurple")
 let fcSteelBlue: Color = Color("flashCardSteelBlue")
 let fcYellow: Color = Color("flashCardYellow")
+
+var colorArray: [Color] = [fcPink, fcMagenta, fcOrangeA, fcOrangeB, fcYellow, fcGreenA, fcGreenB, fcAcquamarine, fcSteelBlue, fcPurple, fcBlue, fcIndigo]
 
 
 // Data Handling
@@ -116,36 +118,36 @@ let infoText = [
 
 // Example Data
 
-var genIntroduction = Part(title: "Introduction", subtitle: "Where it started", type: .start, color: .orange, cards: [
-    Flashcard(title: "Intro 1", symbol: "app", color: .orange, description: "Lorem ipsum"),
-    Flashcard(title: "Intro 2", symbol: "app", color: .orange, description: "Lorem ipsum")
+var genIntroduction = Part(title: "Introduction", subtitle: "Where it started", type: .start, color: fcPink, cards: [
+    Flashcard(title: "Intro 1", symbol: "app", color: fcPink, description: "Lorem ipsum"),
+    Flashcard(title: "Intro 2", symbol: "app", color: fcPink, description: "Lorem ipsum")
 ])
 
 var genBody = Part(title: "Body", subtitle: "How we did it", type: .mid, color: .green, cards: [
-    Flashcard(title: "Body 1", symbol: "app", color: .green, description: "Lorem ipsum"),
-    Flashcard(title: "Body 2", symbol: "app", color: .green, description: "Lorem ipsum"),
-    Flashcard(title: "Body 3", symbol: "app", color: .green, description: "Lorem ipsum")
+    Flashcard(title: "Body 1", symbol: "app", color: fcSteelBlue, description: "Lorem ipsum"),
+    Flashcard(title: "Body 2", symbol: "app", color: fcSteelBlue, description: "Lorem ipsum"),
+    Flashcard(title: "Body 3", symbol: "app", color: fcSteelBlue, description: "Lorem ipsum")
 ])
 
-var genConclusion = Part(title: "Conclusion", subtitle: "We hope you like it!", type: .end, color: .blue, cards: [
-    Flashcard(title: "Conclusion 1", symbol: "app", color: .blue, description: "Lorem ipsum"),
-    Flashcard(title: "Conclusion 2", symbol: "app", color: .blue, description: "Lorem ipsum")
+var genConclusion = Part(title: "Conclusion", subtitle: "We hope you like it!", type: .end, color: fcOrangeA, cards: [
+    Flashcard(title: "Conclusion 1", symbol: "app", color: fcOrangeA, description: "Lorem ipsum"),
+    Flashcard(title: "Conclusion 2", symbol: "app", color: fcOrangeA, description: "Lorem ipsum")
 ])
 
-var introduction = Part(title: "Introduction", subtitle: "Where it started", type: .start, color: .orange, cards: [
-    Flashcard(title: "The Big Idea", symbol: "apps.iphone", color: .orange, description: "Loreipsumdashgdatydajdgayudbadyusafuyashfbyugsdafuygsafygasfgsafyasgfasfasgfcayfascasfasub"),
-    Flashcard(title: "App Concept", symbol: "speaker.circle", color: .orange, description: "Loreipsumdashgdatydajdgayudbadyusafuyashfbyugsdafuygsafygasfgsafyasgfasfasgfcayfascasfasub")
+var introduction = Part(title: "Introduction", subtitle: "Where it started", type: .start, color: fcYellow, cards: [
+    Flashcard(title: "The Big Idea", symbol: "apps.iphone", color: fcYellow, description: "Loreipsumdashgdatydajdgayudbadyusafuyashfbyugsdafuygsafygasfgsafyasgfasfasgfcayfascasfasub"),
+    Flashcard(title: "App Concept", symbol: "speaker.circle", color: fcYellow, description: "Loreipsumdashgdatydajdgayudbadyusafuyashfbyugsdafuygsafygasfgsafyasgfasfasgfcayfascasfasub")
 ])
 
-var body = Part(title: "Body", subtitle: "How we did it", type: .mid, color: .green, cards: [
-    Flashcard(title: "Solution Concept", symbol: "bag", color: .green, description: "Lorem ipsum"),
-    Flashcard(title: "App Development", symbol: "app.dashed", color: .green, description: "Lorem ipsum"),
-    Flashcard(title: "Bug Fixes", symbol: "bandage", color: .green, description: "Lorem ipsum")
+var body = Part(title: "Body", subtitle: "How we did it", type: .mid, color: fcPurple, cards: [
+    Flashcard(title: "Solution Concept", symbol: "bag", color: fcPurple, description: "Lorem ipsum"),
+    Flashcard(title: "App Development", symbol: "app.dashed", color: fcPurple, description: "Lorem ipsum"),
+    Flashcard(title: "Bug Fixes", symbol: "bandage", color: fcPurple, description: "Lorem ipsum")
 ])
 
-var conclusion = Part(title: "Conclusion", subtitle: "We hope you like it!", type: .end, color: .blue, cards: [
-    Flashcard(title: "App Store", symbol: "bag", color: .blue, description: "Lorem ipsum"),
-    Flashcard(title: "Goodbye", symbol: "hand.wave", color: .blue, description: "Lorem ipsum")
+var conclusion = Part(title: "Conclusion", subtitle: "We hope you like it!", type: .end, color: fcGreenB, cards: [
+    Flashcard(title: "App Store", symbol: "bag", color: fcGreenB, description: "Lorem ipsum"),
+    Flashcard(title: "Goodbye", symbol: "hand.wave", color: fcGreenB, description: "Lorem ipsum")
 ])
 
 var parts = [genIntroduction, genBody, genConclusion]

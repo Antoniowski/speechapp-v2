@@ -29,7 +29,7 @@ struct PageOne: View {
     @ViewBuilder
     var firstTipsLine: some View {
         Text("SpeakUp helps you write an organic and well structured speech, that everyone in the room will follow and understand.")
-            .font(.title2)
+            .font(.body)
             .lineSpacing(2)
             .padding([.leading, .bottom, .trailing])
             .padding(.horizontal)
