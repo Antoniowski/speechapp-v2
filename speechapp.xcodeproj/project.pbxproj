@@ -169,9 +169,9 @@
 				6A81654127429B3F0017C271 /* Assets.xcassets */,
 				A3926FFA2745A5A8005C8021 /* Colors.xcassets */,
 				6A81654627429B3F0017C271 /* Persistence.swift */,
+				6A92A6DB274C77B10045EA1A /* EditSpeech.swift */,
 				6A81654827429B3F0017C271 /* speechapp.xcdatamodeld */,
 				6A81654327429B3F0017C271 /* Preview Content */,
-				6A92A6DB274C77B10045EA1A /* EditSpeech.swift */,
 			);
 			path = speechapp;
 			sourceTree = "<group>";

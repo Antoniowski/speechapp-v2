@@ -7,6 +7,8 @@
 import SwiftUI
 
 struct FlashcardsView: View {
+    @State private var showOnboarding = false
+
     @State private var revealDetails = false
     var gridLayout = Array(repeating: GridItem(.flexible()), count: 3)
     var part: Part
@@ -24,7 +26,9 @@ struct FlashcardsView: View {
                     }.padding()
                 }
                 .navigationTitle(part.title)
+                .navigationBarItems(trailing: navigationBarItems)
                 .navigationBarTitleDisplayMode(.inline)
+                
             }
         }
         
@@ -65,6 +69,26 @@ private extension FlashcardsView {
         })
             .padding()
             .background(.bar)
+    }
+}
+
+private extension FlashcardsView {
+    
+    @ViewBuilder
+    var navigationBarItems: some View {
+        HStack {
+            Button(action: {
+                showOnboarding.toggle()
+            }, label: {
+                Image(systemName: "plus")
+            })
+                .sheet(isPresented: $showOnboarding) {
+                    NavigationView{
+                        EditFlashcard(title: "", description: "", symbol: "")
+                            .navigationTitle("Add Flashcard")
+                    }
+                }
+        }
     }
 }
 
