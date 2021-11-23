@@ -24,10 +24,24 @@ let flashcardPreviewScale = Scale(height: 0.5, width: 0.28, padding: 0.05, image
 let flashcardScale = Scale(height: 0.75, width: 0.80, padding: 0.04, imageSize: 0.3)
 
 
+// Colors
 let appAccentColor: Color = Color("appAccent")
 let primaryColor: Color = Color("appPrimary")
 let secondaryColor: Color = Color("appSecondary")
 let tertiaryColor: Color = Color("appTertiary")
+
+let fcAcquamarine: Color = Color("flashCardAquamarine")
+let fcBlue: Color = Color("flashCardBluePigment")
+let fcGreenA: Color = Color("flashCardGreenA")
+let fcGreenB: Color = Color("flashCardGreenB")
+let fcIndigo: Color = Color("flashCardIndigo")
+let fcMagenta: Color = Color("flashCardMagenta")
+let fcOrangeA: Color = Color("flashCardOrangeA")
+let fcOrangeB: Color = Color("flashCardOrgangeB")
+let fcPink: Color = Color("flashCardPink")
+let fcPurple: Color = Color("flashCardPurple")
+let fcSteelBlue: Color = Color("flashCardSteelBlue")
+let fcYellow: Color = Color("flashCardYellow")
 
 
 // Data Handling
