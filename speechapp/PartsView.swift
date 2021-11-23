@@ -10,7 +10,8 @@ import SwiftUI
 struct PartsView: View {
     @ObservedObject var data: DataHandler
     @State var isPresented = false
-    @State var showCreation = false
+    @State var isShowingEditPart = false
+    @State var isShowingAddPart = false
     var speech: Speech
 
     var body: some View {
@@ -21,6 +22,23 @@ struct PartsView: View {
                 }, label: {
                     ButtonPartsStyle(part: part)
                 })
+                    .swipeActions(content: {
+                        Button("Delete"){
+                            data.RemovePart(speech: speech, part: part)
+                        }
+                        .tint(.red)
+                        
+                        Button("Edit"){
+                            isShowingEditPart.toggle()
+                        }
+                        .sheet(isPresented: $isShowingEditPart){
+                            NavigationView{
+                                EditPart(data: data, speech: speech, title: part.title, subtitle: part.subtitle, partType: part.type, color: part.color)
+                                    .navigationBarTitle("Edit Part")
+                            }
+                        }
+                        .tint(Color(white: 0.7, opacity: 1))
+                    })
             }
         }
         .navigationTitle(speech.title)
@@ -39,11 +57,11 @@ struct PartsView: View {
                 .fullScreenCover(isPresented: $isPresented) {
                     PresentationView(speech: speech)                }
             Button(action: {
-                showCreation.toggle()
+                isShowingAddPart.toggle()
             }, label: {
                 Image(systemName: "plus")
             })
-                .sheet(isPresented: $showCreation) {
+                .sheet(isPresented: $isShowingAddPart) {
                     NavigationView{
                         EditPart(data: data, speech: speech)
                             .navigationTitle("Add Section")
