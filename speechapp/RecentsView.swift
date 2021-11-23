@@ -17,13 +17,13 @@ struct RecentsView: View {
             ScrollView {
                 // MOST RECENT
                 if searchText.isEmpty {
-                    MostRecentTile(speech: data.GetAllSpechees()[0], screenWidth: screenDim.size.width, screenHeight: screenDim.size.height, scale: mostRecentsScale)
+                    MostRecentTile(data: data, speech: data.GetAllSpechees()[0], screenWidth: screenDim.size.width, screenHeight: screenDim.size.height, scale: mostRecentsScale)
                 }
                 //OTHER RECENTS
                 LazyVGrid(columns: gridLayout, spacing: screenDim.size.width*recentsScale.padding){
                     
                     ForEach(searchResults, id: \.self) { speech in
-                        Tile(speech: speech, screenWidth: screenDim.size.width, screenHeight: screenDim.size.width, scale: recentsScale)
+                        Tile(data: data, speech: speech, screenWidth: screenDim.size.width, screenHeight: screenDim.size.width, scale: recentsScale)
                     }
                     
                 }.padding()
@@ -43,6 +43,7 @@ struct RecentsView: View {
 // DEPRECATED
 
 struct RecentsViewDeprecated: View {
+    @ObservedObject var data: DataHandler
     @Binding var searchText: String
     var gridLayout = Array(repeating: GridItem(.flexible()), count: 3)
     
@@ -51,13 +52,13 @@ struct RecentsViewDeprecated: View {
             ScrollView {
                 // MOST RECENT
                 if searchText.isEmpty {
-                    MostRecentTile(speech: mySpeeches[0], screenWidth: screenDim.size.width, screenHeight: screenDim.size.height, scale: mostRecentsScale)
+                    MostRecentTile(data: data, speech: mySpeeches[0], screenWidth: screenDim.size.width, screenHeight: screenDim.size.height, scale: mostRecentsScale)
                 }
                 //OTHER RECENTS
                 LazyVGrid(columns: gridLayout, spacing: screenDim.size.width*recentsScale.padding){
                     
                     ForEach(searchResults, id: \.self) { speech in
-                        Tile(speech: speech, screenWidth: screenDim.size.width, screenHeight: screenDim.size.width, scale: recentsScale)
+                        Tile(data: data, speech: speech, screenWidth: screenDim.size.width, screenHeight: screenDim.size.width, scale: recentsScale)
                     }
                     
                 }.padding()

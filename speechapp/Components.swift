@@ -11,6 +11,7 @@
 import SwiftUI
 
 struct Tile: View {
+    @ObservedObject var data: DataHandler
     var speech: Speech
     var screenWidth: Double
     var screenHeight: Double
@@ -18,7 +19,7 @@ struct Tile: View {
     
     var body: some View {
         NavigationLink(destination: {
-            PartsView(speech: speech)
+            PartsView(data: data, speech: speech)
         }, label: {
             speechTile
         })
@@ -74,6 +75,7 @@ struct Tile: View {
 }
 
 struct MostRecentTile: View {
+    @ObservedObject var data: DataHandler
     var speech: Speech
     var screenWidth: Double
     var screenHeight: Double
@@ -81,7 +83,7 @@ struct MostRecentTile: View {
     
     var body: some View {
         NavigationLink(destination: {
-            PartsView(speech: speech)
+            PartsView(data: data, speech: speech)
         }, label: {
             speechTile
         })
@@ -201,12 +203,16 @@ struct FlashcardTile: View{
 }
 
 struct FlashcardPreviewTile: View {
+    @ObservedObject var data: DataHandler
     @State private var showingSheet = false
     
     var card: Flashcard
     var screenWidth: Double
     var screenHeight: Double
     var scale: Scale
+    
+    var speech: Speech
+    var part: Part
     
     
     var body: some View {
@@ -222,7 +228,7 @@ struct FlashcardPreviewTile: View {
             .contextMenu{menuOptions}
             .sheet(isPresented: $showingSheet) {
                 NavigationView{
-                EditFlashcard(title: card.title, description: card.description, symbol: card.symbol, color: card.color)
+                    EditFlashcard(data: data, title: card.title, description: card.description, symbol: card.symbol, color: card.color, speech: speech, part: part)
                     .accentColor(appAccentColor)
                     .navigationTitle("Edit")
                 }

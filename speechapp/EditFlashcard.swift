@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct EditFlashcard: View{
+    @ObservedObject var data: DataHandler
     @State var title: String = ""
     @State var description: String = ""
     var symbol: String = ""
     var color: Color = .blue
     @Environment(\.dismiss) private var dismiss
+    
+    var speech: Speech
+    var part: Part
     
     var body: some View{
         GeometryReader{ screenDim in
@@ -45,7 +49,7 @@ private extension EditFlashcard {
     var navigationBarTrailingItems: some View {
         HStack{
             Button(action: {
-                dismiss()
+                data.AppendNewFlashcard(speech: speech, part: part, flashcard: Flashcard(title: title, symbol: "gear", color: part.color, description: description))
             }, label: {
                 Text("Save")
             })
