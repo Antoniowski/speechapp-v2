@@ -9,6 +9,8 @@ import SwiftUI
 
 
 struct AddSpeech: View{
+    @ObservedObject var data: DataHandler
+    
     @State var title: String = ""
     @State var symbol: String = ""
         
@@ -33,6 +35,7 @@ private extension AddSpeech {
     var navigationBarTrailingItems: some View {
         HStack{
             Button(action: {
+                data.AppendNewSpeech(speech: Speech(title: title, symbol: "gear", isFavorite: false, parts: []))
             }, label: {
                 Text("Done")
             })

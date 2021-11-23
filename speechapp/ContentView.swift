@@ -60,7 +60,7 @@ private extension ContentView {
             })
                 .sheet(isPresented: $showOnboarding) {
                     NavigationView{
-                        AddSpeech()
+                        AddSpeech(data: data)
                             .navigationTitle("Add Speech")
                     }
                 }
