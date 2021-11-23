@@ -135,7 +135,7 @@ var genConclusion = Part(title: "Conclusion", subtitle: "We hope you like it!", 
 ])
 
 var introduction = Part(title: "Introduction", subtitle: "Where it started", type: .start, color: fcYellow, cards: [
-    Flashcard(title: "The Big Idea", symbol: "apps.iphone", color: fcYellow, description: "Loreipsumdashgdatydajdgayudbadyusafuyashfbyugsdafuygsafygasfgsafyasgfasfasgfcayfascasfasub"),
+    Flashcard(title: "The Big Idea", symbol: "iphone", color: fcYellow, description: "Loreipsumdashgdatydajdgayudbadyusafuyashfbyugsdafuygsafygasfgsafyasgfasfasgfcayfascasfasub"),
     Flashcard(title: "App Concept", symbol: "speaker.circle", color: fcYellow, description: "Loreipsumdashgdatydajdgayudbadyusafuyashfbyugsdafuygsafygasfgsafyasgfasfasgfcayfascasfasub")
 ])
 
@@ -153,7 +153,7 @@ var conclusion = Part(title: "Conclusion", subtitle: "We hope you like it!", typ
 var parts = [genIntroduction, genBody, genConclusion]
 
 var mySpeeches = [
-    Speech(title: "My App", symbol: "apps.iphone", isFavorite: true, parts: [introduction, body, conclusion]),
+    Speech(title: "My App", symbol: "iphone", isFavorite: true, parts: [introduction, body, conclusion]),
     Speech(title: "Electricity", symbol: "bolt.fill", isFavorite: true, parts: parts),
     Speech(title: "The power of 3d", symbol: "rotate.3d", parts: parts),
     Speech(title: "Ecology", symbol: "leaf.fill", parts: parts),
