@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PartsView: View {
+    @ObservedObject var data: DataHandler
     @State var isPresented = false
     @State var showCreation = false
     var speech: Speech
@@ -16,7 +17,7 @@ struct PartsView: View {
         List{
             ForEach(speech.parts, id: \.self){ part in
                 NavigationLink(destination: {
-                    FlashcardsView(part: part)
+                    FlashcardsView(data: data,speech: speech,  part: part)
                 }, label: {
                     ButtonPartsStyle(part: part)
                 })
@@ -49,7 +50,7 @@ private extension PartsView {
             })
                 .sheet(isPresented: $showCreation) {
                     NavigationView{
-                        EditPart(speech: speech)
+                        EditPart(data: data, speech: speech)
                             .navigationTitle("Edit")
                     }
                 }

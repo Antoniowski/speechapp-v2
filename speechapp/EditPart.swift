@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EditPart: View{
+    @ObservedObject var data: DataHandler
     @State var title: String = ""
     @State var subtitle: String = ""
     @State var partType: PartType = .mid
@@ -46,6 +47,7 @@ private extension EditPart {
     var navigationBarTrailingItems: some View {
         HStack{
             Button(action: {
+                data.AppendNewPart(speech: speech, part: Part(title: title, subtitle: subtitle, type: .mid, color: color, cards: []))
             }, label: {
                 Text("Done")
             })
