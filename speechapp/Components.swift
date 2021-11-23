@@ -59,11 +59,6 @@ struct Tile: View {
         },     label: {
             Label(speech.isFavorite ? "Remove from Favorites" : "Add to Favorites", systemImage: speech.isFavorite ? "star.fill" : "star")
         })
-        Button(action: {
-           //do
-        },     label: {
-            Label("Create Copy", systemImage: "doc.on.doc")
-        })
         Button(role: .destructive,
                action: {
             data.RemoveSpeech(speech: speech)
@@ -115,11 +110,6 @@ struct MostRecentTile: View {
             data.ToggleFavorite(speech: speech)
         },     label: {
             Label("Favorites", systemImage: "star")
-        })
-        Button(action: {
-           //do
-        },     label: {
-            Label("Copy", systemImage: "doc.on.doc")
         })
         Button(role: .destructive,
                action: {
