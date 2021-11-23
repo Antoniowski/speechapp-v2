@@ -413,3 +413,25 @@ struct MostRecentTile2: View{
         .tabViewStyle(.page)
     }
 }
+
+
+struct ColorPickerGrid: View{
+    var gridLayout = Array(repeating: GridItem(.flexible()), count: 4)
+    var arrayColor: [Color] = [.red, .blue, .green, .orange, .gray, .brown, .cyan, .pink, .purple, .teal, .mint, .yellow]
+
+    var body: some View{
+        GeometryReader{ screenDim in
+            LazyVGrid(columns: gridLayout, spacing: screenDim.size.width*recentsScale.padding){
+                ForEach(arrayColor, id:\.self){color in
+                    Button(action: {}, label: {
+                        Image(systemName: "")})
+                        .frame(width: screenDim.size.width/2*recentsScale.width, height: screenDim.size.width/2*recentsScale.width)
+                        .background(color)
+                        .cornerRadius(100)
+                }
+            }
+            .padding(.top)
+        }
+    }
+}
+
