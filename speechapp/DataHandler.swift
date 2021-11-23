@@ -90,6 +90,35 @@ class DataHandler: ObservableObject{
         
         self.contenitore[indexSpeech].parts[indexPart].cards.remove(at: indexFlash)
     }
+    
+    func SearchFlashcard(speech: Speech, part: Part, flashcard: Flashcard)->Bool{
+        var isThere: Bool = false
+        ForEach((0...contenitore.count), id:\.self){ indexS in
+            ForEach((0...self.contenitore[indexS].parts.count), id:\.self){ indexP in
+                if (self.contenitore[indexS].parts[indexP].title == part.title){
+                    isThere = true
+                }
+            }
+        }
+        return isThere
+    }
+    
+    func GetFlashcard(speech: Speech, part: Part, flashcard: Flashcard)->Flashcard{
+        var indexSpeech = 0
+        var indexPart = 0
+        var indexFlash = 0
+        while(self.contenitore[indexSpeech].title != speech.title){
+            indexSpeech += 1
+        }
+        while(self.contenitore[indexSpeech].parts[indexPart].title != part.title){
+            indexPart += 1
+        }
+        while(self.contenitore[indexSpeech].parts[indexPart].cards[indexFlash].title != flashcard.title){
+            indexFlash += 1
+        }
+        return self.contenitore[indexSpeech].parts[indexPart].cards[indexFlash]
+        
+    }
 }
 
 //TEST
