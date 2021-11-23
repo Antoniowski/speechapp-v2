@@ -12,37 +12,24 @@ struct EditPart: View{
     @State var subtitle: String = ""
     @State var partType: PartType = .mid
     @State var color: Color = .black
-    
+
     var speech: Speech
     
     var body: some View{
-        List{
-            Section("Generic infos"){
+        Form{
+            Section("Section info"){
                 TextField("Title", text: $title)
                 TextField("Subtitle", text: $subtitle)
                 
             }
             Section("Type"){
-                HStack(alignment: .center, spacing: 20){
-                    Button(action: {
-                        partType = .start
-                    }, label: {
-                        Label("start", systemImage: "")
-                    })
-                    Button(action: {
-                        partType = .mid
-                    }, label: {
-                        Label("mid", systemImage: "")
-
-                    })
-                    Button(action: {
-                        partType = .end
-                    }, label: {
-                        Label("end", systemImage: "")
-                    })
+                Picker("Type", selection: $partType){
+                    Text("Beginning").tag(PartType.start)
+                    Text("Body").tag(PartType.mid)
+                    Text("End").tag(PartType.end)
                 }
-                .padding(.horizontal)
-                
+                .pickerStyle(.segmented)
+                .padding()
             }
             Section("Color"){
                 ColorPickerGrid()
@@ -66,5 +53,4 @@ private extension EditPart {
         .padding()
     }
 }
-
 
