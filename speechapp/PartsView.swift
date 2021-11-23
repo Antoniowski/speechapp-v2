@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct PartsView: View {
-    @ObservedObject var data: DataHandler
+    @EnvironmentObject var data: DataHandler
     @State var isPresented = false
     @State var isShowingEditPart = false
     @State var isShowingAddPart = false
+    
     var speech: Speech
 
     var body: some View {
         List{
             ForEach(speech.parts, id: \.self){ part in
                 NavigationLink(destination: {
-                    FlashcardsView(data: data,speech: speech,  part: part)
+                    FlashcardsView(speech: speech,  part: part)
                 }, label: {
                     ButtonPartsStyle(part: part)
                 })
@@ -35,7 +36,7 @@ struct PartsView: View {
                     })
                     .sheet(isPresented: $isShowingEditPart){
                         NavigationView{
-                            EditPart(data: data, speech: speech, title: part.title, subtitle: part.subtitle, partType: part.type, color: part.color)
+                            EditPart(speech: speech, title: part.title, subtitle: part.subtitle, partType: part.type, color: part.color)
                                 .navigationBarTitle("Edit Part")
                         }
                     }
@@ -55,7 +56,8 @@ struct PartsView: View {
                 Image(systemName: "play.fill")
             })
                 .fullScreenCover(isPresented: $isPresented) {
-                    PresentationView(speech: speech)                }
+                    PresentationView(speech: speech)
+                }
             Button(action: {
                 isShowingAddPart.toggle()
             }, label: {
@@ -63,7 +65,7 @@ struct PartsView: View {
             })
                 .sheet(isPresented: $isShowingAddPart) {
                     NavigationView{
-                        EditPart(data: data, speech: speech)
+                        EditPart(speech: speech)
                             .navigationTitle("Add Section")
                     }
                 }

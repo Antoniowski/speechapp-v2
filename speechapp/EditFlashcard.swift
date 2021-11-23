@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct EditFlashcard: View{
-    @ObservedObject var data: DataHandler
+    @EnvironmentObject var data: DataHandler
+    @Environment(\.dismiss) private var dismiss
+    
     var speech: Speech
     var part: Part
-    
-    @Environment(\.dismiss) private var dismiss
     @State var title: String = ""
     @State var description: String = ""
     @State var symbol: String = "gear"

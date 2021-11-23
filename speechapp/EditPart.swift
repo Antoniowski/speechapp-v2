@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct EditPart: View{
-    @ObservedObject var data: DataHandler
-    var speech: Speech
-    
+    @EnvironmentObject var data: DataHandler
     @Environment(\.dismiss) private var dismiss
+    
+    var speech: Speech
     @State var title: String = ""
     @State var subtitle: String = ""
     @State var partType: PartType = .mid
