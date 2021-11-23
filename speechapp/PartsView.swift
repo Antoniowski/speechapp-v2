@@ -48,7 +48,10 @@ private extension PartsView {
                 Image(systemName: "plus")
             })
                 .sheet(isPresented: $showCreation) {
-//                    do
+                    NavigationView{
+                        EditPart(speech: speech)
+                            .navigationTitle("Edit")
+                    }
                 }
         }
     }

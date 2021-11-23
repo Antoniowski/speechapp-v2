@@ -16,17 +16,20 @@ struct EditFlashcard: View{
     
     var body: some View{
         GeometryReader{ screenDim in
-            VStack{
-                Section{
+            List{
+                Section("Title"){
                     TextField("Title", text: $title)
                         .font(.system(.title))
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: screenDim.size.height/10)
-                        .padding(.leading)
                 }
-                Section{
+                
+                Section("Symbol"){
+                    
+                }
+                
+                Section("Content"){
                     TextEditor(text: $description)
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                        .padding()
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 400, maxHeight: .infinity)
                 }
             }
             .navigationBarItems(trailing:navigationBarTrailingItems)
