@@ -22,8 +22,7 @@ struct AddSpeech: View{
                 
             }
             Section("Symbol"){
-                ColorPickerGrid()
-                    .frame(height: 200)
+                SymbolPicker()
             }
         }
         .toolbar{navigationBarItems}
