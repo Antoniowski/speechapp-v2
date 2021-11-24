@@ -97,9 +97,9 @@ class DataHandler: ObservableObject{
     
     func SearchFlashcard(title: String)->Bool{
         var isThere: Bool = false
-        for indexS in (0...contenitore.count){
-            for indexP in (0...self.contenitore[indexS].parts.count){
-                for indexF in (0...self.contenitore[indexS].parts[indexP].cards.count){
+        for indexS in (0...contenitore.count-1){
+            for indexP in (0...self.contenitore[indexS].parts.count-1){
+                for indexF in (0...self.contenitore[indexS].parts[indexP].cards.count-1){
                     if (self.contenitore[indexS].parts[indexP].cards[indexF].title == title){
                         isThere = true
                     }
@@ -110,11 +110,11 @@ class DataHandler: ObservableObject{
         return isThere
     }
     
-    func SearchPart(speech: Speech, part: Part)->Bool{
+    func SearchPart(title: String)->Bool{
         var isThere: Bool = false
-        for indexS in (0...contenitore.count){
-            for indexP in (0...self.contenitore[indexS].parts.count){
-                if (self.contenitore[indexS].parts[indexP].title == part.title){
+        for indexS in (0...contenitore.count-1){
+            for indexP in (0...self.contenitore[indexS].parts.count-1){
+                if (self.contenitore[indexS].parts[indexP].title == title){
                     isThere = true
                 }
             }
@@ -122,10 +122,10 @@ class DataHandler: ObservableObject{
         return isThere
     }
     
-    func SearchSpeech(speech: Speech)->Bool{
+    func SearchSpeech(title: String)->Bool{
         var isThere: Bool = false
-        for indexS in (0...contenitore.count){
-            if (self.contenitore[indexS].title == speech.title){
+        for indexS in (0...contenitore.count-1){
+            if (self.contenitore[indexS].title == title){
                 isThere = true
             }
         }
@@ -165,10 +165,13 @@ class DataHandler: ObservableObject{
         self.contenitore[indexSpeech].parts[indexPart].type = type
         self.contenitore[indexSpeech].parts[indexPart].color = color
         self.contenitore[indexSpeech].parts[indexPart].cards = flashcards
+        for x in (0...self.contenitore[indexSpeech].parts[indexPart].cards.count-1){
+            self.contenitore[indexSpeech].parts[indexPart].cards[x].color = color
+        }
 
     }
     
-    func EditSpeechInfo(title: String, symbol: String, favorite: Bool, parts: [Part], flashcards:[Flashcard] ){
+    func EditSpeechInfo(title: String, symbol: String, favorite: Bool, parts: [Part]){
         var indexSpeech = 0
 
         while(self.contenitore[indexSpeech].title != title){
@@ -178,7 +181,6 @@ class DataHandler: ObservableObject{
         self.contenitore[indexSpeech].symbol = symbol
         self.contenitore[indexSpeech].isFavorite = favorite
         self.contenitore[indexSpeech].parts = parts
-        self.contenitore[indexSpeech].flashcards = flashcards
 
     }
 }

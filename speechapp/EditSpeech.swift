@@ -47,10 +47,10 @@ struct EditSpeech: View{
         HStack{
             Button(action: {
                 if title != "" {
-                    if speech.isEmpty() {
+                    if data.SearchSpeech(title: title) == false {
                         data.AppendNewSpeech(speech: Speech(title: title, symbol: symbol, isFavorite: false, parts: []))
                     } else {
-//                        edit
+                        data.EditSpeechInfo(title: title, symbol: symbol, favorite: speech.isFavorite, parts: speech.parts)
                     }
                 }
                 dismiss()

@@ -59,7 +59,7 @@ struct EditFlashcard: View{
                     if(data.SearchFlashcard(title: title) == false){
                         data.AppendNewFlashcard(speech: speech, part: part, flashcard: Flashcard(title: title, symbol: symbol, color: part.color, description: description))
                     } else {
-                        //                        do
+                        data.EditFlashInfo(speech: speech, part: part, title: title, symbol: symbol, color: part.color, description: description)
                     }
                 }
                 dismiss()
