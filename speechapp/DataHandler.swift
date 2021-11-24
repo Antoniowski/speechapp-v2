@@ -151,13 +151,13 @@ class DataHandler: ObservableObject{
         self.contenitore[indexSpeech].parts[indexPart].cards[indexFlash].description = description
     }
     
-    func EditPartInfo(speech: Speech, title: String, subtitle: String, type: PartType, color: Color, flashcards:[Flashcard] ){
+    func EditPartInfo(speech: Speech, oldTitle: String, title: String, subtitle: String, type: PartType, color: Color, flashcards:[Flashcard] ){
         var indexSpeech = 0
         var indexPart = 0
         while(self.contenitore[indexSpeech].title != speech.title){
             indexSpeech += 1
         }
-        while(self.contenitore[indexSpeech].parts[indexPart].title != title){
+        while(self.contenitore[indexSpeech].parts[indexPart].title != oldTitle){
             indexPart += 1
         }
         self.contenitore[indexSpeech].parts[indexPart].title = title

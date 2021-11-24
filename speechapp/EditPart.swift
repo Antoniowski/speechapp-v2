@@ -54,10 +54,10 @@ struct EditPart: View{
         HStack{
             Button(action: {
                 if title != "" {
-                    if data.SearchPart(title: title) == false {
+                    if part.title == "" {
                         data.AppendNewPart(speech: speech, part: Part(title: title, subtitle: subtitle, type: partType, color: color, cards: []))
                     } else {
-                        data.EditPartInfo(speech: speech, title: title, subtitle: subtitle, type: partType, color: color, flashcards: part.cards)
+                        data.EditPartInfo(speech: speech, oldTitle: part.title, title: title, subtitle: subtitle, type: partType, color: color, flashcards: part.cards)
                     }
                 }
                 dismiss()
