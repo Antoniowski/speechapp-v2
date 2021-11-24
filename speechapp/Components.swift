@@ -164,6 +164,8 @@ struct FlashcardTile: View{
                 gestureState = currentState
             }
             .onEnded{ _ in
+                let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                impactMed.impactOccurred()
                 front.toggle()
             }
     }
