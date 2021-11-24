@@ -8,23 +8,37 @@
 import SwiftUI
 
 
-struct AddSpeech: View{
+struct EditSpeech: View{
     @EnvironmentObject var data: DataHandler
     @Environment(\.dismiss) private var dismiss
     
+    var speech: Speech = Speech()
     @State var title: String = ""
-    @State var symbol: String = "" // set default
+    @State var symbol: String = "mic"
         
     var body: some View{
-        List{
+        VStack {
+            ZStack{
+            RoundedRectangle(cornerRadius: cornerRad)
+                .fill(.quaternary)
+                .frame(width: UIScreen.main.bounds.height*0.1, height: UIScreen.main.bounds.height*0.1)
+            Image(systemName: symbol)
+                .font(.largeTitle)
+                .foregroundColor(.white)
+            }
+            .padding()
+            .padding(.top)
+        Form{
             Section("Speech Title"){
                 TextField("Title", text: $title)
                 
             }
             Section("Symbol"){
-                SymbolPicker()
+                SymbolPicker(chosenSymbol: $symbol)
             }
         }
+        }
+        .background(Color.init(uiColor: UIColor.secondarySystemBackground))
         .toolbar{navigationBarItems}
     }
     
@@ -33,7 +47,11 @@ struct AddSpeech: View{
         HStack{
             Button(action: {
                 if title != "" {
-                    data.AppendNewSpeech(speech: Speech(title: title, symbol: "gear", isFavorite: false, parts: []))
+                    if speech.isEmpty() {
+                        data.AppendNewSpeech(speech: Speech(title: title, symbol: symbol, isFavorite: false, parts: []))
+                    } else {
+//                        edit
+                    }
                 }
                 dismiss()
             }, label: {

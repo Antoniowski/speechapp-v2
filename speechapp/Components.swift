@@ -5,7 +5,7 @@
 //  Created by Anthea Lavinia Bove on 15/11/21.
 //
 
-//tile favourite/tile recent/tile flashcard
+//add edit speech
 //reduce use of geometryreader
 
 import SwiftUI
@@ -220,8 +220,9 @@ struct FlashcardPreviewTile: View {
             .contextMenu{menuOptions}
             .sheet(isPresented: $showEditF) {
                 NavigationView{
-                    EditFlashcard(speech: speech, part: part, title: card.title, description: card.description, symbol: card.symbol)
+                    EditFlashcard(speech: speech, part: part, card: card, title: card.title, description: card.description, symbol: card.symbol)
                         .navigationTitle("Edit Flashcard")
+                        .navigationBarTitleDisplayMode(.inline)
                 }
             }
         
@@ -291,10 +292,32 @@ struct ColorPicker: View{
 
 struct SymbolPicker: View {
     var gridLayout = Array(repeating: GridItem(.flexible()), count: 6)
-//    var symbols = symbolArray
+    var symbols = symbolArray
+    @Binding var chosenSymbol: String
     
     var body: some View{
-        Text("")
+            LazyVGrid(columns: gridLayout, spacing: 10) {
+                ForEach(symbols, id: \.self){ symbol in
+                    ZStack {
+                        Circle()
+                            .fill(.quaternary)
+                            .frame(width: UIScreen.main.bounds.height*0.05, height: UIScreen.main.bounds.height*0.05)
+                            .onTapGesture(perform: {
+                                chosenSymbol = symbol
+                            })
+                            .padding(5)
+                        Image(systemName: symbol)
+                            .font(.body)
+                            .foregroundColor(.secondary)
+                        if chosenSymbol == symbol {
+                            Circle()
+                                .stroke(appAccentColor, lineWidth: 4)
+                                .frame(width: UIScreen.main.bounds.height*0.055, height: UIScreen.main.bounds.height*0.055)
+                        }
+                    }
+                }
+            }
+            .padding(10)
     }
 }
 

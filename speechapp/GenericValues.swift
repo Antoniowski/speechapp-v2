@@ -45,6 +45,15 @@ let fcYellow: Color = Color("flashCardYellow")
 
 var colorArray: [Color] = [fcPink, fcMagenta, fcOrangeA, fcOrangeB, fcYellow, fcGreenA, fcGreenB, fcAcquamarine, fcSteelBlue, fcPurple, fcBlue, fcIndigo]
 
+// Symbols
+var symbolArray: [String] =
+[ "mic", "message", "bubble.left.and.bubble.right", "sun.max", "moon", "sparkles",
+  "smoke", "wind", "snowflake", "tornado", "pencil", "paperplane",
+  "archivebox", "doc", "book", "books.vertical", "book.closed", "magazine",
+  "bookmark", "paperclip", "umbrella", "speaker.wave.3", "music.mic", "flag",
+  "bell", "tag", "eyeglasses", "facemask", "flashlight.off.fill", "camera",
+  "gearshape.2", "scissors", "wand.and.rays", "gyroscope", "speedometer", "dice" ]
+
 
 // Data Handling
 enum PartType {
@@ -86,19 +95,20 @@ struct Speech: Hashable{
     var symbol: String
     var isFavorite: Bool
     var parts: [Part]
-    var flashcards: [Flashcard] = []
     
-    init(title: String, symbol: String, isFavorite: Bool = false, parts: [Part] = []){
+    init(title: String = "", symbol: String = "", isFavorite: Bool = false, parts: [Part] = []){
         self.title = title
         self.symbol = symbol
         self.isFavorite = isFavorite
         self.parts = parts
-//        DA VALUTARE: vedi funzione per sostituto
-        var f = [Flashcard]()
-        for part in parts {
-            f.append(contentsOf: part.cards)
+    }
+    
+    func isEmpty() -> Bool {
+        if self.title == "" && self.symbol == "" {
+            return true
+        } else {
+            return false
         }
-        self.flashcards = f
     }
     
     func getAllFlashcards() -> [Flashcard] {

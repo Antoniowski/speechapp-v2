@@ -12,31 +12,40 @@ struct EditPart: View{
     @Environment(\.dismiss) private var dismiss
     
     var speech: Speech
+    var part: Part = Part(title: "", type: .mid, color: fcPink)
+    
     @State var title: String = ""
     @State var subtitle: String = ""
     @State var partType: PartType = .mid
     @State var color: Color = fcPink
     
     var body: some View{
-        Form{
-            Section("Section info"){
-                TextField("Title", text: $title)
-                TextField("Subtitle", text: $subtitle)
-                
-            }
-            Section("Type"){
-                Picker("Type", selection: $partType){
-                    Text("Beginning").tag(PartType.start)
-                    Text("Body").tag(PartType.mid)
-                    Text("End").tag(PartType.end)
-                }
-                .pickerStyle(.segmented)
+        VStack {
+            RoundedRectangle(cornerRadius: cornerRad)
+                .fill(color)
+                .frame(width: UIScreen.main.bounds.height*0.1, height: UIScreen.main.bounds.height*0.1)
                 .padding()
-            }
-            Section("Color"){
-                ColorPicker(chosenColor: $color)
+                .padding(.top)
+            Form{
+                Section("Section info"){
+                    TextField("Title", text: $title)
+                    TextField("Subtitle", text: $subtitle)
+                }
+                Section("Type"){
+                    Picker("Type", selection: $partType){
+                        Text("Beginning").tag(PartType.start)
+                        Text("Body").tag(PartType.mid)
+                        Text("End").tag(PartType.end)
+                    }
+                    .pickerStyle(.segmented)
+                    .padding()
+                }
+                Section("Color"){
+                    ColorPicker(chosenColor: $color)
+                }
             }
         }
+        .background(Color.init(uiColor: UIColor.secondarySystemBackground))
         .toolbar{navigationBarItems}
     }
     
@@ -45,7 +54,11 @@ struct EditPart: View{
         HStack{
             Button(action: {
                 if title != "" {
-                    data.AppendNewPart(speech: speech, part: Part(title: title, subtitle: subtitle, type: partType, color: color, cards: []))
+                    if part.title == "" {
+                        data.AppendNewPart(speech: speech, part: Part(title: title, subtitle: subtitle, type: partType, color: color, cards: []))
+                    } else {
+                        //                        do
+                    }
                 }
                 dismiss()
             }, label: {
