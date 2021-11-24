@@ -171,10 +171,10 @@ class DataHandler: ObservableObject{
 
     }
     
-    func EditSpeechInfo(title: String, symbol: String, favorite: Bool, parts: [Part]){
+    func EditSpeechInfo(oldTitle: String, title: String, symbol: String, favorite: Bool, parts: [Part]){
         var indexSpeech = 0
 
-        while(self.contenitore[indexSpeech].title != title){
+        while(self.contenitore[indexSpeech].title != oldTitle){
             indexSpeech += 1
         }
         self.contenitore[indexSpeech].title = title
