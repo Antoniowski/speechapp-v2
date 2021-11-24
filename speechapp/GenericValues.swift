@@ -147,19 +147,19 @@ var genConclusion = Part(title: "Conclusion", subtitle: "We hope you like it!", 
 ])
 
 var introduction = Part(title: "Introduction", subtitle: "Where it started", type: .start, color: fcGreenB, cards: [
-    Flashcard(title: "The Big Idea", symbol: "apps.iphone", color: fcGreenB, description: "Loreipsumdashgdatydajdgayudbadyusafuyashfbyugsdafuygsafygasfgsafyasgfasfasgfcayfascasfasub"),
-    Flashcard(title: "App Statement", symbol: "speaker.circle", color: fcGreenB, description: "An app that helps a Student who wants to better organise, memorise and present a topic by providing a visualguide to organise a speech")
+    Flashcard(title: "The Big Idea", symbol: "sun.max.fill", color: fcGreenB, description: "What ideas we came up with at the beginning?"),
+    Flashcard(title: "Communication", symbol: "bubble.left.and.bubble.right.fill", color: fcGreenB, description: "Why we chose communication?\nThe different types of communication we encountered.")
 ])
 
 var body = Part(title: "Body", subtitle: "How we did it", type: .mid, color: fcPurple, cards: [
-    Flashcard(title: "Solution Concept", symbol: "bag", color: fcPurple, description: "Lorem ipsum"),
-    Flashcard(title: "App Development", symbol: "app.dashed", color: fcPurple, description: "Lorem ipsum"),
-    Flashcard(title: "Bug Fixes", symbol: "bandage", color: fcPurple, description: "Lorem ipsum")
+    Flashcard(title: "Investigation", symbol: "eyeglasses", color: fcPurple, description: "What were our web researches?\nWhat did we find out with our survey?"),
+    Flashcard(title: "Solution Concept", symbol: "brain.head.profile", color: fcPurple, description: "Create a solution to help to organise speeches and presentations"),
+    Flashcard(title: "Our Features", symbol: "apps.iphone", color: fcPurple, description: "Recents and favourite sections to find your speeches quicker\nTemplate to organize speeches\nFlashcards with scrollable views")
 ])
 
 var conclusion = Part(title: "Conclusion", subtitle: "We hope you like it!", type: .end, color: fcYellow, cards: [
-    Flashcard(title: "Future implementations", symbol: "bag", color: fcYellow, description: "In the future, we want to implement:\n- Timer/stopwatch to time speeches\n- Tips to help with communication skills\n- More speech templates"),
-    Flashcard(title: "Goodbye", symbol: "hand.wave", color: fcYellow, description: "Lorem ipsum")
+    Flashcard(title: "Future implementations", symbol: "bolt.fill", color: fcYellow, description: "In the future, we want to implement:\n- Timer/stopwatch to time speeches\n- Tips to help with communication skills\n- More speech templates"),
+    Flashcard(title: "Goodbye", symbol: "speaker.wave.3.fill", color: fcYellow, description: "Thank you for listening!")
 ])
 
 var parts = [genIntroduction, genBody, genConclusion]
