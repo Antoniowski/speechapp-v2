@@ -132,7 +132,7 @@ class DataHandler: ObservableObject{
         return isThere
     }
     
-    func GetFlashcard(speech: Speech, part: Part, flashcard: Flashcard)->Flashcard{
+    func EditFlashInfo(speech: Speech, part: Part, title: String, symbol: String, color: Color, description: String){
         var indexSpeech = 0
         var indexPart = 0
         var indexFlash = 0
@@ -142,13 +142,46 @@ class DataHandler: ObservableObject{
         while(self.contenitore[indexSpeech].parts[indexPart].title != part.title){
             indexPart += 1
         }
-        while(self.contenitore[indexSpeech].parts[indexPart].cards[indexFlash].title != flashcard.title){
+        while(self.contenitore[indexSpeech].parts[indexPart].cards[indexFlash].title != title){
             indexFlash += 1
         }
-        return self.contenitore[indexSpeech].parts[indexPart].cards[indexFlash]
-        
+        self.contenitore[indexSpeech].parts[indexPart].cards[indexFlash].title = title
+        self.contenitore[indexSpeech].parts[indexPart].cards[indexFlash].symbol = symbol
+        self.contenitore[indexSpeech].parts[indexPart].cards[indexFlash].color = color
+        self.contenitore[indexSpeech].parts[indexPart].cards[indexFlash].description = description
+    }
+    
+    func EditPartInfo(speech: Speech, title: String, subtitle: String, type: PartType, color: Color, flashcards:[Flashcard] ){
+        var indexSpeech = 0
+        var indexPart = 0
+        while(self.contenitore[indexSpeech].title != speech.title){
+            indexSpeech += 1
+        }
+        while(self.contenitore[indexSpeech].parts[indexPart].title != title){
+            indexPart += 1
+        }
+        self.contenitore[indexSpeech].parts[indexPart].title = title
+        self.contenitore[indexSpeech].parts[indexPart].subtitle = subtitle
+        self.contenitore[indexSpeech].parts[indexPart].type = type
+        self.contenitore[indexSpeech].parts[indexPart].color = color
+        self.contenitore[indexSpeech].parts[indexPart].cards = flashcards
+
+    }
+    
+    func EditSpeechInfo(title: String, symbol: String, favorite: Bool, parts: [Part], flashcards:[Flashcard] ){
+        var indexSpeech = 0
+
+        while(self.contenitore[indexSpeech].title != title){
+            indexSpeech += 1
+        }
+        self.contenitore[indexSpeech].title = title
+        self.contenitore[indexSpeech].symbol = symbol
+        self.contenitore[indexSpeech].isFavorite = favorite
+        self.contenitore[indexSpeech].parts = parts
+        self.contenitore[indexSpeech].flashcards = flashcards
+
     }
 }
 
-//TEST
-//var dati = DataHandler(speeches: mySpeeches)
+
+
