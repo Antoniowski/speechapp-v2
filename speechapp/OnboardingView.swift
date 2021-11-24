@@ -21,6 +21,7 @@ struct OnboardingView: View {
                     firstLine
                     firstTipsLine
                 }
+                .frame(width: UIScreen.main.bounds.width*0.6, alignment: .leading)
                 .padding(.horizontal)
             }
             .padding()
@@ -30,6 +31,7 @@ struct OnboardingView: View {
                     secondLine
                     secondTipsLine
                 }
+                .frame(width: UIScreen.main.bounds.width*0.6, alignment: .leading)
                 .padding(.horizontal)
             }
             .padding()
@@ -39,6 +41,7 @@ struct OnboardingView: View {
                     thirdLine
                     thirdTipsLine
                 }
+                .frame(width: UIScreen.main.bounds.width*0.6, alignment: .leading)
                 .padding(.horizontal)
             }
             .padding()
@@ -49,7 +52,7 @@ struct OnboardingView: View {
     
     @ViewBuilder
     var titleLine: some View {
-        Text("Create your first speech and start _speaking up!_\n")
+        Text("Create your first speech and start speaking!\n")
             .font(.largeTitle)
             .fontWeight(.bold)
             .padding(.horizontal)
@@ -123,7 +126,7 @@ struct PageImage: View {
     var body: some View {
         Image(systemName: name)
             .font(.system(size: UIScreen.main.bounds.height*0.05))
-            .frame(width: UIScreen.main.bounds.height*0.065)
+            .frame(width: UIScreen.main.bounds.width*0.2)
             .foregroundColor(color)
             .padding(.leading)
     }
