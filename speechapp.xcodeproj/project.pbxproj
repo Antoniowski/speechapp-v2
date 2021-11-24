@@ -491,7 +491,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"speechapp/Preview Content\"";
-				DEVELOPMENT_TEAM = 4ZJ932X33L;
+				DEVELOPMENT_TEAM = YT6T4953M8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -506,7 +506,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = ZEN.speakto.01;
+				PRODUCT_BUNDLE_IDENTIFIER = ZEN.speakto;
 				PRODUCT_NAME = SpeakTo;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -522,7 +522,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"speechapp/Preview Content\"";
-				DEVELOPMENT_TEAM = 4ZJ932X33L;
+				DEVELOPMENT_TEAM = YT6T4953M8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -537,7 +537,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = ZEN.speakto.01;
+				PRODUCT_BUNDLE_IDENTIFIER = ZEN.speakto;
 				PRODUCT_NAME = SpeakTo;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
