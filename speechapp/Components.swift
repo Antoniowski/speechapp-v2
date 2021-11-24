@@ -13,6 +13,7 @@ import SwiftUI
 struct Tile: View {
     @EnvironmentObject var data: DataHandler
     @State private var pathChosen = 0
+    @State var isSpeechEditShowing = false
     
     var speech: Speech
     var screenWidth: Double
@@ -30,6 +31,14 @@ struct Tile: View {
         .foregroundColor(.white)
         .cornerRadius(cornerRad)
         .contextMenu{menuOptions}
+        .sheet(isPresented: $isSpeechEditShowing){
+            NavigationView{
+                EditSpeech(data: _data, speech: speech, title: speech.title, symbol: speech.symbol)
+                    .navigationTitle("Edit Speech")
+                    .navigationBarTitleDisplayMode(.inline)
+            }
+        }
+
     }
     
     @ViewBuilder
@@ -61,6 +70,11 @@ struct Tile: View {
         },     label: {
             Label(speech.isFavorite ? "Remove from Favorites" : "Add to Favorites", systemImage: speech.isFavorite ? "star.fill" : "star")
         })
+        Button(action: {
+            isSpeechEditShowing.toggle()
+        }, label: {
+            Label("Edit", systemImage: "pencil")
+        })
         Button(role: .destructive,
                action: {
             data.RemoveSpeech(speech: speech)
@@ -69,10 +83,13 @@ struct Tile: View {
         })
     }
     
+    
 }
 
 struct MostRecentTile: View {
     @EnvironmentObject private var data: DataHandler
+    @State var isMostRecentEditShowing = false
+    
     var speech: Speech
     var screenWidth: Double
     var screenHeight: Double
@@ -88,6 +105,14 @@ struct MostRecentTile: View {
         .background(primaryColor)
         .foregroundColor(.white)
         .contextMenu{menuOptions}
+        .sheet(isPresented: $isMostRecentEditShowing){
+            NavigationView{
+                EditSpeech(data: _data, speech: speech, title: speech.title, symbol: speech.symbol)
+                    .navigationTitle("Edit Speech")
+                    .navigationBarTitleDisplayMode(.inline)
+            }
+        }
+
     }
     
     @ViewBuilder
@@ -112,6 +137,11 @@ struct MostRecentTile: View {
             data.ToggleFavorite(speech: speech)
         },     label: {
             Label("Favorites", systemImage: "star")
+        })
+        Button(action: {
+            isMostRecentEditShowing.toggle()
+        }, label: {
+            Label("Edit", systemImage: "pencil")
         })
         Button(role: .destructive,
                action: {
