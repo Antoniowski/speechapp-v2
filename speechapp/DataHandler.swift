@@ -132,7 +132,7 @@ class DataHandler: ObservableObject{
         return isThere
     }
     
-    func EditFlashInfo(speech: Speech, part: Part, title: String, symbol: String, color: Color, description: String){
+    func EditFlashInfo(speech: Speech, part: Part, oldTitle: String, title: String, symbol: String, color: Color, description: String){
         var indexSpeech = 0
         var indexPart = 0
         var indexFlash = 0
@@ -142,7 +142,7 @@ class DataHandler: ObservableObject{
         while(self.contenitore[indexSpeech].parts[indexPart].title != part.title){
             indexPart += 1
         }
-        while(self.contenitore[indexSpeech].parts[indexPart].cards[indexFlash].title != title){
+        while(self.contenitore[indexSpeech].parts[indexPart].cards[indexFlash].title != oldTitle){
             indexFlash += 1
         }
         self.contenitore[indexSpeech].parts[indexPart].cards[indexFlash].title = title
