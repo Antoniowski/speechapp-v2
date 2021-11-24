@@ -184,9 +184,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6A81653927429B3E0017C271 /* speechapp */ = {
+		6A81653927429B3E0017C271 /* SpeakTo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6A81656327429B3F0017C271 /* Build configuration list for PBXNativeTarget "speechapp" */;
+			buildConfigurationList = 6A81656327429B3F0017C271 /* Build configuration list for PBXNativeTarget "SpeakTo" */;
 			buildPhases = (
 				6A81653627429B3E0017C271 /* Sources */,
 				6A81653727429B3E0017C271 /* Frameworks */,
@@ -196,7 +196,7 @@
 			);
 			dependencies = (
 			);
-			name = speechapp;
+			name = SpeakTo;
 			productName = speechapp;
 			productReference = 6A81653A27429B3E0017C271 /* SpeakTo.app */;
 			productType = "com.apple.product-type.application";
@@ -273,7 +273,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6A81653927429B3E0017C271 /* speechapp */,
+				6A81653927429B3E0017C271 /* SpeakTo */,
 				6A81654E27429B3F0017C271 /* speechappTests */,
 				6A81655827429B3F0017C271 /* speechappUITests */,
 			);
@@ -356,12 +356,12 @@
 /* Begin PBXTargetDependency section */
 		6A81655127429B3F0017C271 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6A81653927429B3E0017C271 /* speechapp */;
+			target = 6A81653927429B3E0017C271 /* SpeakTo */;
 			targetProxy = 6A81655027429B3F0017C271 /* PBXContainerItemProxy */;
 		};
 		6A81655B27429B3F0017C271 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6A81653927429B3E0017C271 /* speechapp */;
+			target = 6A81653927429B3E0017C271 /* SpeakTo */;
 			targetProxy = 6A81655A27429B3F0017C271 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -653,7 +653,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6A81656327429B3F0017C271 /* Build configuration list for PBXNativeTarget "speechapp" */ = {
+		6A81656327429B3F0017C271 /* Build configuration list for PBXNativeTarget "SpeakTo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6A81656427429B3F0017C271 /* Debug */,

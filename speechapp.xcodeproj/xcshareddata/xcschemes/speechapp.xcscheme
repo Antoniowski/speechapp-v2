@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6A81653927429B3E0017C271"
-               BuildableName = "speechapp.app"
-               BlueprintName = "speechapp"
+               BuildableName = "SpeakTo.app"
+               BlueprintName = "SpeakTo"
                ReferencedContainer = "container:speechapp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -66,8 +66,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6A81653927429B3E0017C271"
-            BuildableName = "speechapp.app"
-            BlueprintName = "speechapp"
+            BuildableName = "SpeakTo.app"
+            BlueprintName = "SpeakTo"
             ReferencedContainer = "container:speechapp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -83,8 +83,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6A81653927429B3E0017C271"
-            BuildableName = "speechapp.app"
-            BlueprintName = "speechapp"
+            BuildableName = "SpeakTo.app"
+            BlueprintName = "SpeakTo"
             ReferencedContainer = "container:speechapp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
