@@ -159,7 +159,7 @@ struct FlashcardTile: View{
     @State private var front: Bool = true
     @GestureState private var isDetectingLongPress = false
     var longPress: some Gesture{
-        LongPressGesture(minimumDuration: 0.75)
+        LongPressGesture(minimumDuration: 0.50)
             .updating($isDetectingLongPress){currentState,gestureState,transaction  in
                 gestureState = currentState
             }

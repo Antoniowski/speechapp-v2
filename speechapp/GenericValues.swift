@@ -47,12 +47,14 @@ var colorArray: [Color] = [fcPink, fcMagenta, fcOrangeA, fcOrangeB, fcYellow, fc
 
 // Symbols
 var symbolArray: [String] =
-[ "mic", "message", "bubble.left.and.bubble.right", "sun.max", "moon", "sparkles",
-  "smoke", "wind", "snowflake", "tornado", "pencil", "paperplane",
-  "archivebox", "doc", "book", "books.vertical", "book.closed", "magazine",
-  "bookmark", "paperclip", "umbrella", "speaker.wave.3", "music.mic", "flag",
-  "bell", "tag", "eyeglasses", "facemask", "flashlight.off.fill", "camera",
-  "gearshape.2", "scissors", "wand.and.rays", "gyroscope", "speedometer", "dice" ]
+[ "mic.fill", "message.fill", "bubble.left.and.bubble.right.fill", "sun.max.fill", "moon.fill", "sparkles",
+  "smoke.fill", "wind", "snowflake", "tornado", "pencil", "paperplane.fill",
+  "archivebox.fill", "doc.fill", "book.fill", "books.vertical.fill", "book.closed.fill", "magazine.fill",
+  "bookmark.fill", "paperclip", "umbrella.fill", "speaker.wave.3.fill", "music.mic", "flag.fill",
+  "bell.fill", "tag.fill", "eyeglasses", "facemask.fill", "flashlight.off.fill", "camera.fill",
+  "gearshape.2.fill", "scissors", "wand.and.rays", "gyroscope", "speedometer", "dice.fill",
+  "apps.iphone", "bolt.fill", "rotate.3d", "leaf.fill", "bicycle", "brain.head.profile",
+  "car.fill", "music.note", "globe.europe.africa.fill", "drop.fill", "person.fill", "bed.double.fill" ]
 
 
 // Data Handling
@@ -145,7 +147,7 @@ var genConclusion = Part(title: "Conclusion", subtitle: "We hope you like it!", 
 ])
 
 var introduction = Part(title: "Introduction", subtitle: "Where it started", type: .start, color: fcYellow, cards: [
-    Flashcard(title: "The Big Idea", symbol: "iphone", color: fcYellow, description: "Loreipsumdashgdatydajdgayudbadyusafuyashfbyugsdafuygsafygasfgsafyasgfasfasgfcayfascasfasub"),
+    Flashcard(title: "The Big Idea", symbol: "apps.iphone", color: fcYellow, description: "Loreipsumdashgdatydajdgayudbadyusafuyashfbyugsdafuygsafygasfgsafyasgfasfasgfcayfascasfasub"),
     Flashcard(title: "App Concept", symbol: "speaker.circle", color: fcYellow, description: "Loreipsumdashgdatydajdgayudbadyusafuyashfbyugsdafuygsafygasfgsafyasgfasfasgfcayfascasfasub")
 ])
 
@@ -163,7 +165,7 @@ var conclusion = Part(title: "Conclusion", subtitle: "We hope you like it!", typ
 var parts = [genIntroduction, genBody, genConclusion]
 
 var mySpeeches = [
-    Speech(title: "My App", symbol: "iphone", isFavorite: true, parts: [introduction, body, conclusion]),
+    Speech(title: "My App", symbol: "apps.iphone", isFavorite: true, parts: [introduction, body, conclusion]),
     Speech(title: "Electricity", symbol: "bolt.fill", isFavorite: true, parts: parts),
     Speech(title: "The power of 3d", symbol: "rotate.3d", parts: parts),
     Speech(title: "Ecology", symbol: "leaf.fill", parts: parts),
