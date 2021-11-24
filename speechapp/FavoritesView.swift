@@ -15,9 +15,9 @@ struct FavoritesView: View {
     var body: some View{
         GeometryReader { screenDim in
             ScrollView{
-                LazyVGrid(columns: gridLayout, spacing: screenDim.size.width*favoritesScale.padding){
+                LazyVGrid(columns: gridLayout, spacing: UIScreen.main.bounds.width*favoritesScale.padding){
                     ForEach(searchResults, id: \.self) { speech in
-                        Tile(speech: speech, screenWidth: screenDim.size.width, screenHeight: screenDim.size.width, scale: favoritesScale)
+                        Tile(speech: speech, screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.width, scale: favoritesScale)
                     }
                     
                 }.padding()

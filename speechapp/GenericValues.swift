@@ -146,9 +146,9 @@ var genConclusion = Part(title: "Conclusion", subtitle: "We hope you like it!", 
     Flashcard(title: "Conclusion 2", symbol: "app", color: fcOrangeA, description: "Lorem ipsum")
 ])
 
-var introduction = Part(title: "Introduction", subtitle: "Where it started", type: .start, color: fcYellow, cards: [
-    Flashcard(title: "The Big Idea", symbol: "apps.iphone", color: fcYellow, description: "Loreipsumdashgdatydajdgayudbadyusafuyashfbyugsdafuygsafygasfgsafyasgfasfasgfcayfascasfasub"),
-    Flashcard(title: "App Concept", symbol: "speaker.circle", color: fcYellow, description: "Loreipsumdashgdatydajdgayudbadyusafuyashfbyugsdafuygsafygasfgsafyasgfasfasgfcayfascasfasub")
+var introduction = Part(title: "Introduction", subtitle: "Where it started", type: .start, color: fcGreenB, cards: [
+    Flashcard(title: "The Big Idea", symbol: "apps.iphone", color: fcGreenB, description: "Loreipsumdashgdatydajdgayudbadyusafuyashfbyugsdafuygsafygasfgsafyasgfasfasgfcayfascasfasub"),
+    Flashcard(title: "App Statement", symbol: "speaker.circle", color: fcGreenB, description: "An app that helps a Student who wants to better organise, memorise and present a topic by providing a visualguide to organise a speech")
 ])
 
 var body = Part(title: "Body", subtitle: "How we did it", type: .mid, color: fcPurple, cards: [
@@ -157,9 +157,9 @@ var body = Part(title: "Body", subtitle: "How we did it", type: .mid, color: fcP
     Flashcard(title: "Bug Fixes", symbol: "bandage", color: fcPurple, description: "Lorem ipsum")
 ])
 
-var conclusion = Part(title: "Conclusion", subtitle: "We hope you like it!", type: .end, color: fcGreenB, cards: [
-    Flashcard(title: "App Store", symbol: "bag", color: fcGreenB, description: "Lorem ipsum"),
-    Flashcard(title: "Goodbye", symbol: "hand.wave", color: fcGreenB, description: "Lorem ipsum")
+var conclusion = Part(title: "Conclusion", subtitle: "We hope you like it!", type: .end, color: fcYellow, cards: [
+    Flashcard(title: "Future implementations", symbol: "bag", color: fcYellow, description: "In the future, we want to implement:\n- Timer/stopwatch to time speeches\n- Tips to help with communication skills\n- More speech templates"),
+    Flashcard(title: "Goodbye", symbol: "hand.wave", color: fcYellow, description: "Lorem ipsum")
 ])
 
 var parts = [genIntroduction, genBody, genConclusion]
