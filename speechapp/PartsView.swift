@@ -36,8 +36,9 @@ struct PartsView: View {
                     })
                     .sheet(isPresented: $isShowingEditPart){
                         NavigationView{
-                            EditPart(speech: speech, title: part.title, subtitle: part.subtitle, partType: part.type, color: part.color)
-                                .navigationBarTitle("Edit Part")
+                            EditPart(speech: speech, part: part, title: part.title, subtitle: part.subtitle, partType: part.type, color: part.color)
+                                .navigationBarTitle("Edit section")
+                                .navigationBarTitleDisplayMode(.inline)
                         }
                     }
             }
@@ -66,7 +67,8 @@ struct PartsView: View {
                 .sheet(isPresented: $isShowingAddPart) {
                     NavigationView{
                         EditPart(speech: speech)
-                            .navigationTitle("Add Section")
+                            .navigationTitle("Create a new section")
+                            .navigationBarTitleDisplayMode(.inline)
                     }
                 }
         }

@@ -87,7 +87,8 @@ private extension FlashcardsView {
                 .sheet(isPresented: $showEditF) {
                     NavigationView{
                         EditFlashcard(speech: speech, part: part)
-                            .navigationTitle("Add Flashcard")
+                            .navigationTitle("Create a new flashcard")
+                            .navigationBarTitleDisplayMode(.inline)
                     }
                 }
         }

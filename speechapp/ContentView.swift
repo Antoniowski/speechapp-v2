@@ -60,8 +60,9 @@ private extension ContentView {
             })
                 .sheet(isPresented: $showOnboarding) {
                     NavigationView{
-                        AddSpeech()
-                            .navigationTitle("Add Speech")
+                        EditSpeech()
+                            .navigationTitle("Create a new speech")
+                            .navigationBarTitleDisplayMode(.inline)
                     }
                 }
         }

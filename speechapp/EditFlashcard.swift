@@ -13,12 +13,25 @@ struct EditFlashcard: View{
     
     var speech: Speech
     var part: Part
+    var card: Flashcard = Flashcard(title: "", symbol: "", color: fcPink, description: "")
+    
     @State var title: String = ""
     @State var description: String = ""
-    @State var symbol: String = "gear"
+    @State var symbol: String = "gearshape.2"
     
     var body: some View{
-            List{
+        VStack {
+            ZStack{
+                RoundedRectangle(cornerRadius: cornerRad)
+                    .fill(part.color)
+                    .frame(width: UIScreen.main.bounds.height*0.1, height: UIScreen.main.bounds.height*0.1)
+                Image(systemName: symbol)
+                    .font(.largeTitle)
+                    .foregroundColor(.white)
+            }
+            .padding()
+            .padding(.top)
+            Form{
                 Section("Title"){
                     TextField("Title", text: $title)
                         .font(.system(.title))
@@ -27,16 +40,16 @@ struct EditFlashcard: View{
                 
                 Section("Content"){
                     TextEditor(text: $description)
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 40, maxHeight: UIScreen.main.bounds.height*0.30)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 90, maxHeight: UIScreen.main.bounds.height*0.30)
                 }
-                
                 Section("Symbol"){
-                    
+                    SymbolPicker(chosenSymbol: $symbol)
                 }
             }
-            .toolbar{ navigationBarItems}
-            .padding()
         }
+        .background(Color.init(uiColor: UIColor.secondarySystemBackground))
+        .toolbar{ navigationBarItems }
+    }
     
     @ViewBuilder
     var navigationBarItems: some View {
@@ -45,8 +58,8 @@ struct EditFlashcard: View{
                 if title != "" {
                     if(data.SearchFlashcard(title: title) == false){
                         data.AppendNewFlashcard(speech: speech, part: part, flashcard: Flashcard(title: title, symbol: symbol, color: part.color, description: description))
-                    }else{
-                        
+                    } else {
+                        //                        do
                     }
                 }
                 dismiss()
